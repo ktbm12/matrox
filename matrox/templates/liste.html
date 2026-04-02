@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MatRox Residence | Luxury Apartments</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#ffffff",
+                        "surface-variant": "#e4e2e2",
+                        "surface": "#fbf9f8",
+                        "surface-container": "#efeded",
+                        "on-secondary-fixed": "#022100",
+                        "outline": "#8a7266",
+                        "on-primary-container": "#5a2500",
+                        "inverse-surface": "#303031",
+                        "on-secondary-container": "#227213",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#095300",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#763300",
+                        "secondary-fixed-dim": "#88da70",
+                        "primary": "#9b4500",
+                        "surface-dim": "#dbdad9",
+                        "surface-bright": "#fbf9f8",
+                        "surface-container-low": "#f5f3f3",
+                        "inverse-primary": "#ffb68e",
+                        "inverse-on-surface": "#f2f0f0",
+                        "on-primary": "#ffffff",
+                        "secondary": "#1d6d0e",
+                        "secondary-fixed": "#a3f789",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#f47c2c",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed": "#331200",
+                        "on-tertiary-fixed": "#001945",
+                        "primary-fixed": "#ffdbca",
+                        "tertiary": "#375ca8",
+                        "tertiary-container": "#7a9cec",
+                        "on-tertiary-container": "#003177",
+                        "background": "#fbf9f8",
+                        "tertiary-fixed-dim": "#b0c6ff",
+                        "secondary-container": "#a0f487",
+                        "primary-fixed-dim": "#ffb68e",
+                        "on-tertiary-fixed-variant": "#1a438e",
+                        "outline-variant": "#dec1b2",
+                        "tertiary-fixed": "#d9e2ff",
+                        "on-background": "#1b1c1c",
+                        "surface-container-highest": "#e4e2e2",
+                        "surface-container-high": "#e9e8e7",
+                        "on-surface-variant": "#574237",
+                        "surface-tint": "#9b4500",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1b1c1c"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .premium-gradient {
+            background: linear-gradient(45deg, #9b4500 0%, #f47c2c 100%);
+        }
+        .glass-nav {
+            background: rgba(251, 249, 248, 0.7);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full glass-nav shadow-[0_20px_40px_rgba(27,28,28,0.06)]">
+<div class="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-on-surface tracking-tighter font-headline">
+                MatRox Residence
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-headline font-bold tracking-tight">
+<a class="text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 pb-1" href="#">Explore</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 transition-all duration-300" href="#">Services</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 transition-all duration-300" href="#">About</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 transition-all duration-300" href="#">Contact</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined p-2 hover:bg-stone-50 rounded-full transition-transform active:scale-95" data-icon="account_circle">account_circle</button>
+<button class="hidden md:block premium-gradient text-on-primary px-6 py-2.5 rounded-xl font-bold active:scale-95 transition-transform shadow-lg shadow-primary/20">
+                    Book Now
+                </button>
+</div>
+</div>
+</header>
+<main class="max-w-screen-2xl mx-auto px-6 md:px-12 py-12">
+<!-- Hero & Filters Section -->
+<section class="mb-16">
+<div class="max-w-3xl mb-12">
+<h1 class="text-5xl md:text-7xl font-headline font-bold tracking-tighter text-on-surface mb-6 leading-tight">
+                    Refined Living in <span class="text-primary">Cameroon</span>.
+                </h1>
+<p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
+                    Experience the pinnacle of editorial luxury. Hand-selected residences designed for the discerning traveler and local elite.
+                </p>
+</div>
+<!-- Search & Filter Bar -->
+<div class="bg-surface-container-lowest p-4 md:p-6 rounded-3xl shadow-[0_20px_40px_rgba(27,28,28,0.04)] flex flex-col md:flex-row gap-4 items-end">
+<div class="w-full md:flex-1 space-y-2">
+<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Location</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant">location_on</span>
+<input class="w-full bg-surface-container-highest border-none rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline-variant transition-all" placeholder="Where are you going?" type="text"/>
+</div>
+</div>
+<div class="w-full md:w-48 space-y-2">
+<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Type</label>
+<select class="w-full bg-surface-container-highest border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 text-on-surface appearance-none transition-all">
+<option>Penthouse</option>
+<option>Studio</option>
+<option>Boutique</option>
+</select>
+</div>
+<div class="w-full md:w-64 space-y-2">
+<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Price Range (XAF)</label>
+<div class="px-2 pt-4 pb-2">
+<input class="w-full h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary" max="500000" min="50000" step="10000" type="range"/>
+<div class="flex justify-between mt-2 text-[10px] font-bold text-outline uppercase">
+<span>50k</span>
+<span>500k</span>
+</div>
+</div>
+</div>
+<button class="w-full md:w-auto premium-gradient text-on-primary px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+                    Search
+                </button>
+</div>
+</section>
+<div class="flex flex-col lg:flex-row gap-12">
+<!-- Sidebar Filters -->
+<aside class="w-full lg:w-64 space-y-10">
+<div>
+<h3 class="font-headline font-bold text-lg mb-6">Amenities</h3>
+<div class="space-y-4">
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Infinity Pool</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">24/7 Concierge</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">High-speed WiFi</span>
+</label>
+<label class="flex items-center gap-3 cursor-pointer group">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Private Gym</span>
+</label>
+</div>
+</div>
+<div class="p-6 bg-primary-fixed rounded-3xl">
+<span class="material-symbols-outlined text-on-primary-fixed mb-4" data-icon="star">star</span>
+<h4 class="font-headline font-bold text-on-primary-fixed mb-2">Member Perks</h4>
+<p class="text-xs text-on-primary-fixed-variant leading-relaxed">Join our elite program for 15% off bookings and late check-out priority.</p>
+</div>
+</aside>
+<!-- Main Listing Grid -->
+<section class="flex-1">
+<div class="flex items-baseline justify-between mb-8">
+<h2 class="font-headline font-bold text-2xl">Available Residences <span class="text-outline-variant text-base font-normal ml-2">(12 Properties)</span></h2>
+<div class="flex gap-2">
+<button class="p-2 bg-surface-container rounded-lg text-primary"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
+<button class="p-2 text-outline-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="list">list</span></button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
+<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="ultra-modern luxury penthouse living room with floor-to-ceiling windows overlooking a sunset cityscape, minimalist furniture, and warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-nPKT0hB0nZTScqszzoIXJGRhf5XABa9dNW-As_cDvux7uc4Y6Aby2uAFqwZ_x7CDnLkwNLUF-vD9cbTfDHAicHA1gLxxbBUDfRTVF3mlW7RlnOnGUXT_OZ6ymm55krPOBygCkclNInuGJWgyekg3l9Oiev2b07CVF9SwiZLGVIeZCPY1iUaI1a5q0cTbExFeyZPf0JAWIbRX6vxVJUph00kZJkMazpg6ZwO-8i06PbZk_n5bFHOzeZ6jma5vPQqc7KtADr0gBVk"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase text-primary">Featured</div>
+<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">The Azure Penthouse</h3>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.9</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
+                                Bonanjo, Douala
+                            </div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
+<div>
+<span class="text-lg font-bold text-primary">120,000 XAF</span>
+<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
+<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="contemporary open-plan kitchen and dining area with marble accents, gold light fixtures, and high-end wooden cabinetry in a luxury apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNjHsQXAQVZywVwu3d6yFGv0WJlGDyGCZmxoy3Smfr_5hdxbmDnYLoIVy60snYWNDFwbuA9LEkcCr7R7JxTCkBfLVpttAD3o6aKVDZsBxIcbEmsnjE_WJybQyKopdEa1PvZ64LvOykoXazytmpR_6Yy-fGkHjpmpFH_vGvuHUxjvn3ie7eXPQVCPuoVQu_C6ZwL7Kuu-7dNtx5NUSLhq-wX2aOCEg_SC0OPfnl9GdOucJowgUXlyhuwWCl8-WwWQNmk_8mY1SD8mg"/>
+<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase text-primary">New</div>
+<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Boutique Garden Loft</h3>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.8</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
+                                Bastos, Yaoundé
+                            </div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
+<div>
+<span class="text-lg font-bold text-primary">85,000 XAF</span>
+<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
+<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="serene master bedroom in a boutique residence with soft white linens, organic textures, and sunlight streaming through sheer curtains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHtbcorrYQUCDF-DsCvM8_XUPJc2fe2eyiISbx4U9tSqCaXnVsux90ybVZI_ryXHjdk-Q6bWTF2frmfdbmTMB5kWk99zHnZBTSyie-qGm7ybZ8wDfjIgMzj3YyRKgIdLSwusJDyoNnVJdeh-e9bkHQDOdP5VUHNVAtRsmJa6VtoB9LevD5_lJ13RP9SKoPHI1Fj2ufICwmRaJNeNDNhHF1PlNX5X0AqrUWrOgsFS_RKIAgaT6QDENTkDmuCgB-omwv0M44k0NCvPU"/>
+<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Royal Suite Bastos</h3>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">5.0</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
+                                Bastos, Yaoundé
+                            </div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
+<div>
+<span class="text-lg font-bold text-primary">150,000 XAF</span>
+<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
+<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="aerial drone view of a luxury villa with a turquoise swimming pool, manicured gardens, and modern architectural lines in Cameroon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtRRjDLtGMN8qcl-eZGqnKm1bEWnBJoFBji8AeC-qCBt_kFtBbwhgRC3CyIB_6f80OLJs_1vzNXjIIMEYdeiiIqPjN522iuCYZ6XkEq9J-BdJw8Dfn1gpJEAAlj7MqRy5oKJdt8icxKKXKdqR4XRq34QxEghA6YcCo82LcqJGv6NOc1DrUcLZG9iY5hlyeaXDZXlVkWje0vR9K6xL5ml4ZLoJfnFPoXqvzVkNzrSfgN4jdMznUqvS5hg9cYtgt1PC5uEfK-WaDRFw"/>
+<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+</button>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-start mb-2">
+<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Limbe Coastal Retreat</h3>
+<div class="flex items-center gap-1 text-primary">
+<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="text-sm font-bold">4.7</span>
+</div>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
+<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
+                                Down Beach, Limbe
+                            </div>
+<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
+<div>
+<span class="text-lg font-bold text-primary">95,000 XAF</span>
+<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
+</div>
+<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
+                                    View Details
+                                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Pagination -->
+<div class="mt-16 flex flex-col items-center gap-6">
+<button class="bg-surface-container-highest hover:bg-surface-variant text-on-surface font-bold px-12 py-4 rounded-full transition-all active:scale-95 shadow-sm">
+                        Load More Residences
+                    </button>
+<div class="flex gap-2">
+<span class="w-8 h-1 rounded-full bg-primary"></span>
+<span class="w-2 h-1 rounded-full bg-outline-variant"></span>
+<span class="w-2 h-1 rounded-full bg-outline-variant"></span>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-3xl mt-20 bg-stone-100 dark:bg-stone-900">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-24 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="col-span-1 md:col-span-1">
+<div class="text-lg font-bold text-stone-800 dark:text-stone-200 font-headline mb-6">MatRox Residence</div>
+<p class="text-xs font-label uppercase tracking-widest text-stone-500 leading-relaxed">
+                    Elevating the stay for those who seek the extraordinary in Central Africa.
+                </p>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors underline-offset-4 hover:underline" href="#">Privacy Policy</a></li>
+<li><a class="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors underline-offset-4 hover:underline" href="#">Terms of Service</a></li>
+<li><a class="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors underline-offset-4 hover:underline" href="#">FAQ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors underline-offset-4 hover:underline" href="#">Contact Support</a></li>
+<li><a class="text-xs uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors underline-offset-4 hover:underline" href="#">Careers</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-b border-stone-300 py-2 text-xs uppercase tracking-widest focus:outline-none focus:border-primary transition-colors" placeholder="YOUR EMAIL" type="email"/>
+<button class="absolute right-0 bottom-2 text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="px-8 md:px-24 py-8 border-t border-stone-200/50 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="text-xs font-label uppercase tracking-widest text-stone-400">
+                © 2024 MatRox Residence Cameroon. Editorial Luxury Living.
+            </div>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer hover:text-primary transition-colors" data-icon="public">public</span>
+<span class="material-symbols-outlined text-stone-400 cursor-pointer hover:text-primary transition-colors" data-icon="share">share</span>
+</div>
+</div>
+</footer>
+<!-- Mobile Navigation Bar -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-white/80 backdrop-blur-xl border-t border-stone-100 flex justify-around items-center py-3 px-6 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-symbols-outlined" data-icon="explore" style="font-variation-settings: 'FILL' 1;">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined" data-icon="book_online">book_online</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Trips</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-stone-400">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</div>
+</body></html>
