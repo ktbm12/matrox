@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Luxe Sea-View Suite | MatRox Residence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "surface-variant": "#e4e2e2",
+              "surface": "#fbf9f8",
+              "surface-container": "#efeded",
+              "on-secondary-fixed": "#022100",
+              "outline": "#8a7266",
+              "on-primary-container": "#5a2500",
+              "inverse-surface": "#303031",
+              "on-secondary-container": "#227213",
+              "surface-container-lowest": "#ffffff",
+              "on-secondary-fixed-variant": "#095300",
+              "error-container": "#ffdad6",
+              "on-primary-fixed-variant": "#763300",
+              "secondary-fixed-dim": "#88da70",
+              "primary": "#9b4500",
+              "surface-dim": "#dbdad9",
+              "surface-bright": "#fbf9f8",
+              "surface-container-low": "#f5f3f3",
+              "inverse-primary": "#ffb68e",
+              "inverse-on-surface": "#f2f0f0",
+              "on-primary": "#ffffff",
+              "secondary": "#1d6d0e",
+              "secondary-fixed": "#a3f789",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "primary-container": "#f47c2c",
+              "error": "#ba1a1a",
+              "on-primary-fixed": "#331200",
+              "on-tertiary-fixed": "#001945",
+              "primary-fixed": "#ffdbca",
+              "tertiary": "#375ca8",
+              "tertiary-container": "#7a9cec",
+              "on-tertiary-container": "#003177",
+              "background": "#fbf9f8",
+              "tertiary-fixed-dim": "#b0c6ff",
+              "secondary-container": "#a0f487",
+              "primary-fixed-dim": "#ffb68e",
+              "on-tertiary-fixed-variant": "#1a438e",
+              "outline-variant": "#dec1b2",
+              "tertiary-fixed": "#d9e2ff",
+              "on-background": "#1b1c1c",
+              "surface-container-highest": "#e4e2e2",
+              "surface-container-high": "#e9e8e7",
+              "on-surface-variant": "#574237",
+              "surface-tint": "#9b4500",
+              "on-error": "#ffffff",
+              "on-surface": "#1b1c1c"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-fixed">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-50 w-full bg-white/70 backdrop-blur-2xl shadow-[0_20px_40px_rgba(27,28,28,0.06)]">
+<nav class="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-stone-900 tracking-tighter font-headline">
+                MatRox Residence
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-stone-600 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">Explore</a>
+<a class="text-stone-600 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">Services</a>
+<a class="text-stone-600 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">About</a>
+<a class="text-stone-600 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-6 py-2.5 rounded-xl font-bold active:scale-95 transition-transform">
+                    Book Now
+                </button>
+<span class="material-symbols-outlined text-stone-600 cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</nav>
+</header>
+<main class="max-w-screen-2xl mx-auto px-6 md:px-12 py-8 lg:py-12">
+<!-- Breadcrumbs & Actions -->
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-2 text-label text-on-surface-variant/70 text-sm uppercase tracking-widest">
+<span>Cameroon</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span>Kribi Coast</span>
+<span class="material-symbols-outlined text-xs" data-icon="chevron_right">chevron_right</span>
+<span class="text-on-surface">Luxe Sea-View</span>
+</div>
+<div class="flex items-center gap-4">
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span class="text-sm font-medium">Share</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container rounded-full transition-colors">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+<span class="text-sm font-medium">Save</span>
+</button>
+</div>
+</div>
+<!-- Editorial Image Gallery -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-4 h-[500px] md:h-[650px] mb-12">
+<div class="md:col-span-8 overflow-hidden rounded-xl bg-surface-dim relative group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Panoramic wide angle shot of a luxury modern apartment interior with floor-to-ceiling windows overlooking the turquoise ocean in Kribi at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHphuHJHuPuEWAMqUCmKnNM5acboJIoESgWDxm6A2INcpzs2xRqSmYN3fnkpUeN8vcHp5eWJtXaHdDU_8hBpk9sS1DrTRPvq2YQzHOzII_HAa6xNmrjYCeGClJD-RLbChLRYap5YMl-uxDrs1d8gW7_tYwLksrFhQR2MEskAwhP2YycWsHJ07vsYV2A5sxOJLHz8q-Vs3qnkncHQk69p8_TpooVvmhtDkMnZ4vTDVxzsaxEEOEvii0X5xCdzNkBYLklvWOZsuVPA8"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+</div>
+<div class="hidden md:grid md:col-span-4 grid-rows-2 gap-4">
+<div class="overflow-hidden rounded-xl bg-surface-dim relative group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Elegant master bedroom with white linen bedding, dark wood accents, and soft warm ambient lighting from designer bedside lamps" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAki3h8we8s1dPjgyQh7rYeFVJpQZg5aKPfpAcNPWiwBJA_IimVXZ3Qu05bqGFfTioNzfD0CDqRMs_0QOIFYtVjmpNb2oVblZVgAYj3klX9e6RqmaENDnsNaRUaBV4Weet4v9GAVw8X0FDsG1-36Tw-09w9IP4pylgyOzsj2tPXN4y6RY4d97RRh-svgATQGbD6cio9Qq_UIPlrcWERC-WTG8AVzv_L0Ol70YxU-cflWwCZC26AFd-v5g1elv8vPJk9JdBQxwGTrfc"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="overflow-hidden rounded-xl bg-surface-dim relative group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Spacious private balcony with modern outdoor furniture and panoramic views of the Atlantic ocean in Cameroon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5r67mvrQsskfSMfXPNwl_Kg13DxKhZFlKoeMNJ78X2O6gm-YbvKHnMX_uU34ZV_qmj7r0Yk9oM4Q-yJIJdNE9uCNTHGVkfCcaFB1_Q8WMbypqxlZ9p-UD0pq42n0mNIOUrEBKVC2zvJBFjV27khTRLEZFctvpKkt35CpRyoVAH-0qFhb8D70KpQ9otQSJfBvBpDoJEpXwJWw1v4tH9l2k2R14nBJv6KIzrKgyH9Fzvf_4UiYPnjfxpvB18U24kjvl2QNnzZVdyvQ"/>
+</div>
+<div class="overflow-hidden rounded-xl bg-surface-dim relative group cursor-zoom-in">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Modern bathroom with white marble tiling, a rain shower, and premium organic toiletries on a floating vanity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzetPgFUr3tWV7nWPDLpG8h99B-qsKmi9F9zWYDWnIggobJF4UG11Kl5k_xdgHw55HyBKJkJfgpk5Y9_ejxjDiu8w2PlSsZHbXmKi_Y6kNK0DE5U3d9A1o03pSTPX2rHoOYiCwbfS88NzbRGWWjd-eN1qAZfLgcLWccbb9B08bhzxKRiiYVMqXpI9MpAcNYOrIqOlbu7f9BTJlXWdHraT17vJqi4ncD-HigN0wuplChYESiciryIf3QVs2EVMMECD_Mqjwdt7DEA4"/>
+<button class="absolute bottom-4 right-4 bg-white/90 backdrop-blur text-on-surface px-4 py-2 rounded-lg text-sm font-bold shadow-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="grid_view">grid_view</span>
+                            Show all photos
+                        </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Main Content Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+<!-- Left Column: Details -->
+<div class="lg:col-span-8">
+<div class="mb-10">
+<h1 class="text-4xl md:text-5xl font-black font-headline text-on-surface tracking-tighter mb-4">
+                        Luxe Sea-View Suite, Kribi
+                    </h1>
+<div class="flex flex-wrap items-center gap-6 text-on-surface-variant font-medium">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95 (128 reviews)</span>
+</div>
+<span>·</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+<span>Kribi, Cameroon</span>
+</div>
+<span>·</span>
+<div class="flex items-center gap-1 text-secondary font-bold">
+<span class="material-symbols-outlined" data-icon="verified">verified</span>
+<span>Superhost</span>
+</div>
+</div>
+</div>
+<!-- Description Bento Section -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 border-y border-outline-variant/15 py-10">
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-3xl mb-3 text-primary" data-icon="king_bed">king_bed</span>
+<span class="font-bold">King Master</span>
+<span class="text-sm text-on-surface-variant">2 Guests Max</span>
+</div>
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-3xl mb-3 text-primary" data-icon="straighten">straighten</span>
+<span class="font-bold">120 m²</span>
+<span class="text-sm text-on-surface-variant">Spacious Layout</span>
+</div>
+<div class="flex flex-col items-center text-center p-6 bg-surface-container-low rounded-xl">
+<span class="material-symbols-outlined text-3xl mb-3 text-primary" data-icon="balcony">balcony</span>
+<span class="font-bold">Sea Facing</span>
+<span class="text-sm text-on-surface-variant">Private Terrace</span>
+</div>
+</div>
+<div class="prose prose-stone max-w-none mb-16">
+<h3 class="text-2xl font-black font-headline mb-6">The MatRox Experience</h3>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                        Experience the zenith of coastal living in our flagship suite. Designed with an editorial eye, the Luxe Sea-View Suite merges minimalist European design with the vibrant warmth of Cameroonian hospitality. Every morning, wake up to the rhythmic cadence of the Atlantic waves visible through expansive glass walls.
+                    </p>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        The suite features hand-curated furniture from local artisans, high-speed fiber optic internet for the digital nomad, and a kitchen equipped for the most discerning chef. Whether you are here for a romantic getaway or a focused creative retreat, the MatRox Residence serves as your serene sanctuary.
+                    </p>
+</div>
+<!-- Amenities Grid -->
+<div class="mb-16">
+<h3 class="text-2xl font-black font-headline mb-8">Premium Amenities</h3>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="wifi">wifi</span>
+<span class="text-lg">Ultra High-Speed WiFi (500Mbps)</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="ac_unit">ac_unit</span>
+<span class="text-lg">Climate Controlled AC</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="pool">pool</span>
+<span class="text-lg">Infinity Pool Access</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="local_parking">local_parking</span>
+<span class="text-lg">Secure Private Parking</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="restaurant">restaurant</span>
+<span class="text-lg">Fully Equipped Designer Kitchen</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-2xl text-on-surface-variant" data-icon="tv">tv</span>
+<span class="text-lg">65" 4K Smart TV</span>
+</div>
+</div>
+<button class="mt-10 px-8 py-3 border border-outline-variant hover:bg-surface-container rounded-xl font-bold transition-all">
+                        View All 42 Amenities
+                    </button>
+</div>
+<!-- Location Section -->
+<div class="mb-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-2xl font-black font-headline mb-2">Location</h3>
+<p class="text-on-surface-variant">The heart of Kribi, Cameroon</p>
+</div>
+<button class="text-primary font-bold hover:underline">Get Directions</button>
+</div>
+<div class="h-96 w-full rounded-2xl bg-surface-container overflow-hidden grayscale contrast-125 brightness-90">
+<img class="w-full h-full object-cover" data-alt="High-contrast minimalist map showing the coastal location of Kribi with soft grey and orange highlights" data-location="Kribi, Cameroon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgvCOo-WXAYqNUncbAyosXVARwuuXiMIz447TxBGpKKuaJcWI9-7KAlh3sSqgpwfAnYEcr2DmXsdWveBBrFEr6_ZwDgvqDAe_caCa24hokw_JQwygc1gq9rAUq_DaICIWpklX1c3cOyMATVKBm_crAwNgr1Pnlmvfosx93jBaAflH-hz9yd2R7a6jaXmrdTHdwn3BxoegCr9m28Y3RpBbk---llSju1VaWLeki4HliTKkMYr-vIgNDRJaM6QH3Z5Bwr2c_El0YDh0"/>
+</div>
+</div>
+<!-- Reviews Section -->
+<div class="mb-16">
+<div class="flex items-center gap-2 mb-10">
+<span class="material-symbols-outlined text-2xl text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<h3 class="text-2xl font-black font-headline">4.95 · 128 Reviews</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-stone-200 overflow-hidden">
+<img data-alt="Headshot of a smiling young professional woman with natural hair and elegant jewelry" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDMKkcU4i_4x2ou53CesfDT5LGX08MHVCQxfaYAZk0QibA4DdeKDOxRsAD1WNuD_gnPCi7pYWWsaqDDf4iK1VBoKNgEPOUVW9d79zHV4ae6VXdWap23aGJSTM97nlOIab5Dx4IPfTncWdA9KyJ87uCXYdIjRN_ag7EtV2jF5bFXx5d2sLy0AbfF5aLCyyWMSxGEs84h2GnbG-Dt0dsQp9JvY23QKCdd-HSoQI3AuQWiv0tjczTB1-usNbMk3XJXKuUjTByRxdYo-zs"/>
+</div>
+<div>
+<h4 class="font-bold">Sarah T.</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">October 2023</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                "MatRox in Kribi is a revelation. The view is unparalleled and the attention to detail in the suite's interior design rivals any boutique hotel in Paris or Dubai."
+                            </p>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-stone-200 overflow-hidden">
+<img data-alt="Headshot of a middle-aged man with a warm smile wearing a linen shirt and stylish glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAseNXdkqirwaqeGevFpn7UgoK4q6ewntLugu1z3jOc9rdywibSgbggMa6WZKidbQkn-6JuUzuBNAGQJ9nd960n4kGnVpiU29asPcVYC4x1Buu2Tmzo219Tp-GdBqvuXplkSuqH49D7OVrgLC1Z4RbiRQSckMMIBXcN6nYpErmY5bCkLwNXdn_93F4eZ0T203_X47LQD_UUqI7gf-2_5uzdzWLcXJDijy3-1K_P0FfzJxQiER45bPc-q9mKPcjHR09FxcXYYUhxYSk"/>
+</div>
+<div>
+<h4 class="font-bold">Jean-Pierre M.</h4>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest">September 2023</p>
+</div>
+</div>
+<p class="text-on-surface-variant leading-relaxed">
+                                "The concierge service made our stay effortless. From booking private seafood dinners on the beach to organizing local tours, everything was perfect."
+                            </p>
+</div>
+</div>
+<button class="mt-12 px-8 py-3 border border-outline-variant hover:bg-surface-container rounded-xl font-bold transition-all">
+                        Read all 128 reviews
+                    </button>
+</div>
+</div>
+<!-- Right Column: Sticky Booking Panel -->
+<div class="lg:col-span-4">
+<div class="sticky top-28 bg-white rounded-[12px] p-8 shadow-[0_20px_40px_rgba(27,28,28,0.06)] border border-outline-variant/10">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="text-3xl font-black font-headline text-on-surface">150,000 CFA</span>
+<span class="text-on-surface-variant"> / night</span>
+</div>
+<div class="flex items-center gap-1 text-sm font-medium">
+<span class="material-symbols-outlined text-sm text-primary" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.95</span>
+</div>
+</div>
+<div class="space-y-4 mb-8">
+<div class="grid grid-cols-2 bg-surface-container-low rounded-xl overflow-hidden divide-x divide-outline-variant/10">
+<div class="p-4 cursor-pointer hover:bg-surface-container transition-colors">
+<p class="text-[10px] uppercase font-black tracking-widest text-on-surface-variant mb-1">Check-in</p>
+<p class="font-medium text-sm">Add date</p>
+</div>
+<div class="p-4 cursor-pointer hover:bg-surface-container transition-colors">
+<p class="text-[10px] uppercase font-black tracking-widest text-on-surface-variant mb-1">Check-out</p>
+<p class="font-medium text-sm">Add date</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl cursor-pointer hover:bg-surface-container transition-colors">
+<p class="text-[10px] uppercase font-black tracking-widest text-on-surface-variant mb-1">Guests</p>
+<p class="font-medium text-sm">2 Guests</p>
+</div>
+</div>
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-xl font-black font-headline tracking-tight mb-6 active:scale-[0.98] transition-all shadow-lg shadow-primary/20">
+                        Reserve Suite
+                    </button>
+<p class="text-center text-on-surface-variant text-sm mb-8">You won't be charged yet</p>
+<div class="space-y-4 border-b border-outline-variant/10 pb-6 mb-6 text-on-surface-variant">
+<div class="flex justify-between">
+<span class="underline underline-offset-4 decoration-outline-variant/50 cursor-help">150,000 CFA x 5 nights</span>
+<span>750,000 CFA</span>
+</div>
+<div class="flex justify-between">
+<span class="underline underline-offset-4 decoration-outline-variant/50 cursor-help">Cleaning fee</span>
+<span>25,000 CFA</span>
+</div>
+<div class="flex justify-between">
+<span class="underline underline-offset-4 decoration-outline-variant/50 cursor-help">Service charge</span>
+<span>12,000 CFA</span>
+</div>
+</div>
+<div class="flex justify-between items-center text-xl font-black font-headline text-on-surface">
+<span>Total</span>
+<span>787,000 CFA</span>
+</div>
+<div class="mt-10 flex items-center gap-4 p-4 bg-secondary/5 rounded-xl border border-secondary/10">
+<span class="material-symbols-outlined text-secondary" data-icon="verified_user">verified_user</span>
+<p class="text-xs text-on-secondary-container leading-tight">
+<strong>MatRox Guaranteed:</strong> Rare find. This home is usually booked months in advance.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full rounded-t-3xl mt-20 bg-stone-100 py-16">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-24 w-full max-w-screen-2xl mx-auto">
+<div class="space-y-6">
+<div class="text-lg font-bold text-stone-800 tracking-tighter">MatRox Residence</div>
+<p class="text-stone-500 font-['Inter'] text-xs leading-loose tracking-wide">
+                    Luxury defined by the rhythm of the waves. Experience Cameroon's premier living destination.
+                </p>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-orange-600 font-bold">Support</h4>
+<div class="flex flex-col gap-3">
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Help Centre</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">AirCover</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Cancellation options</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-orange-600 font-bold">MatRox Residence</h4>
+<div class="flex flex-col gap-3">
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Careers</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Investors</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Newsroom</a>
+</div>
+</div>
+<div class="space-y-4">
+<h4 class="font-['Inter'] text-xs uppercase tracking-widest text-orange-600 font-bold">Legal</h4>
+<div class="flex flex-col gap-3">
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Privacy Policy</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">Terms of Service</a>
+<a class="text-stone-500 font-['Inter'] text-xs uppercase tracking-widest hover:text-stone-900 underline-offset-4 hover:underline transition-colors" href="#">FAQ</a>
+</div>
+</div>
+</div>
+<div class="mt-16 pt-8 border-t border-stone-200/50 text-center">
+<p class="text-stone-400 font-['Inter'] text-[10px] uppercase tracking-[0.2em]">
+                © 2024 MatRox Residence Cameroon. Editorial Luxury Living.
+            </p>
+</div>
+</footer>
+</body></html>
