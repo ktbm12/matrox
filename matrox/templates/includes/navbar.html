@@ -1,26 +1,25 @@
 {% load static %}
 
+<div x-data="{
+    open: false,
+    sub: null,
+    toggle(name) { this.sub = this.sub === name ? null : name }
+  }"
+  @keydown.escape.window="open = false; sub = null"
+>
+
 <header
   class="sticky top-0 z-50 w-full border-b border-stone-200/60 dark:border-stone-800/50
-         bg-white/80 dark:bg-[#0c0c0b]/80 backdrop-blur-2xl
-         shadow-[0_2px_24px_rgba(0,0,0,0.06)] dark:shadow-[0_2px_24px_rgba(0,0,0,0.3)]"
+         bg-white/90 dark:bg-[#0c0c0b]/90 backdrop-blur-2xl
+         shadow-[0_2px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.3)]"
   role="banner"
-  x-data="{
-    open: false,
-    dropdown: null,
-    toggleDropdown(name) {
-      this.dropdown = this.dropdown === name ? null : name;
-    }
-  }"
-  @keydown.escape.window="open = false; dropdown = null"
 >
-  <div class="flex items-center justify-between px-5 md:px-10 h-[62px] max-w-screen-xl mx-auto">
+  <div class="flex items-center justify-between px-5 md:px-10 h-[64px] max-w-screen-xl mx-auto">
 
     <!-- ── Logo ── -->
     <a href="{% url 'home' %}"
        aria-label="MatRox Residence — Accueil"
-       class="flex items-center gap-2.5 shrink-0 group
-              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg">
+       class="flex items-center shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg">
       <img src="{% static 'images/image.png' %}" alt="MatRox Residence"
            class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
            width="112" height="32"/>
@@ -30,52 +29,152 @@
     <nav aria-label="Navigation principale" class="hidden md:flex items-center gap-1">
       {% with request.resolver_match.url_name as current %}
 
+        <!-- Explore -->
         <a href="{% url 'home' %}"
-           class="relative px-4 py-2 text-sm font-semibold tracking-tight rounded-lg transition-colors duration-200
+           class="relative px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-200
                   {% if current == 'home' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
                   {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
            {% if current == 'home' %}aria-current="page"{% endif %}>
           Explore
-          {% if current == 'home' %}
-          <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-0.5 bg-orange-500 rounded-full"></span>
-          {% endif %}
         </a>
 
-        <a href="{% url 'service' %}"
-           class="relative px-4 py-2 text-sm font-semibold tracking-tight rounded-lg transition-colors duration-200
-                  {% if current == 'service' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
-                  {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-           {% if current == 'service' %}aria-current="page"{% endif %}>
-          Services
-          {% if current == 'service' %}
-          <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-0.5 bg-orange-500 rounded-full"></span>
-          {% endif %}
-        </a>
+        <!-- Services (desktop dropdown) -->
+        <div class="relative"
+             x-data="{ dOpen: false }"
+             @mouseenter="dOpen = true"
+             @mouseleave="dOpen = false">
+          <button @click="dOpen = !dOpen"
+                  class="flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-200
+                         {% if current == 'service' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
+                         {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+            Services
+            <svg :class="dOpen ? 'rotate-180' : ''" class="w-3.5 h-3.5 opacity-50 transition-transform duration-200"
+                 fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <!-- Panel -->
+          <div x-show="dOpen" x-cloak
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+               x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+               x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+               class="absolute right-0 top-[calc(100%+8px)] w-56 z-[60]
+                      bg-white dark:bg-[#141413]
+                      border border-stone-200/80 dark:border-stone-800/80
+                      rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.14)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+                      p-1.5 origin-top-right">
+            <a href="{% url 'service' %}#hebergement"
+               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group">
+              <span class="w-7 h-7 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-900/30 shrink-0 transition-colors">
+                <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                </svg>
+              </span>
+              Hébergement
+            </a>
+            <a href="{% url 'service' %}#residence"
+               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group">
+              <span class="w-7 h-7 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-900/30 shrink-0 transition-colors">
+                <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                </svg>
+              </span>
+              Résidence
+            </a>
+            <a href="{% url 'service' %}#equipements"
+               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group">
+              <span class="w-7 h-7 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-900/30 shrink-0 transition-colors">
+                <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/>
+                </svg>
+              </span>
+              Équipements
+            </a>
+            <div class="h-px bg-stone-100 dark:bg-stone-800 mx-2 my-1"></div>
+            <a href="{% url 'service' %}"
+               class="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-colors">
+              Voir tous les services
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
 
-        <a href="{% url 'about' %}"
-           class="relative px-4 py-2 text-sm font-semibold tracking-tight rounded-lg transition-colors duration-200
-                  {% if current == 'about' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
-                  {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
-           {% if current == 'about' %}aria-current="page"{% endif %}>
-          À propos
-          {% if current == 'about' %}
-          <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-0.5 bg-orange-500 rounded-full"></span>
-          {% endif %}
-        </a>
+        <!-- À propos (desktop dropdown) -->
+        <div class="relative"
+             x-data="{ dOpen: false }"
+             @mouseenter="dOpen = true"
+             @mouseleave="dOpen = false">
+          <button @click="dOpen = !dOpen"
+                  class="flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-200
+                         {% if current == 'about' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
+                         {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
+                         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+            À propos
+            <svg :class="dOpen ? 'rotate-180' : ''" class="w-3.5 h-3.5 opacity-50 transition-transform duration-200"
+                 fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <!-- Panel -->
+          <div x-show="dOpen" x-cloak
+               x-transition:enter="transition ease-out duration-200"
+               x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+               x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+               x-transition:leave="transition ease-in duration-150"
+               x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+               x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+               class="absolute right-0 top-[calc(100%+8px)] w-52 z-[60]
+                      bg-white dark:bg-[#141413]
+                      border border-stone-200/80 dark:border-stone-800/80
+                      rounded-2xl shadow-[0_20px_60px_rgba(0,0,0,0.14)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+                      p-1.5 origin-top-right">
+            <a href="{% url 'about' %}#histoire"
+               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group">
+              <span class="w-7 h-7 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-900/30 shrink-0 transition-colors">
+                <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </span>
+              Notre histoire
+            </a>
+            <a href="{% url 'about' %}#equipe"
+               class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-medium text-stone-700 dark:text-stone-300
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors group">
+              <span class="w-7 h-7 rounded-lg bg-stone-100 dark:bg-stone-800 flex items-center justify-center group-hover:bg-orange-100 dark:group-hover:bg-orange-900/30 shrink-0 transition-colors">
+                <svg class="w-3.5 h-3.5 text-stone-500 group-hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </span>
+              L'équipe
+            </a>
+            <div class="h-px bg-stone-100 dark:bg-stone-800 mx-2 my-1"></div>
+            <a href="{% url 'about' %}"
+               class="flex items-center justify-between px-3.5 py-2 rounded-xl text-xs font-bold text-orange-600 dark:text-orange-400
+                      hover:bg-orange-50 dark:hover:bg-orange-950/20 transition-colors">
+              En savoir plus
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
 
+        <!-- Contact -->
         <a href="{% url 'contact' %}"
-           class="relative px-4 py-2 text-sm font-semibold tracking-tight rounded-lg transition-colors duration-200
+           class="relative px-4 py-2 text-sm font-semibold rounded-lg transition-colors duration-200
                   {% if current == 'contact' %}text-orange-600 dark:text-orange-400 bg-orange-50 dark:bg-orange-950/30
                   {% else %}text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100/70 dark:hover:bg-stone-800/50{% endif %}
                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
            {% if current == 'contact' %}aria-current="page"{% endif %}>
           Contact
-          {% if current == 'contact' %}
-          <span class="absolute bottom-1 left-1/2 -translate-x-1/2 w-3.5 h-0.5 bg-orange-500 rounded-full"></span>
-          {% endif %}
         </a>
 
       {% endwith %}
@@ -84,12 +183,12 @@
     <!-- ── CTA desktop ── -->
     <div class="hidden md:flex items-center gap-3">
       <a href="{% url 'contact' %}"
-         class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold tracking-tight
+         class="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold
                 bg-orange-600 hover:bg-orange-700 active:scale-95 text-white
-                shadow-[0_4px_16px_rgba(234,88,12,0.35)] hover:shadow-[0_4px_24px_rgba(234,88,12,0.5)]
+                shadow-[0_4px_16px_rgba(234,88,12,0.35)] hover:shadow-[0_6px_24px_rgba(234,88,12,0.5)]
                 transition-all duration-200
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">
-        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
         </svg>
         Réserver
@@ -97,266 +196,205 @@
     </div>
 
     <!-- ── Burger mobile ── -->
-    <div class="md:hidden flex items-center">
-      <button
-        @click="open = !open"
-        :aria-expanded="open.toString()"
-        aria-controls="mobile-drawer"
-        aria-label="Ouvrir le menu"
-        class="relative flex items-center justify-center w-10 h-10 rounded-xl
-               text-stone-700 dark:text-stone-300
-               hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-200
-               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-        <!-- Hamburger → X animated -->
-        <span class="block w-5 relative">
-          <span :class="open ? 'rotate-45 translate-y-[7px]' : ''"
-                class="block absolute h-0.5 w-5 bg-current rounded-full transition-all duration-300 top-0"></span>
-          <span :class="open ? 'opacity-0 -translate-x-2' : ''"
-                class="block absolute h-0.5 w-3.5 bg-current rounded-full transition-all duration-300 top-[7px]"></span>
-          <span :class="open ? '-rotate-45 -translate-y-[7px]' : ''"
-                class="block absolute h-0.5 w-5 bg-current rounded-full transition-all duration-300 top-[14px]"></span>
-        </span>
-      </button>
-    </div>
+    <button class="md:hidden flex items-center justify-center w-10 h-10 rounded-xl
+                   text-stone-700 dark:text-stone-300
+                   hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-200
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            @click="open = !open; sub = null"
+            :aria-expanded="open.toString()"
+            aria-label="Menu">
+      <span class="relative block w-5 h-[14px]">
+        <span :class="open ? 'rotate-45 top-[7px]' : 'top-0'"
+              class="absolute block h-0.5 w-5 bg-current rounded-full transition-all duration-300"></span>
+        <span :class="open ? 'opacity-0' : 'opacity-100'"
+              class="absolute block h-0.5 w-3.5 bg-current rounded-full transition-all duration-300 top-[7px]"></span>
+        <span :class="open ? '-rotate-45 top-[7px]' : 'top-[14px]'"
+              class="absolute block h-0.5 w-5 bg-current rounded-full transition-all duration-300"></span>
+      </span>
+    </button>
 
   </div>
 
-  <!-- ════ OVERLAY ════ -->
+  <!-- ════════════════════════════════════
+       DROPDOWN MOBILE — descend sous la navbar
+  ════════════════════════════════════ -->
   <div x-show="open" x-cloak
-       x-transition:enter="transition-opacity ease-out duration-300"
-       x-transition:enter-start="opacity-0"
-       x-transition:enter-end="opacity-100"
-       x-transition:leave="transition-opacity ease-in duration-200"
-       x-transition:leave-start="opacity-100"
-       x-transition:leave-end="opacity-0"
-       @click="open = false"
-       class="fixed inset-0 z-40 bg-black/40 backdrop-blur-[3px] md:hidden"
-       aria-hidden="true">
-  </div>
+       x-transition:enter="transition ease-out duration-300"
+       x-transition:enter-start="opacity-0 -translate-y-3"
+       x-transition:enter-end="opacity-100 translate-y-0"
+       x-transition:leave="transition ease-in duration-200"
+       x-transition:leave-start="opacity-100 translate-y-0"
+       x-transition:leave-end="opacity-0 -translate-y-3"
+       class="md:hidden absolute top-full right-0 w-full sm:w-[340px]
+              bg-white dark:bg-[#0e0e0d]
+              border-b border-stone-200/60 dark:border-stone-800/50
+              shadow-[0_20px_60px_rgba(0,0,0,0.15)] dark:shadow-[0_20px_60px_rgba(0,0,0,0.5)]
+              z-[60] overflow-hidden">
 
-  <!-- ════ SIDE DRAWER ════ -->
-  <aside id="mobile-drawer"
-         x-show="open" x-cloak
-         x-transition:enter="transition ease-[cubic-bezier(0.32,0.72,0,1)] duration-[380ms]"
-         x-transition:enter-start="translate-x-full"
-         x-transition:enter-end="translate-x-0"
-         x-transition:leave="transition ease-in-out duration-[260ms]"
-         x-transition:leave-start="translate-x-0"
-         x-transition:leave-end="translate-x-full"
-         role="dialog"
-         aria-modal="true"
-         aria-label="Menu de navigation"
-         class="fixed top-0 right-0 bottom-0 z-50 w-[310px] md:hidden
-                bg-white dark:bg-[#0e0e0d]
-                shadow-[-40px_0_80px_rgba(0,0,0,0.25)]
-                flex flex-col overflow-hidden">
-
-    <!-- En-tête drawer -->
-    <div class="flex items-center justify-between px-5 h-[62px] border-b border-stone-100 dark:border-stone-800/80 shrink-0">
-      <img src="{% static 'images/image.png' %}" alt="MatRox Residence" class="h-7 w-auto object-contain"/>
-      <button @click="open = false"
-              aria-label="Fermer le menu"
-              class="flex items-center justify-center w-9 h-9 rounded-xl
-                     text-stone-400 dark:text-stone-500
-                     hover:bg-stone-100 dark:hover:bg-stone-800 hover:text-stone-700 dark:hover:text-stone-300
-                     transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Navigation mobile avec dropdown accordéon -->
-    <nav aria-label="Navigation mobile" class="flex flex-col px-3 pt-4 gap-0.5 flex-1 overflow-y-auto">
-
-      {% with request.resolver_match.url_name as current %}
+    {% with request.resolver_match.url_name as current %}
+    <nav class="flex flex-col p-3 gap-0.5">
 
       <!-- Explore -->
       <a href="{% url 'home' %}" @click="open = false"
-         {% if current == 'home' %}aria-current="page"{% endif %}
-         class="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl transition-colors duration-150
-                {% if current == 'home' %}bg-orange-50 dark:bg-orange-950/25 text-orange-600 dark:text-orange-400
-                {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+         class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl transition-colors duration-150
+                {% if current == 'home' %}bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400
+                {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}">
         <span class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-9 h-9 rounded-xl shrink-0
-                       {% if current == 'home' %}bg-orange-100 dark:bg-orange-900/40
-                       {% else %}bg-stone-100 dark:bg-stone-800/70 group-hover:bg-orange-50 dark:group-hover:bg-orange-950/20{% endif %}
-                       transition-colors">
-            <svg class="w-4 h-4 {% if current == 'home' %}text-orange-600 dark:text-orange-400{% else %}text-stone-400 group-hover:text-orange-500{% endif %} transition-colors"
-                 fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+          <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0
+                       {% if current == 'home' %}bg-orange-100 dark:bg-orange-900/30{% else %}bg-stone-100 dark:bg-stone-800{% endif %}">
+            <svg class="w-4 h-4 {% if current == 'home' %}text-orange-600 dark:text-orange-400{% else %}text-stone-500{% endif %}"
+                 fill="currentColor" viewBox="0 0 20 20">
               <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
             </svg>
           </span>
-          <span class="text-sm font-semibold tracking-tight">Explore</span>
+          <span class="text-sm font-semibold">Explore</span>
         </span>
-        <svg class="w-3.5 h-3.5 shrink-0 {% if current == 'home' %}text-orange-400{% else %}text-stone-300 dark:text-stone-700 group-hover:text-orange-400{% endif %} transition-colors"
-             fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-3.5 h-3.5 text-stone-300 dark:text-stone-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
         </svg>
       </a>
 
-      <!-- Services — avec dropdown -->
+      <!-- Services (accordéon) -->
       <div>
-        <button @click="toggleDropdown('services')"
-                class="group w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl transition-colors duration-150
-                       {% if current == 'service' %}bg-orange-50 dark:bg-orange-950/25 text-orange-600 dark:text-orange-400
-                       {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+        <button @click="toggle('services')"
+                class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl transition-colors duration-150
+                       {% if current == 'service' %}bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400
+                       {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}">
           <span class="flex items-center gap-3">
-            <span class="flex items-center justify-center w-9 h-9 rounded-xl shrink-0
-                         {% if current == 'service' %}bg-orange-100 dark:bg-orange-900/40
-                         {% else %}bg-stone-100 dark:bg-stone-800/70 group-hover:bg-orange-50 dark:group-hover:bg-orange-950/20{% endif %}
-                         transition-colors">
-              <svg class="w-4 h-4 {% if current == 'service' %}text-orange-600 dark:text-orange-400{% else %}text-stone-400 group-hover:text-orange-500{% endif %} transition-colors"
-                   fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+            <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0
+                         {% if current == 'service' %}bg-orange-100 dark:bg-orange-900/30{% else %}bg-stone-100 dark:bg-stone-800{% endif %}">
+              <svg class="w-4 h-4 {% if current == 'service' %}text-orange-600 dark:text-orange-400{% else %}text-stone-500{% endif %}"
+                   fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
               </svg>
             </span>
-            <span class="text-sm font-semibold tracking-tight">Services</span>
+            <span class="text-sm font-semibold">Services</span>
           </span>
-          <!-- Chevron rotate -->
-          <svg :class="dropdown === 'services' ? 'rotate-180' : ''"
-               class="w-3.5 h-3.5 shrink-0 text-stone-400 transition-transform duration-200"
-               fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+          <svg :class="sub === 'services' ? 'rotate-180' : ''"
+               class="w-3.5 h-3.5 text-stone-400 transition-transform duration-200"
+               fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
           </svg>
         </button>
 
-        <!-- Dropdown Services -->
-        <div x-show="dropdown === 'services'" x-cloak
+        <div x-show="sub === 'services'" x-cloak
              x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-start="opacity-0 -translate-y-1"
              x-transition:enter-end="opacity-100 translate-y-0"
              x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-2"
-             class="ml-6 mt-1 flex flex-col gap-0.5 border-l-2 border-stone-100 dark:border-stone-800 pl-3">
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="mt-1 ml-5 pl-4 border-l-2 border-orange-100 dark:border-orange-900/30 flex flex-col gap-0.5">
           <a href="{% url 'service' %}#hebergement" @click="open = false"
-             class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
-                    hover:bg-stone-50 dark:hover:bg-stone-900/60 hover:text-orange-600 dark:hover:text-orange-400
-                    transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 shrink-0"></span>
-            Hébergement
+             class="px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            🏠 Hébergement
           </a>
           <a href="{% url 'service' %}#residence" @click="open = false"
-             class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
-                    hover:bg-stone-50 dark:hover:bg-stone-900/60 hover:text-orange-600 dark:hover:text-orange-400
-                    transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 shrink-0"></span>
-            Résidence
+             class="px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            🏢 Résidence
           </a>
           <a href="{% url 'service' %}#equipements" @click="open = false"
-             class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
-                    hover:bg-stone-50 dark:hover:bg-stone-900/60 hover:text-orange-600 dark:hover:text-orange-400
-                    transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 shrink-0"></span>
-            Équipements
+             class="px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            🛎 Équipements
+          </a>
+          <a href="{% url 'service' %}" @click="open = false"
+             class="px-3 py-2 text-xs font-bold text-orange-600 dark:text-orange-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 rounded-xl transition-colors">
+            Voir tout →
           </a>
         </div>
       </div>
 
-      <!-- À propos — avec dropdown -->
+      <!-- À propos (accordéon) -->
       <div>
-        <button @click="toggleDropdown('about')"
-                class="group w-full flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl transition-colors duration-150
-                       {% if current == 'about' %}bg-orange-50 dark:bg-orange-950/25 text-orange-600 dark:text-orange-400
-                       {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}
-                       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+        <button @click="toggle('about')"
+                class="w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl transition-colors duration-150
+                       {% if current == 'about' %}bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400
+                       {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}">
           <span class="flex items-center gap-3">
-            <span class="flex items-center justify-center w-9 h-9 rounded-xl shrink-0
-                         {% if current == 'about' %}bg-orange-100 dark:bg-orange-900/40
-                         {% else %}bg-stone-100 dark:bg-stone-800/70 group-hover:bg-orange-50 dark:group-hover:bg-orange-950/20{% endif %}
-                         transition-colors">
-              <svg class="w-4 h-4 {% if current == 'about' %}text-orange-600 dark:text-orange-400{% else %}text-stone-400 group-hover:text-orange-500{% endif %} transition-colors"
-                   fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+            <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0
+                         {% if current == 'about' %}bg-orange-100 dark:bg-orange-900/30{% else %}bg-stone-100 dark:bg-stone-800{% endif %}">
+              <svg class="w-4 h-4 {% if current == 'about' %}text-orange-600 dark:text-orange-400{% else %}text-stone-500{% endif %}"
+                   fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
             </span>
-            <span class="text-sm font-semibold tracking-tight">À propos</span>
+            <span class="text-sm font-semibold">À propos</span>
           </span>
-          <svg :class="dropdown === 'about' ? 'rotate-180' : ''"
-               class="w-3.5 h-3.5 shrink-0 text-stone-400 transition-transform duration-200"
-               fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+          <svg :class="sub === 'about' ? 'rotate-180' : ''"
+               class="w-3.5 h-3.5 text-stone-400 transition-transform duration-200"
+               fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
           </svg>
         </button>
 
-        <!-- Dropdown À propos -->
-        <div x-show="dropdown === 'about'" x-cloak
+        <div x-show="sub === 'about'" x-cloak
              x-transition:enter="transition ease-out duration-200"
-             x-transition:enter-start="opacity-0 -translate-y-2"
+             x-transition:enter-start="opacity-0 -translate-y-1"
              x-transition:enter-end="opacity-100 translate-y-0"
              x-transition:leave="transition ease-in duration-150"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-2"
-             class="ml-6 mt-1 flex flex-col gap-0.5 border-l-2 border-stone-100 dark:border-stone-800 pl-3">
+             x-transition:leave-start="opacity-100"
+             x-transition:leave-end="opacity-0"
+             class="mt-1 ml-5 pl-4 border-l-2 border-orange-100 dark:border-orange-900/30 flex flex-col gap-0.5">
           <a href="{% url 'about' %}#histoire" @click="open = false"
-             class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
-                    hover:bg-stone-50 dark:hover:bg-stone-900/60 hover:text-orange-600 dark:hover:text-orange-400
-                    transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 shrink-0"></span>
-            Notre histoire
+             class="px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            🕐 Notre histoire
           </a>
           <a href="{% url 'about' %}#equipe" @click="open = false"
-             class="flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
-                    hover:bg-stone-50 dark:hover:bg-stone-900/60 hover:text-orange-600 dark:hover:text-orange-400
-                    transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
-            <span class="w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-700 shrink-0"></span>
-            L'équipe
+             class="px-3 py-2.5 rounded-xl text-sm font-medium text-stone-600 dark:text-stone-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 hover:text-orange-600 dark:hover:text-orange-400 transition-colors">
+            👥 L'équipe
+          </a>
+          <a href="{% url 'about' %}" @click="open = false"
+             class="px-3 py-2 text-xs font-bold text-orange-600 dark:text-orange-400
+                    hover:bg-orange-50 dark:hover:bg-orange-950/20 rounded-xl transition-colors">
+            En savoir plus →
           </a>
         </div>
       </div>
 
       <!-- Contact -->
       <a href="{% url 'contact' %}" @click="open = false"
-         {% if current == 'contact' %}aria-current="page"{% endif %}
-         class="group flex items-center justify-between gap-3 px-4 py-3.5 rounded-2xl transition-colors duration-150
-                {% if current == 'contact' %}bg-orange-50 dark:bg-orange-950/25 text-orange-600 dark:text-orange-400
-                {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500">
+         class="flex items-center justify-between gap-3 px-4 py-3 rounded-2xl transition-colors duration-150
+                {% if current == 'contact' %}bg-orange-50 dark:bg-orange-950/20 text-orange-600 dark:text-orange-400
+                {% else %}text-stone-700 dark:text-stone-300 hover:bg-stone-50 dark:hover:bg-stone-900/60{% endif %}">
         <span class="flex items-center gap-3">
-          <span class="flex items-center justify-center w-9 h-9 rounded-xl shrink-0
-                       {% if current == 'contact' %}bg-orange-100 dark:bg-orange-900/40
-                       {% else %}bg-stone-100 dark:bg-stone-800/70 group-hover:bg-orange-50 dark:group-hover:bg-orange-950/20{% endif %}
-                       transition-colors">
-            <svg class="w-4 h-4 {% if current == 'contact' %}text-orange-600 dark:text-orange-400{% else %}text-stone-400 group-hover:text-orange-500{% endif %} transition-colors"
-                 fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24" aria-hidden="true">
+          <span class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0
+                       {% if current == 'contact' %}bg-orange-100 dark:bg-orange-900/30{% else %}bg-stone-100 dark:bg-stone-800{% endif %}">
+            <svg class="w-4 h-4 {% if current == 'contact' %}text-orange-600 dark:text-orange-400{% else %}text-stone-500{% endif %}"
+                 fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
             </svg>
           </span>
-          <span class="text-sm font-semibold tracking-tight">Contact</span>
+          <span class="text-sm font-semibold">Contact</span>
         </span>
-        <svg class="w-3.5 h-3.5 shrink-0 {% if current == 'contact' %}text-orange-400{% else %}text-stone-300 dark:text-stone-700 group-hover:text-orange-400{% endif %} transition-colors"
-             fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-3.5 h-3.5 text-stone-300 dark:text-stone-700" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
         </svg>
       </a>
 
-      {% endwith %}
-
     </nav>
 
-    <!-- Pied du drawer -->
-    <div class="px-4 pb-8 pt-4 shrink-0">
-      <div class="h-px w-full bg-gradient-to-r from-transparent via-stone-200 dark:via-stone-800 to-transparent mb-5"></div>
+    <!-- CTA mobile -->
+    <div class="px-4 pb-5 pt-1">
+      <div class="h-px bg-stone-100 dark:bg-stone-800/80 mb-4"></div>
       <a href="{% url 'contact' %}" @click="open = false"
-         class="flex items-center justify-center gap-2.5 w-full
+         class="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl
                 bg-orange-600 hover:bg-orange-700 active:scale-[0.98] text-white
-                text-sm font-bold tracking-tight
-                py-3.5 rounded-2xl transition-all duration-200
-                shadow-[0_4px_20px_rgba(234,88,12,0.35)] hover:shadow-[0_4px_28px_rgba(234,88,12,0.5)]
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+                text-sm font-bold transition-all duration-200
+                shadow-[0_4px_20px_rgba(234,88,12,0.4)]">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
         </svg>
         Réserver maintenant
       </a>
-      <p class="text-center text-[11px] text-stone-400 dark:text-stone-600 mt-4 tracking-widest uppercase">
-        MatRox Residence &copy; {% now "Y" %}
-      </p>
     </div>
-
-  </aside>
+    {% endwith %}
+  </div>
 
 </header>
+</div>
