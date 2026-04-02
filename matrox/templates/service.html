@@ -1,114 +1,137 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}MatRox Residence{% endblock %}
+{% block title %}Services & Aménagements | MatRox Residence{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="relative min-h-[614px] flex items-center px-8 md:px-16 lg:px-24 overflow-hidden mb-20">
-<div class="absolute inset-0 z-0">
-<img alt="Luxury hotel lobby" class="w-full h-full object-cover brightness-75" data-alt="Luxurious high-ceiling hotel lobby with contemporary lighting, marble floors, and warm ambient sunlight streaming through floor-to-ceiling windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdTiZ4ltfZQJ6heYB6TO8Suixj7xhQHTkMP5Bmf5xrAer_CxAvAYGbKzbpU8jRJRDJg_iOr-MbT13jJqnN8EaJ56t8wtbv3ddPgZJHigGVLw_PZp5c3w52ZVMHeaBavq9B0XaCliDwHQMskVE0Xb9sJZaMgLAdJIaQRGEzNG8oCCmf7UvgfjCB6xOS8nOu8cJj9kYz2UuG3LKfuZamvHxNQK342IUj0MrbKJB0djOTBPo6jYdvHIM4XHb3Jh3ac6fYjqTOBSKTAHI"/>
-</div>
-<div class="relative z-10 max-w-4xl">
-<span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-on-primary bg-primary/80 backdrop-blur-md rounded-full font-label uppercase">
-                    Unparalleled Comfort
-                </span>
-<h1 class="text-5xl md:text-7xl font-headline font-bold text-white tracking-tighter leading-tight mb-8">
-                    Premium Services <br/>&amp; Amenities
-                </h1>
-<p class="text-lg md:text-xl text-white/90 max-w-xl font-light leading-relaxed mb-10">
-                    Experience a meticulously curated ecosystem of luxury, designed to cater to your every whim while you focus on what truly matters.
+
+<!-- ══ Hero Section ══ -->
+<section class="relative min-h-[500px] md:min-h-[600px] flex items-center px-6 md:px-16 lg:px-24 overflow-hidden bg-stone-900 rounded-b-[3.5rem] mb-20 shadow-2xl">
+    <div class="absolute inset-0 z-0">
+        <img alt="Lobby Luxe" class="w-full h-full object-cover opacity-40 brightness-75 transition-all duration-1000 hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdTiZ4ltfZQJ6heYB6TO8Suixj7xhQHTkMP5Bmf5xrAer_CxAvAYGbKzbpU8jRJRDJg_iOr-MbT13jJqnN8EaJ56t8wtbv3ddPgZJHigGVLw_PZp5c3w52ZVMHeaBavq9B0XaCliDwHQMskVE0Xb9sJZaMgLAdJIaQRGEzNG8oCCmf7UvgfjCB6xOS8nOu8cJj9kYz2UuG3LKfuZamvHxNQK342IUj0MrbKJB0djOTBPo6jYdvHIM4XHb3Jh3ac6fYjqTOBSKTAHI"/>
+        <div class="absolute inset-0 bg-gradient-to-r from-stone-900 via-stone-900/60 to-transparent"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 mb-8 text-[10px] font-bold tracking-[0.3em] text-orange-400 bg-white/10 backdrop-blur-md rounded-full uppercase border border-white/10">
+            Confort Sans Précédent
+        </span>
+        <h1 class="font-headline text-5xl md:text-7xl font-bold text-white tracking-tight leading-[0.95] mb-8">
+            Services Premium <br/>&amp; Aménagements
+        </h1>
+        <p class="text-lg md:text-xl text-stone-300 max-w-xl font-medium leading-relaxed mb-10">
+            Vivez au cœur d'un écosystème de luxe méticuleusement conçu pour anticiper vos moindres désirs.
+        </p>
+    </div>
+</section>
+
+<!-- ══ Services Bento Grid ══ -->
+<section class="max-w-screen-xl mx-auto px-6 mb-24">
+    <div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
+        
+        <!-- Conciergerie 24/7 - Feature Large -->
+        <div class="md:col-span-6 lg:col-span-7 bg-white dark:bg-stone-900 rounded-[2.5rem] p-10 md:p-12 border border-stone-100 dark:border-stone-800/60 flex flex-col justify-between hover:shadow-xl transition-all duration-500 group">
+            <div>
+                <div class="w-16 h-16 bg-orange-50 dark:bg-orange-950/20 rounded-2xl flex items-center justify-center mb-8 border border-orange-100/50 dark:border-orange-900/30 group-hover:scale-110 transition-transform">
+                     <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <h2 class="font-headline text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mb-6 tracking-tight">Conciergerie 24/7</h2>
+                <p class="text-stone-500 dark:text-stone-400 leading-relaxed text-lg max-w-lg">
+                    Une assistance personnalisée de style éditorial. Réservations exclusives, transferts aéroport, ou organisation d'événements privés : notre équipe est à votre service à toute heure.
                 </p>
-</div>
-</section>
-<!-- Services Bento Grid -->
-<section class="px-8 md:px-16 lg:px-24 mb-32">
-<div class="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-6">
-<!-- 24/7 Concierge - Large Feature -->
-<div class="md:col-span-6 lg:col-span-7 bg-surface-container-low rounded-xl p-10 flex flex-col justify-between hover:bg-surface-container transition-colors duration-500">
-<div>
-<div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-8">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="concierge">concierge</span>
-</div>
-<h3 class="text-3xl font-headline font-bold text-on-surface mb-4 tracking-tight">24/7 Concierge</h3>
-<p class="text-on-surface-variant leading-relaxed text-lg max-w-md">
-                            Editorial-style personalized assistance. From exclusive dining reservations to bespoke travel arrangements, our concierge team is at your service around the clock.
-                        </p>
-</div>
-<div class="mt-12 flex items-center text-primary font-medium group cursor-pointer">
-<span class="mr-2">Explore the experience</span>
-<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
-</div>
-</div>
-<!-- High-Speed WiFi -->
-<div class="md:col-span-3 lg:col-span-5 bg-surface-container-highest/40 rounded-xl p-10 flex flex-col items-center text-center justify-center border border-outline-variant/10">
-<span class="material-symbols-outlined text-primary text-5xl mb-6" data-icon="wifi">wifi</span>
-<h3 class="text-2xl font-headline font-bold text-on-surface mb-2">High-Speed WiFi</h3>
-<p class="text-on-surface-variant">Reliable 500Mbps symmetrical connection optimized for digital nomads and global executives.</p>
-</div>
-<!-- Secure Parking -->
-<div class="md:col-span-3 lg:col-span-4 bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-colors duration-500">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-12 h-12 bg-on-surface/5 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-on-surface text-2xl" data-icon="local_parking">local_parking</span>
-</div>
-<h3 class="text-xl font-headline font-bold text-on-surface">Secure Parking</h3>
-</div>
-<p class="text-on-surface-variant text-sm leading-relaxed">
-                        Monitored, climate-controlled underground parking with 24/7 security surveillance and valet services available.
-                    </p>
-</div>
-<!-- Infinity Pool - Image Visual -->
-<div class="md:col-span-3 lg:col-span-4 relative group overflow-hidden rounded-xl h-[350px]">
-<img alt="Rooftop pool" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Elegant rooftop infinity pool at dusk overlooking a city skyline with soft turquoise water and luxury lounge chairs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXzG5m2J0KfN0r-9PYY7cLwuaOhp17uWp1LevgaSefPKwQiGPt2nggLsBAHvUWIpN7a0uoOKbtTBWt-p5986ku4NeAQleI5Pzf16UGirTkNpz4YvTilT-M3w88kZTM70sjrbgqCTKh1THfjbHt4RcTOtStiiTwowxPA4cAKltGKjrBTLSCVs252ScTAObxXX7Lp9bkQ0mTGQD4iqgheeE326rE4K22P7JQcrvW8iYPe1BIeojq_QhOaROG8rupqnY9wgs6wv-X35A"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-8 flex flex-col justify-end">
-<div class="flex items-center gap-2 mb-2">
-<span class="material-symbols-outlined text-white" data-icon="pool">pool</span>
-<h3 class="text-xl font-headline font-bold text-white">Infinity Pool</h3>
-</div>
-<p class="text-white/80 text-sm">Access to breathtaking rooftop pools with panoramic views.</p>
-</div>
-</div>
-<!-- Climate Control -->
-<div class="md:col-span-3 lg:col-span-4 bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-colors duration-500 flex flex-col justify-between">
-<div>
-<span class="material-symbols-outlined text-primary text-3xl mb-6" data-icon="ac_unit">ac_unit</span>
-<h3 class="text-xl font-headline font-bold text-on-surface mb-3">Climate Control</h3>
-<p class="text-on-surface-variant text-sm">Precision environmental control with modern silent AC systems in every room for your absolute comfort.</p>
-</div>
-</div>
-<!-- Gourmet Kitchen - Wide -->
-<div class="md:col-span-6 lg:col-span-12 bg-white rounded-xl overflow-hidden flex flex-col md:flex-row items-center shadow-sm">
-<div class="w-full md:w-1/2 h-64 md:h-full min-h-[300px]">
-<img alt="Modern kitchen" class="w-full h-full object-cover" data-alt="Ultra-modern designer kitchen with minimalist dark wood cabinetry, marble island, and high-end stainless steel appliances" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlhzXdKSXEJO5c15ZC4KyyObQrQYbjqReMGhBCLcADIXywM4LGSG1lu3kTYZTP9wPEqigADvaw1bbcjFtH7FFZ7merlOwQYsbdn065VfiXYugqF1CbB2FNmd0ffwMa4Sk7_Nx1EX_Cg2XxeaPTAfVAaV7gxMQdZ5uG4KL5UV5QYPO0QSabuoaXP62UBN2S1WrYQY6_GdodasVg-Yf6waxuT43gQX3wx-U34peqYYhNz37UV-Y43c8ka6Zt-0-S2-F_zxwbpYvpDNM"/>
-</div>
-<div class="w-full md:w-1/2 p-10 lg:p-16">
-<span class="text-primary font-label text-xs tracking-[0.2em] font-bold uppercase mb-4 block">Culinary Excellence</span>
-<h3 class="text-3xl font-headline font-bold text-on-surface mb-6 tracking-tight">Gourmet Kitchen</h3>
-<p class="text-on-surface-variant leading-relaxed mb-8">
-                            Fully equipped designer kitchens featuring professional-grade appliances, bespoke cabinetry, and premium stone surfaces. Perfect for intimate dinners or grand entertaining.
-                        </p>
-<div class="grid grid-cols-2 gap-4">
-<div class="flex items-center gap-2 text-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
-<span>Sub-Zero Refrigeration</span>
-</div>
-<div class="flex items-center gap-2 text-sm text-on-surface-variant">
-<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span>
-<span>Wolf Ranges</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Final CTA -->
-<section class="py-32 px-8 text-center bg-surface-container-low rounded-t-[3rem]">
-<h2 class="text-4xl md:text-5xl font-headline font-bold text-on-surface mb-8 tracking-tighter">Experience Excellence</h2>
-<p class="text-on-surface-variant text-lg max-w-2xl mx-auto mb-12">
-                Join our community of discerning residents. Discover a lifestyle defined by sophistication and unparalleled service.
+            </div>
+            <div class="mt-12">
+                 <a href="{% url 'contact' %}" class="inline-flex items-center gap-2 text-orange-600 font-bold group">
+                    Explorer l'expérience 
+                    <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                 </a>
+            </div>
+        </div>
+
+        <!-- WiFi High-Speed -->
+        <div class="md:col-span-3 lg:col-span-5 bg-stone-50 dark:bg-stone-900/40 rounded-[2.5rem] p-10 flex flex-col items-center text-center justify-center border border-stone-100 dark:border-stone-800/60 shadow-inner">
+            <div class="w-20 h-20 bg-orange-100 dark:bg-orange-950/30 rounded-3xl flex items-center justify-center text-orange-600 mb-8 animate-pulse shadow-lg shadow-orange-600/10">
+                 <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071a10 10 0 0114.142 0M1.05 6.95a15 15 0 0121.9 0"/></svg>
+            </div>
+            <h3 class="font-headline text-2xl font-bold text-stone-900 dark:text-white mb-3">WiFi Fibre Optique</h3>
+            <p class="text-stone-500 dark:text-stone-400 font-medium">Connexion symétrique 500Mbps optimisée pour les nomades numériques et les cadres internationaux.</p>
+        </div>
+
+        <!-- Parking Sécurisé -->
+        <div class="md:col-span-3 lg:col-span-4 bg-white dark:bg-stone-900 rounded-[2.5rem] p-10 border border-stone-100 dark:border-stone-800/60 hover:shadow-xl transition-all duration-500 group">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-14 h-14 bg-stone-50 dark:bg-stone-800 rounded-2xl flex items-center justify-center text-stone-600 dark:text-stone-300 group-hover:rotate-6 transition-transform">
+                     <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 8H9v10h2v-4h4a3 3 0 000-6h-4z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-white tracking-tight">Parking Privé</h3>
+            </div>
+            <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">
+                Parking souterrain surveillé 24/7 par caméras et agents de sécurité, avec service de voiturier disponible.
             </p>
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-12 py-5 rounded-xl font-bold text-lg hover:opacity-90 transition-all duration-300 shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 font-headline">
-                Book Your Residence Now
-            </button>
+        </div>
+
+        <!-- Piscine Visuelle -->
+        <div class="md:col-span-3 lg:col-span-4 relative group overflow-hidden rounded-[2.5rem] h-[350px] shadow-2xl">
+            <img class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXzG5m2J0KfN0r-9PYY7cLwuaOhp17uWp1LevgaSefPKwQiGPt2nggLsBAHvUWIpN7a0uoOKbtTBWt-p5986ku4NeAQleI5Pzf16UGirTkNpz4YvTilT-M3w88kZTM70sjrbgqCTKh1THfjbHt4RcTOtStiiTwowxPA4cAKltGKjrBTLSCVs252ScTAObxXX7Lp9bkQ0mTGQD4iqgheeE326rE4K22P7JQcrvW8iYPe1BIeojq_QhOaROG8rupqnY9wgs6wv-X35A"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/30 to-transparent p-10 flex flex-col justify-end">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-8 h-8 rounded-lg bg-orange-600 flex items-center justify-center shadow-lg">
+                         <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 11a1 1 0 011 1v1a1 1 0 01-1 1 1 1 0 01-1-1v-1a1 1 0 011-1z M12 11a1 1 0 011 1v1a1 1 0 01-1 1 1 1 0 01-1-1v-1a1 1 0 011-1z M20 11a1 1 0 011 1v1a1 1 0 01-1 1 1 1 0 01-1-1v-1a1 1 0 011-1z"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-white tracking-tight">Infinity Pool</h3>
+                </div>
+                <p class="text-white/80 text-xs font-medium">Bénéficiez d'un accès exclusif à nos piscines en rooftop avec vue panoramique.</p>
+            </div>
+        </div>
+
+        <!-- Climatisation -->
+        <div class="md:col-span-3 lg:col-span-4 bg-stone-50 dark:bg-stone-900/40 rounded-[2.5rem] p-10 flex flex-col justify-between shadow-inner border border-stone-100 dark:border-stone-800/60">
+            <div>
+                <div class="w-14 h-14 bg-blue-100 dark:bg-blue-950/20 rounded-2xl flex items-center justify-center text-blue-600 mb-8">
+                     <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 3v3m0 12v3M5.636 5.636l2.122 2.122m8.484 8.484l2.122 2.122M3 12h3m12 0h3M5.636 18.364l2.122-2.122m8.484-8.484l2.122-2.122"/></svg>
+                </div>
+                <h3 class="text-xl font-bold text-stone-900 dark:text-white mb-4 tracking-tight">Contrôle Climatique</h3>
+                <p class="text-stone-500 dark:text-stone-400 text-sm leading-relaxed">Systèmes de climatisation silencieux de dernière génération avec réglages précis dans chaque pièce.</p>
+            </div>
+        </div>
+
+        <!-- Cuisine Gourmet - Wide Feature -->
+        <div class="md:col-span-6 lg:col-span-12 bg-white dark:bg-stone-900 rounded-[3rem] overflow-hidden flex flex-col md:flex-row items-center border border-stone-100 dark:border-stone-800/60 shadow-sm hover:shadow-xl transition-shadow duration-500">
+            <div class="w-full md:w-1/2 h-80 md:h-full min-h-[400px] relative overflow-hidden">
+                <img class="w-full h-full object-cover transition-transform duration-1000 hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlhzXdKSXEJO5c15ZC4KyyObQrQYbjqReMGhBCLcADIXywM4LGSG1lu3kTYZTP9wPEqigADvaw1bbcjFtH7FFZ7merlOwQYsbdn065VfiXYugqF1CbB2FNmd0ffwMa4Sk7_Nx1EX_Cg2XxeaPTAfVAaV7gxMQdZ5uG4KL5UV5QYPO0QSabuoaXP62UBN2S1WrYQY6_GdodasVg-Yf6waxuT43gQX3wx-U34peqYYhNz37UV-Y43c8ka6Zt-0-S2-F_zxwbpYvpDNM"/>
+            </div>
+            <div class="w-full md:w-1/2 p-12 lg:p-16">
+                <span class="text-orange-600 font-bold text-[10px] tracking-[0.3em] uppercase mb-6 block">Excellence Culinaire</span>
+                <h3 class="font-headline text-3xl md:text-4xl font-bold text-stone-900 dark:text-white mb-8 tracking-tight">Cuisine Gastronomique</h3>
+                <p class="text-stone-500 dark:text-stone-400 leading-relaxed text-lg mb-10">
+                    Cuisines de designer entièrement équipées avec des appareils de qualité professionnelle et des surfaces en pierre naturelle.
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3 text-sm font-bold text-stone-600 dark:text-stone-300">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        Équipement Pro-grade
+                    </div>
+                    <div class="flex items-center gap-3 text-sm font-bold text-stone-600 dark:text-stone-300">
+                        <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        Stone Countertops
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<!-- ══ Final CTA Luxe ══ -->
+<section class="max-w-screen-xl mx-auto px-6 mb-24">
+    <div class="py-24 px-10 text-center bg-stone-50 dark:bg-stone-950 rounded-[3.5rem] border border-stone-100 dark:border-stone-800/60 shadow-inner">
+        <h2 class="font-headline text-4xl md:text-5xl font-bold text-stone-900 dark:text-white mb-8 tracking-tight">Goûtez à l'Excellence</h2>
+        <p class="text-stone-500 dark:text-stone-400 text-lg max-w-2xl mx-auto mb-12 font-medium">
+            Rejoignez notre communauté de résidents exigeants. Découvrez un style de vie défini par la sophistication et un service sur mesure.
+        </p>
+        <a href="{% url 'liste' %}" class="inline-flex items-center gap-4 bg-orange-600 text-white px-12 py-5 rounded-2xl font-bold text-lg hover:bg-orange-700 transition-all shadow-2xl shadow-orange-600/30 active:scale-95 group">
+            Réserver maintenant
+            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+    </div>
+</section>
+
 {% endblock %}

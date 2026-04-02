@@ -1,152 +1,177 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}About Us | MatRox Residence{% endblock %}
+{% block title %}À Propos | MatRox Residence{% endblock %}
 
 {% block content %}
-<!-- Hero Section -->
-<section class="relative h-[819px] flex items-center justify-center overflow-hidden">
-<div class="absolute inset-0 z-0">
-<img alt="Luxury Cameroon Residence" class="w-full h-full object-cover" data-alt="Stunning modern luxury villa in Cameroon featuring clean architectural lines, large glass windows, and a turquoise swimming pool at sunset with warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5sm31erfn9eNkbPzcaZT4HoENjZlgc644zhYoqkAKY0Ca321LTwuxYxY_Cyuqzk6xuBP3pybNMTJJ4fys2ffpudq4cLNsPJbe7Lcoq7ViRgnLBNljVu_1X1EZmoRHjCS-ca0jihkk_bAPCWkNaZsG-YAXjPceAM_aklIXaIJRPdyLSfzUauV523C7qkSWJWQn4kRIYCDlEaNKCLZJVTFr_KfU1Z6MwL7YfjXK7qJWtrSU71Tjcritc4R4_8qooc_Cepnr0TygCkY"/>
-<div class="absolute inset-0 bg-on-surface/40"></div>
-</div>
-<div class="relative z-10 text-center px-4 max-w-4xl">
-<span class="text-primary-fixed font-label uppercase tracking-[0.2em] text-sm mb-4 block">Redefining Excellence</span>
-<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter leading-none">
-                    About MatRox Residence
-                </h1>
-<p class="text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed">
-                    Bringing the world's most sophisticated living standards to the heart of Cameroon.
+
+<!-- ══ Hero Section ══ -->
+<section class="relative h-[600px] md:h-[700px] flex items-center justify-center overflow-hidden bg-stone-900">
+    <div class="absolute inset-0 z-0">
+        <img alt="Luxe Résidence Cameroun" class="w-full h-full object-cover opacity-50" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5sm31erfn9eNkbPzcaZT4HoENjZlgc644zhYoqkAKY0Ca321LTwuxYxY_Cyuqzk6xuBP3pybNMTJJ4fys2ffpudq4cLNsPJbe7Lcoq7ViRgnLBNljVu_1X1EZmoRHjCS-ca0jihkk_bAPCWkNaZsG-YAXjPceAM_aklIXaIJRPdyLSfzUauV523C7qkSWJWQn4kRIYCDlEaNKCLZJVTFr_KfU1Z6MwL7YfjXK7qJWtrSU71Tjcritc4R4_8qooc_Cepnr0TygCkY"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-black/20"></div>
+    </div>
+    <div class="relative z-10 text-center px-6 max-w-4xl">
+        <span class="text-orange-400 font-bold uppercase tracking-[0.3em] text-[10px] mb-4 block">Redéfinir l'Excellence</span>
+        <h1 class="font-headline text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight leading-none">
+            L'Histoire de <br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-orange-500">MatRox Residence</span>
+        </h1>
+        <p class="text-lg md:text-xl text-stone-300 font-medium max-w-2xl mx-auto leading-relaxed">
+            Apporter les standards de vie les plus sophistiqués au cœur du Cameroun, pour une expérience sans compromis.
+        </p>
+    </div>
+</section>
+
+<!-- ══ Notre Histoire ══ -->
+<section class="py-24 px-6 bg-white dark:bg-stone-950">
+    <div class="max-w-screen-xl mx-auto grid md:grid-cols-2 gap-20 items-center">
+        <div class="order-2 md:order-1">
+            <h2 class="font-headline text-4xl md:text-5xl font-bold text-stone-900 dark:text-white mb-8 tracking-tight">Notre Origine</h2>
+            <div class="space-y-6 text-stone-500 dark:text-stone-400 leading-relaxed text-lg">
+                <p>
+                    MatRox Residence est née d'une vision singulière : combler le fossé entre l'excellence de l'hospitalité mondiale et le potentiel vibrant du Cameroun. Nous avons remarqué que si la demande pour un habitat haut de gamme augmentait, l'exécution manquait souvent de rigueur internationale.
                 </p>
-</div>
+                <p>
+                    Fondée par un consortium de visionnaires locaux et d'architectes internationaux, nous nous sommes donné pour mission de créer des espaces qui ne sont pas seulement des bâtiments, mais des expériences de vie. Chaque pierre posée et chaque service sélectionné chez MatRox témoigne de notre engagement envers le luxe discret.
+                </p>
+            </div>
+            <div class="mt-12 flex gap-4 items-center">
+                <div class="h-[1px] w-12 bg-orange-600"></div>
+                <span class="text-orange-600 font-bold tracking-widest uppercase text-[10px]">Établi en 2024</span>
+            </div>
+        </div>
+        <div class="order-1 md:order-2">
+            <div class="relative p-4">
+                <div class="absolute inset-0 border border-stone-100 dark:border-stone-800 rounded-[3rem] translate-x-4 translate-y-4"></div>
+                <img alt="Design Intérieur" class="rounded-[2.5rem] shadow-2xl relative z-10 w-full h-[500px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3NDffpPuDhzE566leE08bJeYj97SZr8jNk_gaCwxQ5TU6nYOosfNMDjkVYmH0AxDZrlRdAV3LafYdAiGTobFRNG06xJx_kOfMHCNqI3_bETaGZ90XtkuSs5_na54_VpSRkE6OUa_j9PRFFUUBkQxsXfPAGF-ONZK338odqHGut3HhwBXYxaUM3eJ0o99t7JLUjfu3AJFklVBf8r7tGwxQHY7H4oyp0zbYOLQkQIiQXvC0dDNEU4ZMK8dn2JVCgmt773KM-ScqRM"/>
+            </div>
+        </div>
+    </div>
 </section>
-<!-- Our Story Section (Asymmetric Layout) -->
-<section class="py-24 px-8 md:px-24 bg-surface">
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
-<div class="order-2 md:order-1">
-<h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-8 tracking-tight">Our Story</h2>
-<div class="space-y-6 text-on-surface-variant leading-loose text-lg">
-<p>
-                            MatRox Residence was born from a singular vision: to bridge the gap between global hospitality excellence and the vibrant potential of Cameroon. We noticed that while the demand for high-end living was growing, the execution often fell short of international standards.
-                        </p>
-<p>
-                            Founded by a consortium of local visionaries and international architects, we embarked on a mission to create spaces that aren't just buildings, but experiences. Every stone laid and every service curated at MatRox is a testament to our commitment to luxury without compromise.
-                        </p>
-</div>
-<div class="mt-12 flex gap-4 items-center">
-<div class="h-[1px] w-12 bg-primary"></div>
-<span class="text-primary font-medium tracking-wide uppercase text-sm">Established 2024</span>
-</div>
-</div>
-<div class="order-1 md:order-2">
-<div class="relative">
-<div class="absolute -top-6 -left-6 w-full h-full border border-outline-variant/20 rounded-lg"></div>
-<img alt="Interior Design" class="rounded-lg shadow-xl relative z-10 w-full h-[500px] object-cover" data-alt="Ultra-modern minimalist interior living room with high ceilings, neutral tones, bespoke furniture, and lush green plants in architectural planters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3NDffpPuDhzE566leE08bJeYj97SZr8jNk_gaCwxQ5TU6nYOosfNMDjkVYmH0AxDZrlRdAV3LafYdAiGTobFRNG06xJx_kOfMHCNqI3_bETaGZ90XtkuSs5_na54_VpSRkE6OUa_j9PRFFUUBkQxsXfPAGF-ONZK338odqHGut3HhwBXYxaUM3eJ0o99t7JLUjfu3AJFklVBf8r7tGwxQHY7H4oyp0zbYOLQkQIiQXvC0dDNEU4ZMK8dn2JVCgmt773KM-ScqRM"/>
-</div>
-</div>
-</div>
-</section>
-<!-- Mission & Vision (Bento Grid) -->
-<section class="py-24 px-8 md:px-24 bg-surface-container-low">
-<div class="max-w-7xl mx-auto">
-<div class="mb-16">
-<h2 class="text-4xl font-bold text-on-surface tracking-tight mb-4">Values that Anchor Us</h2>
-<p class="text-on-surface-variant max-w-xl">Our principles are the foundation of every guest interaction and architectural detail.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
-<div class="md:col-span-8 bg-surface-container-lowest p-12 rounded-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="verified">verified</span>
-<h3 class="text-3xl font-bold mb-4">Our Mission</h3>
-<p class="text-xl text-on-surface-variant leading-relaxed font-light">
-                                To provide an unparalleled sanctuary of luxury and security for international travelers and residents, ensuring that "home" is defined by comfort, prestige, and seamless hospitality.
-                            </p>
-</div>
-<div class="mt-8 flex flex-wrap gap-3">
-<span class="px-6 py-2 bg-surface-container-high rounded-full text-xs font-bold tracking-widest uppercase text-on-surface">Premium Standards</span>
-<span class="px-6 py-2 bg-surface-container-high rounded-full text-xs font-bold tracking-widest uppercase text-on-surface">Local Heritage</span>
-</div>
-</div>
-<div class="md:col-span-4 bg-primary text-white p-12 rounded-lg flex flex-col justify-center">
-<span class="material-symbols-outlined text-white/50 text-6xl mb-8" data-icon="visibility">visibility</span>
-<h3 class="text-3xl font-bold mb-4">Our Vision</h3>
-<p class="text-lg text-white/80 leading-relaxed font-light">
-                            To become the definitive benchmark for luxury residences in West Africa by 2030.
-                        </p>
-</div>
-<div class="md:col-span-4 bg-surface-container-highest p-12 rounded-lg">
-<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="loyalty">loyalty</span>
-<h3 class="text-xl font-bold mb-2">Unwavering Trust</h3>
-<p class="text-on-surface-variant leading-relaxed">Safety and privacy are not features; they are our baseline.</p>
-</div>
-<div class="md:col-span-8 bg-white p-12 rounded-lg shadow-sm flex items-center gap-8">
-<div class="flex-shrink-0">
-<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="handshake">handshake</span>
-</div>
-</div>
-<div>
-<h3 class="text-xl font-bold mb-2">Bespoke Hospitality</h3>
-<p class="text-on-surface-variant leading-relaxed">Personalized concierge services that anticipate your needs before you express them.</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Our Commitment Section -->
-<section class="py-24 px-8 md:px-24 bg-surface">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
-<div class="w-full md:w-1/2">
-<img alt="Team Meeting" class="rounded-lg shadow-2xl h-[400px] w-full object-cover" data-alt="A professional, diverse team of experts in a modern glass-walled boardroom discussing blueprints and architectural designs with natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXh-s3irVKFTn-QNH_9nv9B7Z0FqdUI-mRNFOQCwpdwQrfquWoEPtxMUpG3Vlj1fMKSVFzaH5_M8SurvAmgb3xhvmtejk5gaA0j508fbd-YW8GDYf7Nl8hQD4nSzmxj3e3wPgb7VSFbZD8o9zzM-inO2zwwWwBzBiPwWM6KKBzwIan-K7hQM5rWdczEVgz_nUD7dPh08hoMzryyn1oySx5n6kBSBjJjfL82dcGtaPuNozXmEnBEQeqT0OPw_1T-kaiHS6yn-q4RmA"/>
-</div>
-<div class="w-full md:w-1/2">
-<h2 class="text-4xl font-bold text-on-surface mb-8 tracking-tight">Our Commitment</h2>
-<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
-                        We blend local expertise with international standards. Our team consists of world-class engineers, hospitality experts, and cultural ambassadors who ensure your stay is both culturally rich and globally sophisticated.
+
+<!-- ══ Mission & Vision (Bento Grid Premium) ══ -->
+<section class="py-24 px-6 bg-stone-50 dark:bg-stone-900/40">
+    <div class="max-w-screen-xl mx-auto">
+        <div class="mb-16">
+            <h2 class="font-headline text-4xl font-bold text-stone-900 dark:text-white tracking-tight mb-4">Valeurs Fondatrices</h2>
+            <p class="text-stone-500 dark:text-stone-400 max-w-xl">Nos principes sont le socle de chaque interaction avec nos résidents.</p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            <!-- Mission -->
+            <div class="md:col-span-8 bg-white dark:bg-stone-900 p-12 rounded-[2.5rem] flex flex-col justify-between shadow-sm border border-stone-100 dark:border-stone-800/60 group hover:shadow-xl transition-all duration-500">
+                <div>
+                    <div class="w-14 h-14 rounded-2xl bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center text-orange-600 mb-8 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <h3 class="text-3xl font-bold mb-6 text-stone-900 dark:text-white">Notre Mission</h3>
+                    <p class="text-xl text-stone-500 dark:text-stone-400 leading-relaxed font-medium">
+                        Fournir un sanctuaire inégalé de luxe et de sécurité pour les voyageurs internationaux et les résidents locaux, garantissant que le "foyer" se définisse par le confort et le prestige.
                     </p>
-<ul class="space-y-4">
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
-<div>
-<h4 class="font-bold">24/7 Concierge Support</h4>
-<p class="text-sm text-on-surface-variant">Global standards in service delivery.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
-<div>
-<h4 class="font-bold">Local Cultural Integration</h4>
-<p class="text-sm text-on-surface-variant">Supporting and showcasing Cameroonian craftsmanship.</p>
-</div>
-</li>
-<li class="flex items-start gap-4">
-<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
-<div>
-<h4 class="font-bold">Sustainable Luxury</h4>
-<p class="text-sm text-on-surface-variant">Eco-friendly practices in premium living.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-24 px-8 md:px-24">
-<div class="max-w-5xl mx-auto primary-gradient rounded-3xl p-12 md:p-24 text-center text-white relative overflow-hidden">
-<div class="absolute top-0 right-0 opacity-10">
-<span class="material-symbols-outlined text-[300px]" data-icon="apartment">apartment</span>
-</div>
-<h2 class="text-4xl md:text-5xl font-bold mb-8 relative z-10 tracking-tight">Experience MatRox Today</h2>
-<p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto relative z-10">
-                    Discover why we are the preferred choice for discerning travelers and permanent residents alike.
+                </div>
+                <div class="mt-12 flex flex-wrap gap-3">
+                    <span class="px-5 py-2 bg-stone-50 dark:bg-stone-800 rounded-full text-[10px] font-bold tracking-widest uppercase text-stone-600 dark:text-stone-300">Standards Premium</span>
+                    <span class="px-5 py-2 bg-stone-50 dark:bg-stone-800 rounded-full text-[10px] font-bold tracking-widest uppercase text-stone-600 dark:text-stone-300">Patrimoine Local</span>
+                </div>
+            </div>
+
+            <!-- Vision -->
+            <div class="md:col-span-4 bg-orange-600 p-12 rounded-[2.5rem] flex flex-col justify-center text-white shadow-xl shadow-orange-600/20 group overflow-hidden relative">
+                <div class="absolute -right-8 -top-8 opacity-10 group-hover:scale-110 transition-transform duration-700">
+                    <svg class="w-48 h-48" fill="currentColor" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                </div>
+                <h3 class="text-3xl font-bold mb-4 relative z-10">Notre Vision</h3>
+                <p class="text-lg text-white/80 leading-relaxed relative z-10">
+                    Devenir la référence ultime des résidences de luxe en Afrique de l'Ouest d'ici 2030.
                 </p>
-<div class="flex flex-col md:flex-row gap-4 justify-center relative z-10">
-<button class="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-surface-bright transition-colors shadow-lg">
-                        View Residences
-                    </button>
-<button class="border border-white/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
-                        Contact Sales
-                    </button>
-</div>
-</div>
+            </div>
+
+            <!-- Confiance -->
+            <div class="md:col-span-4 bg-emerald-600 p-12 rounded-[2.5rem] text-white flex flex-col justify-center group overflow-hidden relative">
+                 <div class="absolute -right-8 -bottom-8 opacity-10 group-hover:rotate-12 transition-transform duration-700">
+                    <svg class="w-40 h-40" fill="currentColor" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                </div>
+                <h3 class="text-xl font-bold mb-2 relative z-10">Confiance Absolue</h3>
+                <p class="text-white/80 leading-relaxed relative z-10">La sécurité et l'intimité sont nos fondamentaux.</p>
+            </div>
+
+            <!-- Hospitalité -->
+            <div class="md:col-span-8 bg-white dark:bg-stone-900 p-12 rounded-[2.5rem] shadow-sm flex items-center gap-10 border border-stone-100 dark:border-stone-800/60">
+                <div class="hidden sm:flex shrink-0 w-24 h-24 rounded-3xl bg-stone-50 dark:bg-stone-800 items-center justify-center">
+                     <svg class="w-12 h-12 text-orange-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3 text-stone-900 dark:text-white">Hospitalité Sur Mesure</h3>
+                    <p class="text-stone-500 dark:text-stone-400 leading-relaxed">Une conciergerie personnalisée qui anticipe vos besoins avant même que vous ne les exprimiez.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+<!-- ══ Notre Engagement ══ -->
+<section class="py-24 px-6 bg-white dark:bg-stone-950">
+    <div class="max-w-screen-xl mx-auto flex flex-col md:flex-row items-center gap-20">
+        <div class="w-full md:w-1/2">
+            <img alt="L'Équipe MatRox" class="rounded-[2.5rem] shadow-2xl h-[450px] w-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXh-s3irVKFTn-QNH_9nv9B7Z0FqdUI-mRNFOQCwpdwQrfquWoEPtxMUpG3Vlj1fMKSVFzaH5_M8SurvAmgb3xhvmtejk5gaA0j508fbd-YW8GDYf7Nl8hQD4nSzmxj3e3wPgb7VSFbZD8o9zzM-inO2zwwWwBzBiPwWM6KKBzwIan-K7hQM5rWdczEVgz_nUD7dPh08hoMzryyn1oySx5n6kBSBjJjfL82dcGtaPuNozXmEnBEQeqT0OPw_1T-kaiHS6yn-q4RmA"/>
+        </div>
+        <div class="w-full md:w-1/2">
+            <h2 class="font-headline text-4xl font-bold text-stone-900 dark:text-white mb-8 tracking-tight">Notre Engagement</h2>
+            <p class="text-stone-500 dark:text-stone-400 text-lg leading-relaxed mb-10">
+                Nous fusionnons l'expertise locale avec les standards internationaux. Notre équipe garantit que votre séjour soit à la fois culturellement riche et globalement sophistiqué.
+            </p>
+            <div class="space-y-6">
+                <div class="flex items-start gap-5 group">
+                    <div class="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center text-orange-600 shrink-0 group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-stone-900 dark:text-white">Conciergerie 24/7</h4>
+                        <p class="text-sm text-stone-500 dark:text-stone-400">Une assistance humaine et réactive à tout instant.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-5 group">
+                    <div class="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center text-orange-600 shrink-0 group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-stone-900 dark:text-white">Intégration Culturelle Locale</h4>
+                        <p class="text-sm text-stone-500 dark:text-stone-400">Valorisation de l'artisanat et du savoir-faire camerounais.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-5 group">
+                    <div class="w-8 h-8 rounded-full bg-orange-100 dark:bg-orange-950/30 flex items-center justify-center text-orange-600 shrink-0 group-hover:scale-110 transition-transform">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-stone-900 dark:text-white">Luxe Durable</h4>
+                        <p class="text-sm text-stone-500 dark:text-stone-400">Pratiques éco-responsables dans un habitat de prestige.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ══ CTA Final ══ -->
+<section class="py-24 px-6 mb-12">
+    <div class="max-w-screen-xl mx-auto bg-stone-900 rounded-[3.5rem] p-16 md:p-24 text-center text-white relative overflow-hidden shadow-2xl">
+        <div class="absolute -top-24 -right-24 opacity-10">
+            <svg class="w-[500px] h-[500px]" fill="currentColor" viewBox="0 0 24 24"><path d="M7 14H5v5h2v-5zm4 0H9v5h2v-5zm4 0h-2v5h2v-5zm5 2h-1v-4h-2v4h-1v-2h-2v2h-1v-4h-2v4h-1v-2h-3v2h-1v-2h-2v2H2v5h20v-5zM12 2L4.5 9H6v2h12V9h1.5L12 2z"/></svg>
+        </div>
+        <h2 class="font-headline text-4xl md:text-6xl font-bold mb-8 relative z-10 tracking-tight leading-[1.1]">Vivez l'Expérience MatRox</h2>
+        <p class="text-xl text-stone-400 mb-12 max-w-2xl mx-auto relative z-10">
+            Découvrez pourquoi nous sommes le choix privilégié des voyageurs exigeants et des résidents permanents.
+        </p>
+        <div class="flex flex-col md:flex-row gap-4 justify-center relative z-10">
+            <a href="{% url 'liste' %}" class="bg-orange-600 text-white px-10 py-5 rounded-2xl font-bold hover:bg-orange-700 transition-all shadow-xl shadow-orange-600/30 active:scale-95">
+                Voir nos résidences
+            </a>
+            <a href="{% url 'contact' %}" class="bg-white/10 text-white px-10 py-5 rounded-2xl font-bold hover:bg-white/20 transition-all backdrop-blur-md border border-white/20 active:scale-95">
+                Contacter un conseiller
+            </a>
+        </div>
+    </div>
+</section>
+
 {% endblock %}
