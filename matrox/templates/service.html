@@ -1,103 +1,8 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "tertiary-fixed-dim": "#b0c6ff",
-              "on-tertiary": "#ffffff",
-              "tertiary": "#375ca8",
-              "on-secondary-fixed": "#022100",
-              "on-primary-fixed-variant": "#763300",
-              "inverse-surface": "#303031",
-              "tertiary-container": "#7a9cec",
-              "secondary-container": "#a0f487",
-              "on-tertiary-fixed-variant": "#1a438e",
-              "error-container": "#ffdad6",
-              "surface-container-lowest": "#ffffff",
-              "surface-container-highest": "#e4e2e2",
-              "on-secondary": "#ffffff",
-              "primary-fixed": "#ffdbca",
-              "primary": "#9b4500",
-              "inverse-primary": "#ffb68e",
-              "surface-container-high": "#e9e8e7",
-              "error": "#ba1a1a",
-              "on-secondary-fixed-variant": "#095300",
-              "on-primary": "#ffffff",
-              "on-error": "#ffffff",
-              "primary-fixed-dim": "#ffb68e",
-              "surface-container": "#efeded",
-              "on-primary-fixed": "#331200",
-              "background": "#fbf9f8",
-              "surface": "#fbf9f8",
-              "surface-container-low": "#f5f3f3",
-              "surface-bright": "#fbf9f8",
-              "on-surface-variant": "#574237",
-              "tertiary-fixed": "#d9e2ff",
-              "surface-tint": "#9b4500",
-              "secondary": "#1d6d0e",
-              "surface-variant": "#e4e2e2",
-              "on-background": "#1b1c1c",
-              "inverse-on-surface": "#f2f0f0",
-              "on-surface": "#1b1c1c",
-              "on-tertiary-container": "#003177",
-              "on-primary-container": "#5a2500",
-              "on-error-container": "#93000a",
-              "outline-variant": "#dec1b2",
-              "secondary-fixed-dim": "#88da70",
-              "secondary-fixed": "#a3f789",
-              "primary-container": "#f47c2c",
-              "surface-dim": "#dbdad9",
-              "outline": "#8a7266",
-              "on-tertiary-fixed": "#001945",
-              "on-secondary-container": "#227213"
-            },
-            fontFamily: {
-              "headline": ["Space Grotesk"],
-              "body": ["Inter"],
-              "label": ["Inter"]
-            },
-            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "1.5rem", "full": "9999px"},
-          },
-        },
-      }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-      }
-      .tonal-transition { transition: background-color 0.3s ease; }
-      .glass-nav { backdrop-filter: blur(24px); }
-    </style>
-</head>
-<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
-<!-- Top Navigation Bar -->
-<nav class="fixed top-0 w-full z-50 bg-surface/70 dark:bg-zinc-900/70 backdrop-blur-xl shadow-sm dark:shadow-none tonal-transition bg-surface-container-low/50">
-<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
-<div class="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 font-headline">
-                MatRox Residence
-            </div>
-<div class="hidden md:flex items-center space-x-10">
-<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-inter" href="#">Home</a>
-<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-inter" href="#">Residences</a>
-<a class="text-orange-700 dark:text-orange-400 font-bold border-b-2 border-orange-700 dark:border-orange-400 pb-1 font-inter" href="#">Services</a>
-<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-inter" href="#">About</a>
-</div>
-<button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-2.5 rounded-xl font-medium tracking-tight hover:opacity-80 transition-all duration-300 scale-95 active:scale-90 font-headline">
-                Book Now
-            </button>
-</div>
-</nav>
-<main class="pt-24">
+{% block title %}MatRox Residence{% endblock %}
+
+{% block content %}
 <!-- Hero Section -->
 <section class="relative min-h-[614px] flex items-center px-8 md:px-16 lg:px-24 overflow-hidden mb-20">
 <div class="absolute inset-0 z-0">
@@ -206,20 +111,4 @@
                 Book Your Residence Now
             </button>
 </section>
-</main>
-<!-- Footer -->
-<footer class="bg-zinc-100 dark:bg-zinc-950 w-full rounded-t-none tonal-transition border-t border-zinc-200/10">
-<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-full mx-auto">
-<div class="mb-8 md:mb-0">
-<div class="text-lg font-bold text-zinc-900 dark:text-zinc-50 font-headline">MatRox Residence</div>
-<p class="text-zinc-500 dark:text-zinc-400 font-inter text-sm tracking-wide mt-2">© 2024 MatRox Residence Cameroon. All rights reserved.</p>
-</div>
-<div class="flex flex-wrap justify-center gap-8 md:gap-12">
-<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
-<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Terms of Service</a>
-<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Contact Us</a>
-<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Careers</a>
-</div>
-</div>
-</footer>
-</body></html>
+{% endblock %}

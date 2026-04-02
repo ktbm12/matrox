@@ -1,0 +1,131 @@
+{% extends "base.html" %}
+
+{% block title %}Contact | MatRox Residence{% endblock %}
+
+{% block content %}
+<!-- Contact Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left: Contact Form -->
+<div class="lg:col-span-7 bg-surface-container-lowest p-10 rounded-xl shadow-[0px_20px_40px_rgba(27,28,28,0.06)]">
+<form class="space-y-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-on-surface-variant ml-1">Name</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all outline-none text-on-surface" placeholder="Your full name" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-on-surface-variant ml-1">Email</label>
+<input class="w-full bg-surface-container-highest border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all outline-none text-on-surface" placeholder="email@example.com" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-on-surface-variant ml-1">Subject</label>
+<select class="w-full bg-surface-container-highest border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all outline-none text-on-surface appearance-none">
+<option>Residence Inquiry</option>
+<option>Concierge Services</option>
+<option>Partnership Proposal</option>
+<option>General Support</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm uppercase tracking-widest text-on-surface-variant ml-1">Message</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-lg p-4 focus:ring-2 focus:ring-primary/30 transition-all outline-none text-on-surface resize-none" placeholder="How may we assist you today?" rows="5"></textarea>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline text-lg font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5">
+                        Send Message
+                    </button>
+</form>
+</div>
+<!-- Right: Contact Info -->
+<div class="lg:col-span-5 space-y-16 py-6">
+<div>
+<h3 class="font-headline text-3xl font-bold mb-8 text-on-surface">Our Offices</h3>
+<div class="space-y-12">
+<!-- Yaoundé -->
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2">Yaoundé Headquarters</h4>
+<p class="text-on-surface-variant leading-relaxed">
+                                    Avenue Winston Churchill<br/>
+                                    Bastos, Yaoundé, Cameroon
+                                </p>
+</div>
+</div>
+<!-- Douala -->
+<div class="flex gap-6">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-fixed rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">apartment</span>
+</div>
+<div>
+<h4 class="font-headline text-xl font-bold mb-2">Douala Branch</h4>
+<p class="text-on-surface-variant leading-relaxed">
+                                    Boulevard de la Liberté<br/>
+                                    Akwa, Douala, Cameroon
+                                </p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl space-y-6">
+<h3 class="font-headline text-2xl font-bold text-on-surface">Direct Lines</h3>
+<div class="space-y-4">
+<a class="flex items-center gap-4 group" href="tel:+237000000000">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">phone_in_talk</span>
+<span class="text-lg font-medium group-hover:text-primary transition-colors">+237 670 000 000</span>
+</a>
+<a class="flex items-center gap-4 group" href="mailto:concierge@matrox.com">
+<span class="material-symbols-outlined text-primary group-hover:scale-110 transition-transform">mail</span>
+<span class="text-lg font-medium group-hover:text-primary transition-colors">concierge@matrox.com</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+<!-- Location Section -->
+<section class="mt-32 space-y-10">
+<div class="flex flex-col md:flex-row justify-between items-end gap-6">
+<div>
+<span class="font-label text-xs uppercase tracking-[0.3em] text-primary font-bold">Strategic Map</span>
+<h2 class="font-headline text-5xl font-bold mt-2">Prime Destinations</h2>
+</div>
+<p class="text-on-surface-variant max-w-md md:text-right">
+                    Discover our strategically located residences in the heart of Cameroon's most prestigious districts.
+                </p>
+</div>
+<div class="w-full h-[500px] rounded-xl overflow-hidden shadow-xl bg-surface-container-high relative">
+<img class="w-full h-full object-cover" data-alt="Modern architectural map graphic with elegant minimalist markers on a clean grey background with subtle city textures" data-location="Yaounde" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5az-07CPq-ZGLm86vvjVHpdZwzYxTGQn0aXCUgL4SlEwj64O9fXEqnc6dBaZid5xOXfKA96wq6n8qB09gSFJ_k8aCHBjlkd31_SlUuULGtmg9pwz36sTvYrR7H0XyLT0lYclPOCL81j-5P7D73czEguiKlxBfdgQOwHpXqSgFKOSVBtoqKe1mA09E0l9Kgg-68ByjMpKDCEqs-XPIyLShwVLmOssPzVSRQEFsnckrs9vvOMKa17fitsvau0oM8Ypig9KlCPH8OQc"/>
+<div class="absolute bottom-8 left-8 bg-surface/90 backdrop-blur-md p-6 rounded-xl shadow-2xl max-w-xs border border-white/20">
+<h4 class="font-headline font-bold text-lg mb-2">Central Business District</h4>
+<p class="text-sm text-on-surface-variant">Access our concierge services directly from the main hub for an immediate tour of available suites.</p>
+</div>
+</div>
+</section>
+<!-- FAQ Preview -->
+<section class="mt-40 mb-20">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="space-y-8">
+<h2 class="font-headline text-5xl font-bold leading-tight">Curious about our services?</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        Find quick answers to common questions regarding lease terms, amenities, and our bespoke concierge experience.
+                    </p>
+<a class="inline-flex items-center gap-4 text-primary font-bold text-lg group" href="#">
+                        View full FAQ repository
+                        <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+<div class="grid gap-6">
+<div class="bg-surface-container p-6 rounded-xl border-l-4 border-primary">
+<h4 class="font-bold text-lg mb-2">What is the minimum lease term?</h4>
+<p class="text-on-surface-variant text-sm">We offer flexible luxury stays ranging from 1 month to multi-year corporate arrangements.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-xl">
+<h4 class="font-bold text-lg mb-2">Are pets allowed in the residences?</h4>
+<p class="text-on-surface-variant text-sm">Yes, we provide specialized pet concierge services for our residents' companions.</p>
+</div>
+</div>
+</div>
+</section>
+{% endblock %}

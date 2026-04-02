@@ -4,16 +4,16 @@
             MatRox Residence
         </div>
         <nav class="hidden md:flex items-center gap-8">
-            <a class="text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 pb-1 font-['Space_Grotesk'] font-bold tracking-tight" href="#">Explore</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">Services</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">About</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="#">Contact</a>
+            <a class="text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 pb-1 font-['Space_Grotesk'] font-bold tracking-tight" href="{% url 'home' %}">Explore</a>
+            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'service' %}">Services</a>
+            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'about' %}">About</a>
+            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'contact' %}">Contact</a>
         </nav>
         <div class="flex items-center gap-4">
             <button class="material-symbols-outlined text-stone-600 hover:bg-stone-50 p-2 rounded-full transition-all">account_circle</button>
-            <button class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-xl font-bold tracking-tight transition-transform active:scale-95">
+            <a class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-xl font-bold tracking-tight transition-transform active:scale-95" href="{% url 'contact' %}">
                 Book Now
-            </button>
+            </a>
         </div>
     </div>
 </header>
