@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MatRox Residence Admin Dashboard</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e9e8e7",
+              "inverse-primary": "#ffb68e",
+              "primary-fixed": "#ffdbca",
+              "primary": "#9b4500",
+              "on-secondary-fixed-variant": "#095300",
+              "on-primary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-secondary-fixed": "#022100",
+              "tertiary": "#375ca8",
+              "on-primary-fixed-variant": "#763300",
+              "inverse-surface": "#303031",
+              "tertiary-fixed-dim": "#b0c6ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e4e2e2",
+              "on-secondary": "#ffffff",
+              "tertiary-container": "#7a9cec",
+              "secondary-container": "#a0f487",
+              "on-tertiary-fixed-variant": "#1a438e",
+              "error-container": "#ffdad6",
+              "on-surface": "#1b1c1c",
+              "on-tertiary-container": "#003177",
+              "on-primary-container": "#5a2500",
+              "on-error-container": "#93000a",
+              "surface-variant": "#e4e2e2",
+              "on-background": "#1b1c1c",
+              "inverse-on-surface": "#f2f0f0",
+              "outline": "#8a7266",
+              "on-tertiary-fixed": "#001945",
+              "surface-dim": "#dbdad9",
+              "on-secondary-container": "#227213",
+              "outline-variant": "#dec1b2",
+              "secondary-fixed-dim": "#88da70",
+              "secondary-fixed": "#a3f789",
+              "primary-container": "#f47c2c",
+              "on-primary-fixed": "#331200",
+              "background": "#fbf9f8",
+              "on-error": "#ffffff",
+              "surface-container": "#efeded",
+              "primary-fixed-dim": "#ffb68e",
+              "tertiary-fixed": "#d9e2ff",
+              "secondary": "#1d6d0e",
+              "surface-tint": "#9b4500",
+              "surface-container-low": "#f5f3f3",
+              "surface-bright": "#fbf9f8",
+              "on-surface-variant": "#574237",
+              "surface": "#fbf9f8"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #fbf9f8;
+      }
+      .editorial-header {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+      .glass-nav {
+        background: rgba(251, 249, 248, 0.7);
+        backdrop-filter: blur(24px);
+      }
+    </style>
+</head>
+<body class="text-on-surface">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 border-r-0 bg-stone-50 dark:bg-stone-950 flex flex-col p-6 z-50">
+<div class="mb-10">
+<h1 class="text-2xl font-bold text-orange-700 dark:text-orange-500 tracking-tighter font-['Space_Grotesk']">MatRox</h1>
+<p class="text-stone-500 text-xs tracking-widest uppercase mt-1">Residence</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Active: Overview -->
+<a class="flex items-center gap-3 px-4 py-3 text-orange-700 dark:text-orange-400 font-semibold bg-stone-200/50 dark:bg-stone-800/50 rounded-xl transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Overview</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="apartment">apartment</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Properties</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 hover:bg-stone-100 dark:hover:bg-stone-900 transition-colors rounded-xl" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Space_Grotesk'] tracking-tight">Settings</span>
+</a>
+</nav>
+<div class="mt-auto">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-3 px-4 rounded-xl font-medium flex items-center justify-center gap-2 scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                Add Property
+            </button>
+<div class="mt-6 flex items-center gap-3 p-2 bg-stone-100/50 dark:bg-stone-900/50 rounded-xl">
+<img alt="MatRox Admin" class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a professional business administrator in a well-lit studio, neutral background, professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDljBA66d_9vBzDGdQfBvO7YljCQ8Mvxdvvsg8qnJPKBdU17Wg_jSa_8Wu0DjAZsBOGMs5ysEtO5uF59eYlsDAw6T1DnkA_NUuLPeu3X6y2x_SPq3n4A9AuvjB3My-sWd9tr8e5X7kx8X0RRC4sCC9vxM5cDa1UpBbOZH5mkzUN0sPxb4WJsFbaGrfmdFe8gJTwfcZsf9jaT4OIiCxWc-CeXgL46CItpOWd2to2H3mEb3tRjkkaTDeKzIBX3uNUQA4aFgO5uz6yZ_g"/>
+<div>
+<p class="text-xs font-bold text-on-surface">MatRox Admin</p>
+<p class="text-[10px] text-stone-500 uppercase tracking-widest">Master Key</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] z-40 bg-white/70 dark:bg-stone-900/70 backdrop-blur-xl flex justify-between items-center h-20 px-8 shadow-[0_20px_40px_rgba(27,28,28,0.04)]">
+<div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-stone-400 mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full font-body" placeholder="Search analytics, guests, properties..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-outline-variant/20 pr-6">
+<button class="p-2 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-stone-500" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 hover:bg-stone-50 dark:hover:bg-stone-800 rounded-full transition-all duration-300">
+<span class="material-symbols-outlined text-stone-500" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-['Inter'] font-medium text-sm">Admin Profile</span>
+<img alt="Administrator Avatar" class="w-8 h-8 rounded-full border border-primary/20" data-alt="Close up of a corporate professional male in his 40s, sharp features, blurred modern office background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBczgjEi3b7QkIYYoABZt8vbCnCquTlAVjxiveXKrpAcXz9owiWF83GjP7K4GkuPbx9VOxCUePH58MaRK5B_iAdPqnTLBGVsajfFRrpJjLwCZS52Wd1hB1f1NTSGOQgi-Y0fLPkq3egO4OeAPV82x7JIg56WiZfVkTWx6q-KkAte7RQpjIz2cwRZVqUyERg225oWh6GHjP-M9Ac-Bc2a0ukSPnDRPpUCBH1_cdrq-1e5uzNM6eSbXb5NxcukUTtuU6JxCjnHuPwqdM"/>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-20 p-8 min-h-screen bg-background">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-10">
+<div>
+<h2 class="text-4xl font-headline font-bold tracking-tighter text-on-surface">Portfolio Overview</h2>
+<p class="text-stone-500 mt-2 font-body font-light">Welcome back, MatRox Admin. Here is what's happening today, October 24, 2023.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-5 py-2.5 bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-medium rounded-xl text-sm transition-all border border-outline-variant/10">
+                    Export Report
+                </button>
+<button class="px-5 py-2.5 bg-on-surface text-surface font-medium rounded-xl text-sm hover:opacity-90 transition-all">
+                    Generate Insights
+                </button>
+</div>
+</header>
+<!-- Metrics Row -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+<!-- Metric Card: Revenue -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
+</div>
+<span class="text-secondary text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="trending_up">trending_up</span>
+                        +12.4%
+                    </span>
+</div>
+<p class="text-stone-500 text-xs font-label uppercase tracking-widest mb-1">Total Revenue</p>
+<h3 class="text-2xl font-headline font-bold text-on-surface">$142,580.00</h3>
+</div>
+<!-- Metric Card: Bookings -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg">
+<span class="material-symbols-outlined text-tertiary" data-icon="book_online">book_online</span>
+</div>
+<span class="text-on-surface-variant text-xs font-medium">Monthly Active</span>
+</div>
+<p class="text-stone-500 text-xs font-label uppercase tracking-widest mb-1">Active Bookings</p>
+<h3 class="text-2xl font-headline font-bold text-on-surface">84 Units</h3>
+</div>
+<!-- Metric Card: Occupancy -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary-container/30 rounded-lg">
+<span class="material-symbols-outlined text-secondary" data-icon="meeting_room">meeting_room</span>
+</div>
+<div class="w-16 h-1 bg-surface-container-high rounded-full overflow-hidden mt-3">
+<div class="bg-secondary h-full w-[94%]"></div>
+</div>
+</div>
+<p class="text-stone-500 text-xs font-label uppercase tracking-widest mb-1">Occupancy Rate</p>
+<h3 class="text-2xl font-headline font-bold text-on-surface">94.2%</h3>
+</div>
+<!-- Metric Card: Maintenance -->
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-error-container/30 rounded-lg">
+<span class="material-symbols-outlined text-error" data-icon="build">build</span>
+</div>
+<span class="text-error text-xs font-bold">Priority</span>
+</div>
+<p class="text-stone-500 text-xs font-label uppercase tracking-widest mb-1">Pending Maintenance</p>
+<h3 class="text-2xl font-headline font-bold text-on-surface">07 Requests</h3>
+</div>
+</div>
+<!-- Dashboard Body: Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Revenue Chart Area -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h4 class="text-xl font-headline font-bold">Revenue Trends</h4>
+<p class="text-sm text-stone-400 font-body">Historical performance over 6 months</p>
+</div>
+<div class="flex gap-2">
+<button class="px-3 py-1 text-xs font-medium rounded-full bg-primary-fixed text-on-primary-fixed">6 Months</button>
+<button class="px-3 py-1 text-xs font-medium rounded-full bg-surface-container text-on-surface-variant">1 Year</button>
+</div>
+</div>
+<!-- SVG Area Chart Placeholder -->
+<div class="h-64 w-full relative">
+<svg class="w-full h-full" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="chartGradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#f47c2c" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#f47c2c" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,150 Q100,120 200,140 T400,80 T600,100 T800,40 L800,200 L0,200 Z" fill="url(#chartGradient)"></path>
+<path d="M0,150 Q100,120 200,140 T400,80 T600,100 T800,40" fill="none" stroke="#9b4500" stroke-width="3"></path>
+<!-- Data Points -->
+<circle cx="200" cy="140" fill="#9b4500" r="4"></circle>
+<circle cx="400" cy="80" fill="#9b4500" r="4"></circle>
+<circle cx="600" cy="100" fill="#9b4500" r="4"></circle>
+<circle cx="800" cy="40" fill="#9b4500" r="4"></circle>
+</svg>
+<div class="absolute bottom-0 left-0 right-0 flex justify-between text-[10px] text-stone-400 font-label px-2">
+<span>MAY</span><span>JUN</span><span>JUL</span><span>AUG</span><span>SEP</span><span>OCT</span>
+</div>
+</div>
+</div>
+<!-- Top Performing Properties -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-6">
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5 flex-1">
+<h4 class="text-xl font-headline font-bold mb-6">Top Performers</h4>
+<div class="space-y-6">
+<!-- Property 1 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Modern minimalist luxury villa with floor to ceiling windows and a swimming pool, architectural photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlsQHS61_p4IVgPmW53wbUHIMCd7sbgIyz83Tohqw2l33wfYWEP48qGQHwb20AF-cgOHxcPVYbIWozT9vc9lVO7cpZgADohos6l9_X4ELs-mSEw9jDJsZpodw3seAOqHcSv4-U7cNbxt3MwlK9NWvTmrzq9UZthOox4d4d3QtStZkMWR8EJI2fEZCaZJVQkx5j5i4qrpJaXxFTUCy863bKvotmTPH3ED6zB7w8uglG6LnBfGjcR7mLx3VtwsdChr-K-g-ywOo3m2k"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold truncate">The Azure Penthouse</p>
+<p class="text-[11px] text-stone-400 font-label uppercase tracking-widest">Douala, CM</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$42k</p>
+<p class="text-[10px] text-secondary font-medium">98% Occ.</p>
+</div>
+</div>
+<!-- Property 2 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="High-end contemporary kitchen and dining area in an open concept luxury apartment, warm wooden tones" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4iEltDsANzpFj-gm2HF1PqJIs975kPdD3iU6ZnW9HtQ4XSAa0-TlteImVEuolnZ68RkvAsWGDXM8iWlwML9lJ0SWIk0IacDpnnl2yq8VD9jzngLn1qIf0mLC58CUMxjfGo_BIFXt3ZcF5JmrUCg82EGNE-KJAekookHlMDUD2ZKivP6Ce_EqmKwBPxonqIFF0yj4KWXakA_nu-GdAtfM8WtozAZi8IyXboDKFGFNKJXQ6tTKXzt-IvvQ3R-zwXvHTJhtZAWJOOyg"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold truncate">Stone Wood Manor</p>
+<p class="text-[11px] text-stone-400 font-label uppercase tracking-widest">Yaoundé, CM</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$38k</p>
+<p class="text-[10px] text-secondary font-medium">92% Occ.</p>
+</div>
+</div>
+<!-- Property 3 -->
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Elegant master bedroom in a boutique hotel style residence, plush neutral linens, soft ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHAZbUP3aiQcmG07x53zhasZM-BMNG5Kb18IgSYYxamXk7baqvj1KTknFRJBHgHA3kuY5-QFocBJAfDtmFIT1JSAlrVn6WH34b6GSpcIZ05BREPZtOgrEdw82ihaTXexIOc7GjRptygSX-n_JmK6GW1iFModmwh0obH2HwvY_k61l-jY65am3t0EeIgU2_OXaO1-rGXPdZiADjebEhMPPk7YgcfFqHdoxntPpzHZVlg6X0falNhrSv7CMiNZqzA77-Noay8PXHd1E"/>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold truncate">Kribi Sands Retreat</p>
+<p class="text-[11px] text-stone-400 font-label uppercase tracking-widest">Kribi, CM</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-bold text-primary">$29k</p>
+<p class="text-[10px] text-stone-400 font-medium">85% Occ.</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-xs font-bold text-primary border border-primary/20 rounded-xl hover:bg-primary/5 transition-all">
+                        View Detailed Portfolio
+                    </button>
+</div>
+</div>
+<!-- Recent Bookings Table -->
+<div class="col-span-12 bg-surface-container-lowest rounded-xl shadow-[0_4px_20px_rgba(27,28,28,0.02)] border border-outline-variant/5 overflow-hidden">
+<div class="p-8 border-b border-surface-container-high flex justify-between items-center">
+<div>
+<h4 class="text-xl font-headline font-bold">Recent Bookings</h4>
+<p class="text-sm text-stone-400 font-body">Latest guest arrivals and transactions</p>
+</div>
+<button class="p-2 hover:bg-stone-50 rounded-full transition-all">
+<span class="material-symbols-outlined text-stone-400" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body">
+<thead>
+<tr class="bg-surface-container-low/50">
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Guest Name</th>
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Property</th>
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Stay Duration</th>
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Total Amount</th>
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Status</th>
+<th class="px-8 py-4 text-[11px] font-label uppercase tracking-widest text-stone-500">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/50">
+<!-- Row 1 -->
+<tr class="hover:bg-stone-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-[10px] font-bold">JD</div>
+<span class="text-sm font-medium">Jean Dupont</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">The Azure Penthouse</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 24 - Oct 30</td>
+<td class="px-8 py-5 text-sm font-bold">$4,200.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-secondary-container/30 text-on-secondary-container text-[10px] font-bold">CONFIRMED</span>
+</td>
+<td class="px-8 py-5">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-stone-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-[10px] font-bold">SO</div>
+<span class="text-sm font-medium">Sarah Onana</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Stone Wood Manor</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 22 - Oct 25</td>
+<td class="px-8 py-5 text-sm font-bold">$1,850.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold">PENDING</span>
+</td>
+<td class="px-8 py-5">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-stone-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-[10px] font-bold">MK</div>
+<span class="text-sm font-medium">Michael Kamga</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Kribi Sands Retreat</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 15 - Oct 20</td>
+<td class="px-8 py-5 text-sm font-bold">$2,100.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold">COMPLETED</span>
+</td>
+<td class="px-8 py-5">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-stone-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-[10px] font-bold">ET</div>
+<span class="text-sm font-medium">Elena Tchakoute</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">The Azure Penthouse</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 10 - Oct 15</td>
+<td class="px-8 py-5 text-sm font-bold">$3,500.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold">COMPLETED</span>
+</td>
+<td class="px-8 py-5">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-stone-50 transition-colors">
+<td class="px-8 py-5">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-stone-200 flex items-center justify-center text-[10px] font-bold">RB</div>
+<span class="text-sm font-medium">Robert Biya</span>
+</div>
+</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Stone Wood Manor</td>
+<td class="px-8 py-5 text-sm text-on-surface-variant">Oct 08 - Oct 12</td>
+<td class="px-8 py-5 text-sm font-bold">$1,200.00</td>
+<td class="px-8 py-5">
+<span class="px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant text-[10px] font-bold">COMPLETED</span>
+</td>
+<td class="px-8 py-5">
+<span class="material-symbols-outlined text-stone-400 cursor-pointer" data-icon="more_horiz">more_horiz</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="p-4 bg-surface-container-low/30 text-center">
+<button class="text-xs font-bold text-stone-400 hover:text-primary transition-colors">View All Bookings History</button>
+</div>
+</div>
+</div>
+<!-- Footer Editorial Spacing -->
+<footer class="mt-20 py-10 border-t border-surface-container-high/50 flex justify-between items-center text-stone-400 text-xs font-label tracking-widest">
+<p>© 2023 MATROX RESIDENCE. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">SYSTEM STATUS</a>
+<a class="hover:text-primary transition-colors" href="#">PRIVACY POLICY</a>
+<a class="hover:text-primary transition-colors" href="#">SUPPORT</a>
+</div>
+</footer>
+</main>
+</body></html>
