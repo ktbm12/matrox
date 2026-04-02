@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Us | MatRox Residence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-fixed-dim": "#b0c6ff",
+              "on-tertiary": "#ffffff",
+              "tertiary": "#375ca8",
+              "on-secondary-fixed": "#022100",
+              "on-primary-fixed-variant": "#763300",
+              "inverse-surface": "#303031",
+              "tertiary-container": "#7a9cec",
+              "secondary-container": "#a0f487",
+              "on-tertiary-fixed-variant": "#1a438e",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-highest": "#e4e2e2",
+              "on-secondary": "#ffffff",
+              "primary-fixed": "#ffdbca",
+              "primary": "#9b4500",
+              "inverse-primary": "#ffb68e",
+              "surface-container-high": "#e9e8e7",
+              "error": "#ba1a1a",
+              "on-secondary-fixed-variant": "#095300",
+              "on-primary": "#ffffff",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#ffb68e",
+              "surface-container": "#efeded",
+              "on-primary-fixed": "#331200",
+              "background": "#fbf9f8",
+              "surface": "#fbf9f8",
+              "surface-container-low": "#f5f3f3",
+              "surface-bright": "#fbf9f8",
+              "on-surface-variant": "#574237",
+              "tertiary-fixed": "#d9e2ff",
+              "surface-tint": "#9b4500",
+              "secondary": "#1d6d0e",
+              "surface-variant": "#e4e2e2",
+              "on-background": "#1b1c1c",
+              "inverse-on-surface": "#f2f0f0",
+              "on-surface": "#1b1c1c",
+              "on-tertiary-container": "#003177",
+              "on-primary-container": "#5a2500",
+              "on-error-container": "#93000a",
+              "outline-variant": "#dec1b2",
+              "secondary-fixed-dim": "#88da70",
+              "secondary-fixed": "#a3f789",
+              "primary-container": "#f47c2c",
+              "surface-dim": "#dbdad9",
+              "outline": "#8a7266",
+              "on-tertiary-fixed": "#001945",
+              "on-secondary-container": "#227213"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Inter', sans-serif; }
+      h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+      .glass-nav {
+        background: rgba(251, 249, 248, 0.7);
+        backdrop-filter: blur(24px);
+      }
+      .tonal-transition {
+        transition: background-color 0.3s ease;
+      }
+      .primary-gradient {
+        background: linear-gradient(45deg, #9b4500, #f47c2c);
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-sm dark:shadow-none tonal-transition bg-surface-container-low/50">
+<div class="flex justify-between items-center px-8 py-4 max-w-full mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-zinc-900 dark:text-zinc-50 font-space-grotesk tracking-tight">
+                MatRox Residence
+            </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-space-grotesk tracking-tight" href="#">Home</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-space-grotesk tracking-tight" href="#">Residences</a>
+<a class="text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors font-space-grotesk tracking-tight" href="#">Services</a>
+<a class="text-orange-700 dark:text-orange-400 font-bold border-b-2 border-orange-700 dark:border-orange-400 pb-1 font-space-grotesk tracking-tight" href="#">About</a>
+</div>
+<button class="primary-gradient text-on-primary px-6 py-2.5 rounded-xl font-medium scale-95 active:scale-90 transition-transform hover:opacity-80 transition-all duration-300">
+                Book Now
+            </button>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative h-[819px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Luxury Cameroon Residence" class="w-full h-full object-cover" data-alt="Stunning modern luxury villa in Cameroon featuring clean architectural lines, large glass windows, and a turquoise swimming pool at sunset with warm ambient lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5sm31erfn9eNkbPzcaZT4HoENjZlgc644zhYoqkAKY0Ca321LTwuxYxY_Cyuqzk6xuBP3pybNMTJJ4fys2ffpudq4cLNsPJbe7Lcoq7ViRgnLBNljVu_1X1EZmoRHjCS-ca0jihkk_bAPCWkNaZsG-YAXjPceAM_aklIXaIJRPdyLSfzUauV523C7qkSWJWQn4kRIYCDlEaNKCLZJVTFr_KfU1Z6MwL7YfjXK7qJWtrSU71Tjcritc4R4_8qooc_Cepnr0TygCkY"/>
+<div class="absolute inset-0 bg-on-surface/40"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-4xl">
+<span class="text-primary-fixed font-label uppercase tracking-[0.2em] text-sm mb-4 block">Redefining Excellence</span>
+<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tighter leading-none">
+                    About MatRox Residence
+                </h1>
+<p class="text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed">
+                    Bringing the world's most sophisticated living standards to the heart of Cameroon.
+                </p>
+</div>
+</section>
+<!-- Our Story Section (Asymmetric Layout) -->
+<section class="py-24 px-8 md:px-24 bg-surface">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<h2 class="text-4xl md:text-5xl font-bold text-on-surface mb-8 tracking-tight">Our Story</h2>
+<div class="space-y-6 text-on-surface-variant leading-loose text-lg">
+<p>
+                            MatRox Residence was born from a singular vision: to bridge the gap between global hospitality excellence and the vibrant potential of Cameroon. We noticed that while the demand for high-end living was growing, the execution often fell short of international standards.
+                        </p>
+<p>
+                            Founded by a consortium of local visionaries and international architects, we embarked on a mission to create spaces that aren't just buildings, but experiences. Every stone laid and every service curated at MatRox is a testament to our commitment to luxury without compromise.
+                        </p>
+</div>
+<div class="mt-12 flex gap-4 items-center">
+<div class="h-[1px] w-12 bg-primary"></div>
+<span class="text-primary font-medium tracking-wide uppercase text-sm">Established 2024</span>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<div class="relative">
+<div class="absolute -top-6 -left-6 w-full h-full border border-outline-variant/20 rounded-lg"></div>
+<img alt="Interior Design" class="rounded-lg shadow-xl relative z-10 w-full h-[500px] object-cover" data-alt="Ultra-modern minimalist interior living room with high ceilings, neutral tones, bespoke furniture, and lush green plants in architectural planters." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDP3NDffpPuDhzE566leE08bJeYj97SZr8jNk_gaCwxQ5TU6nYOosfNMDjkVYmH0AxDZrlRdAV3LafYdAiGTobFRNG06xJx_kOfMHCNqI3_bETaGZ90XtkuSs5_na54_VpSRkE6OUa_j9PRFFUUBkQxsXfPAGF-ONZK338odqHGut3HhwBXYxaUM3eJ0o99t7JLUjfu3AJFklVBf8r7tGwxQHY7H4oyp0zbYOLQkQIiQXvC0dDNEU4ZMK8dn2JVCgmt773KM-ScqRM"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Mission & Vision (Bento Grid) -->
+<section class="py-24 px-8 md:px-24 bg-surface-container-low">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-bold text-on-surface tracking-tight mb-4">Values that Anchor Us</h2>
+<p class="text-on-surface-variant max-w-xl">Our principles are the foundation of every guest interaction and architectural detail.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[600px]">
+<div class="md:col-span-8 bg-surface-container-lowest p-12 rounded-lg flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="verified">verified</span>
+<h3 class="text-3xl font-bold mb-4">Our Mission</h3>
+<p class="text-xl text-on-surface-variant leading-relaxed font-light">
+                                To provide an unparalleled sanctuary of luxury and security for international travelers and residents, ensuring that "home" is defined by comfort, prestige, and seamless hospitality.
+                            </p>
+</div>
+<div class="mt-8 flex flex-wrap gap-3">
+<span class="px-6 py-2 bg-surface-container-high rounded-full text-xs font-bold tracking-widest uppercase text-on-surface">Premium Standards</span>
+<span class="px-6 py-2 bg-surface-container-high rounded-full text-xs font-bold tracking-widest uppercase text-on-surface">Local Heritage</span>
+</div>
+</div>
+<div class="md:col-span-4 bg-primary text-white p-12 rounded-lg flex flex-col justify-center">
+<span class="material-symbols-outlined text-white/50 text-6xl mb-8" data-icon="visibility">visibility</span>
+<h3 class="text-3xl font-bold mb-4">Our Vision</h3>
+<p class="text-lg text-white/80 leading-relaxed font-light">
+                            To become the definitive benchmark for luxury residences in West Africa by 2030.
+                        </p>
+</div>
+<div class="md:col-span-4 bg-surface-container-highest p-12 rounded-lg">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="loyalty">loyalty</span>
+<h3 class="text-xl font-bold mb-2">Unwavering Trust</h3>
+<p class="text-on-surface-variant leading-relaxed">Safety and privacy are not features; they are our baseline.</p>
+</div>
+<div class="md:col-span-8 bg-white p-12 rounded-lg shadow-sm flex items-center gap-8">
+<div class="flex-shrink-0">
+<div class="w-16 h-16 rounded-full bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="handshake">handshake</span>
+</div>
+</div>
+<div>
+<h3 class="text-xl font-bold mb-2">Bespoke Hospitality</h3>
+<p class="text-on-surface-variant leading-relaxed">Personalized concierge services that anticipate your needs before you express them.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Our Commitment Section -->
+<section class="py-24 px-8 md:px-24 bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+<div class="w-full md:w-1/2">
+<img alt="Team Meeting" class="rounded-lg shadow-2xl h-[400px] w-full object-cover" data-alt="A professional, diverse team of experts in a modern glass-walled boardroom discussing blueprints and architectural designs with natural light." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXh-s3irVKFTn-QNH_9nv9B7Z0FqdUI-mRNFOQCwpdwQrfquWoEPtxMUpG3Vlj1fMKSVFzaH5_M8SurvAmgb3xhvmtejk5gaA0j508fbd-YW8GDYf7Nl8hQD4nSzmxj3e3wPgb7VSFbZD8o9zzM-inO2zwwWwBzBiPwWM6KKBzwIan-K7hQM5rWdczEVgz_nUD7dPh08hoMzryyn1oySx5n6kBSBjJjfL82dcGtaPuNozXmEnBEQeqT0OPw_1T-kaiHS6yn-q4RmA"/>
+</div>
+<div class="w-full md:w-1/2">
+<h2 class="text-4xl font-bold text-on-surface mb-8 tracking-tight">Our Commitment</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        We blend local expertise with international standards. Our team consists of world-class engineers, hospitality experts, and cultural ambassadors who ensure your stay is both culturally rich and globally sophisticated.
+                    </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold">24/7 Concierge Support</h4>
+<p class="text-sm text-on-surface-variant">Global standards in service delivery.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold">Local Cultural Integration</h4>
+<p class="text-sm text-on-surface-variant">Supporting and showcasing Cameroonian craftsmanship.</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-primary mt-1" data-icon="check_circle">check_circle</span>
+<div>
+<h4 class="font-bold">Sustainable Luxury</h4>
+<p class="text-sm text-on-surface-variant">Eco-friendly practices in premium living.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-24 px-8 md:px-24">
+<div class="max-w-5xl mx-auto primary-gradient rounded-3xl p-12 md:p-24 text-center text-white relative overflow-hidden">
+<div class="absolute top-0 right-0 opacity-10">
+<span class="material-symbols-outlined text-[300px]" data-icon="apartment">apartment</span>
+</div>
+<h2 class="text-4xl md:text-5xl font-bold mb-8 relative z-10 tracking-tight">Experience MatRox Today</h2>
+<p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto relative z-10">
+                    Discover why we are the preferred choice for discerning travelers and permanent residents alike.
+                </p>
+<div class="flex flex-col md:flex-row gap-4 justify-center relative z-10">
+<button class="bg-white text-primary px-10 py-4 rounded-xl font-bold hover:bg-surface-bright transition-colors shadow-lg">
+                        View Residences
+                    </button>
+<button class="border border-white/30 text-white px-10 py-4 rounded-xl font-bold hover:bg-white/10 transition-colors backdrop-blur-sm">
+                        Contact Sales
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-zinc-100 dark:bg-zinc-950 w-full rounded-t-none tonal-transition border-t border-zinc-200/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full">
+<div class="mb-8 md:mb-0">
+<div class="text-lg font-bold text-zinc-900 dark:text-zinc-50 mb-2">MatRox Residence</div>
+<p class="text-zinc-500 dark:text-zinc-400 font-inter text-sm tracking-wide max-w-xs">Elevating the standard of living in Cameroon and beyond.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 mb-8 md:mb-0">
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Privacy Policy</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Terms of Service</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Contact Us</a>
+<a class="text-zinc-500 dark:text-zinc-400 hover:text-orange-500 transition-colors font-inter text-sm tracking-wide opacity-100 hover:opacity-80" href="#">Careers</a>
+</div>
+<div class="text-zinc-500 dark:text-zinc-400 font-inter text-sm tracking-wide">
+                © 2024 MatRox Residence Cameroon. All rights reserved.
+            </div>
+</div>
+</footer>
+</body></html>
