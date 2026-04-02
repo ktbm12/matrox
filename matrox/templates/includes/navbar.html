@@ -1,21 +1,216 @@
-<header class="sticky top-0 z-50 w-full bg-white/70 dark:bg-stone-950/70 backdrop-blur-2xl shadow-[0_20px_40px_rgba(27,28,28,0.06)]">
-    <div class="flex justify-between items-center px-6 md:px-12 py-4 w-full max-w-screen-2xl mx-auto">
-        <a href="{% url 'home' %}">
-        <div class="text-2xl font-black text-stone-900 dark:text-stone-50 tracking-tighter font-['Space_Grotesk']">
-            MatRox Residence
-        </div>
-        </a>
-        <nav class="hidden md:flex items-center gap-8">
-            <a class="text-orange-600 dark:text-orange-400 border-b-2 border-orange-600 pb-1 font-['Space_Grotesk'] font-bold tracking-tight" href="{% url 'home' %}">Explore</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'service' %}">Services</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'about' %}">About</a>
-            <a class="text-stone-600 dark:text-stone-400 hover:text-orange-500 font-['Space_Grotesk'] font-bold tracking-tight transition-all duration-300" href="{% url 'contact' %}">Contact</a>
-        </nav>
-        <div class="flex items-center gap-4">
-            <button class="material-symbols-outlined text-stone-600 hover:bg-stone-50 p-2 rounded-full transition-all">account_circle</button>
-            <a class="bg-primary hover:bg-primary-container text-on-primary px-6 py-2.5 rounded-xl font-bold tracking-tight transition-transform active:scale-95" href="{% url 'contact' %}">
-                Book Now
-            </a>
-        </div>
+{% load static %}
+
+<header
+  class="sticky top-0 z-50 w-full bg-white/75 dark:bg-stone-950/75 backdrop-blur-2xl border-b border-stone-100/80 dark:border-stone-800/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)]"
+  role="banner"
+>
+  <div class="flex justify-between items-center px-6 md:px-12 h-16 w-full max-w-screen-2xl mx-auto">
+
+    <!-- ── Logo ── -->
+    <a
+      href="{% url 'home' %}"
+      aria-label="MatRox Residence — Retour à l'accueil"
+      class="flex items-center gap-2.5 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-md"
+    >
+      <!-- Logo image (remplacez le src par votre chemin réel) -->
+      <img
+        src="{% static 'images/image.png' %}"
+        alt="MatRox Residence"
+        class="h-9 w-auto object-contain"
+        width="120"
+        height="36"
+      />
+      <!-- Fallback texte si l'image ne charge pas — masqué sinon -->
+      <span class="sr-only">MatRox Residence</span>
+    </a>
+
+    <!-- ── Navigation desktop ── -->
+    <nav
+      aria-label="Navigation principale"
+      class="hidden md:flex items-center gap-8"
+    >
+      <a
+        href="{% url 'home' %}"
+        class="relative text-orange-600 dark:text-orange-400 font-semibold tracking-tight text-sm
+               after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-orange-500 after:rounded-full
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm px-1"
+        aria-current="page"
+      >
+        Explore
+      </a>
+      <a
+        href="{% url 'service' %}"
+        class="text-stone-600 dark:text-stone-400 hover:text-orange-500 dark:hover:text-orange-400
+               font-semibold tracking-tight text-sm transition-colors duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm px-1"
+      >
+        Services
+      </a>
+      <a
+        href="{% url 'about' %}"
+        class="text-stone-600 dark:text-stone-400 hover:text-orange-500 dark:hover:text-orange-400
+               font-semibold tracking-tight text-sm transition-colors duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm px-1"
+      >
+        About
+      </a>
+      <a
+        href="{% url 'contact' %}"
+        class="text-stone-600 dark:text-stone-400 hover:text-orange-500 dark:hover:text-orange-400
+               font-semibold tracking-tight text-sm transition-colors duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-sm px-1"
+      >
+        Contact
+      </a>
+    </nav>
+
+    <!-- ── Actions desktop ── -->
+    <div class="hidden md:flex items-center gap-3">
+      <!-- Bouton compte — aria-label obligatoire sur icon-only -->
+      <a
+        href="{% url 'contact' %}"
+        aria-label="Mon compte"
+        class="flex items-center justify-center w-9 h-9 rounded-full text-stone-500 dark:text-stone-400
+               hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      >
+        <span class="material-symbols-outlined text-[22px]" aria-hidden="true">account_circle</span>
+      </a>
+
+      <!-- CTA principal — classes Tailwind standard (orange-600 remplace bg-primary) -->
+      <a
+        href="{% url 'contact' %}"
+        class="bg-orange-600 hover:bg-orange-700 active:scale-95 text-white
+               px-5 py-2 rounded-xl text-sm font-bold tracking-tight
+               transition-all duration-200
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2"
+      >
+        Book Now
+      </a>
     </div>
+
+    <!-- ── Hamburger mobile (Alpine.js) ── -->
+    <div class="md:hidden flex items-center gap-2" x-data="{ open: false }">
+
+      <!-- Bouton compte mobile -->
+      <a
+        href="{% url 'contact' %}"
+        aria-label="Mon compte"
+        class="flex items-center justify-center w-9 h-9 rounded-full text-stone-500
+               hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      >
+        <span class="material-symbols-outlined text-[22px]" aria-hidden="true">account_circle</span>
+      </a>
+
+      <!-- Bouton hamburger -->
+      <button
+        @click="open = !open"
+        :aria-expanded="open.toString()"
+        aria-controls="mobile-menu"
+        aria-label="Ouvrir le menu de navigation"
+        class="flex items-center justify-center w-9 h-9 rounded-lg text-stone-600 dark:text-stone-400
+               hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+      >
+        <!-- Icône hamburger → croix -->
+        <svg
+          class="w-5 h-5 transition-transform duration-200"
+          :class="open ? 'rotate-45' : ''"
+          fill="none" stroke="currentColor" stroke-width="2"
+          viewBox="0 0 24 24" aria-hidden="true"
+        >
+          <span x-show="!open">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </span>
+          <span x-show="open" x-cloak>
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </span>
+        </svg>
+      </button>
+
+      <!-- ── Drawer mobile ── -->
+      <div
+        id="mobile-menu"
+        x-show="open"
+        x-cloak
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 -translate-y-2"
+        x-transition:enter-end="opacity-100 translate-y-0"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 translate-y-0"
+        x-transition:leave-end="opacity-0 -translate-y-2"
+        @keydown.escape="open = false"
+        class="absolute top-16 left-0 right-0 bg-white/95 dark:bg-stone-950/95 backdrop-blur-xl
+               border-b border-stone-100 dark:border-stone-800
+               shadow-xl shadow-black/10 z-50"
+        role="dialog"
+        aria-label="Menu de navigation mobile"
+      >
+        <nav
+          aria-label="Navigation mobile"
+          class="flex flex-col px-6 py-4 gap-1"
+        >
+          <a
+            href="{% url 'home' %}"
+            @click="open = false"
+            class="flex items-center justify-between px-3 py-3 rounded-xl
+                   text-orange-600 dark:text-orange-400 font-semibold text-sm
+                   bg-orange-50 dark:bg-orange-950/30
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            aria-current="page"
+          >
+            Explore
+            <span class="text-xs bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 px-2 py-0.5 rounded-full">Actif</span>
+          </a>
+          <a
+            href="{% url 'service' %}"
+            @click="open = false"
+            class="flex items-center px-3 py-3 rounded-xl text-stone-700 dark:text-stone-300
+                   hover:bg-stone-50 dark:hover:bg-stone-900 font-semibold text-sm
+                   transition-colors duration-150
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+          >
+            Services
+          </a>
+          <a
+            href="{% url 'about' %}"
+            @click="open = false"
+            class="flex items-center px-3 py-3 rounded-xl text-stone-700 dark:text-stone-300
+                   hover:bg-stone-50 dark:hover:bg-stone-900 font-semibold text-sm
+                   transition-colors duration-150
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+          >
+            About
+          </a>
+          <a
+            href="{% url 'contact' %}"
+            @click="open = false"
+            class="flex items-center px-3 py-3 rounded-xl text-stone-700 dark:text-stone-300
+                   hover:bg-stone-50 dark:hover:bg-stone-900 font-semibold text-sm
+                   transition-colors duration-150
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+          >
+            Contact
+          </a>
+
+          <!-- CTA mobile -->
+          <div class="pt-3 mt-2 border-t border-stone-100 dark:border-stone-800">
+            <a
+              href="{% url 'contact' %}"
+              @click="open = false"
+              class="block text-center bg-orange-600 hover:bg-orange-700 active:scale-95
+                     text-white px-5 py-3 rounded-xl text-sm font-bold tracking-tight
+                     transition-all duration-200
+                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500"
+            >
+              Book Now
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!-- /hamburger -->
+
+  </div>
 </header>
