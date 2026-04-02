@@ -1,229 +1,223 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %}MatRox Residence | Luxury Apartments{% endblock %}
+{% block title %}MatRox Residence | Nos Appartements d'Élite{% endblock %}
 
 {% block content %}
-<!-- Hero & Filters Section -->
-<section class="mb-16">
-<div class="max-w-3xl mb-12">
-<h1 class="text-5xl md:text-7xl font-headline font-bold tracking-tighter text-on-surface mb-6 leading-tight">
-                    Refined Living in <span class="text-primary">Cameroon</span>.
-                </h1>
-<p class="text-lg text-on-surface-variant leading-relaxed max-w-xl">
-                    Experience the pinnacle of editorial luxury. Hand-selected residences designed for the discerning traveler and local elite.
-                </p>
-</div>
-<!-- Search & Filter Bar -->
-<div class="bg-surface-container-lowest p-4 md:p-6 rounded-3xl shadow-[0_20px_40px_rgba(27,28,28,0.04)] flex flex-col md:flex-row gap-4 items-end">
-<div class="w-full md:flex-1 space-y-2">
-<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Location</label>
-<div class="relative">
-<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline-variant">location_on</span>
-<input class="w-full bg-surface-container-highest border-none rounded-xl py-3 pl-12 pr-4 focus:ring-2 focus:ring-primary/20 text-on-surface placeholder:text-outline-variant transition-all" placeholder="Where are you going?" type="text"/>
-</div>
-</div>
-<div class="w-full md:w-48 space-y-2">
-<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Type</label>
-<select class="w-full bg-surface-container-highest border-none rounded-xl py-3 px-4 focus:ring-2 focus:ring-primary/20 text-on-surface appearance-none transition-all">
-<option>Penthouse</option>
-<option>Studio</option>
-<option>Boutique</option>
-</select>
-</div>
-<div class="w-full md:w-64 space-y-2">
-<label class="block text-xs font-bold tracking-widest text-outline uppercase ml-1">Price Range (XAF)</label>
-<div class="px-2 pt-4 pb-2">
-<input class="w-full h-1.5 bg-surface-container-high rounded-full appearance-none cursor-pointer accent-primary" max="500000" min="50000" step="10000" type="range"/>
-<div class="flex justify-between mt-2 text-[10px] font-bold text-outline uppercase">
-<span>50k</span>
-<span>500k</span>
-</div>
-</div>
-</div>
-<button class="w-full md:w-auto premium-gradient text-on-primary px-8 py-3.5 rounded-xl font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform">
-<span class="material-symbols-outlined" data-icon="search">search</span>
-                    Search
-                </button>
-</div>
+
+<!-- ══ Hero Liste ══ -->
+<section class="bg-stone-50 dark:bg-stone-950 border-b border-stone-200/60 dark:border-stone-800/50 py-16 md:py-24">
+  <div class="max-w-screen-xl mx-auto px-5 md:px-10">
+    <div class="max-w-3xl">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-[10px] font-bold tracking-[0.2em] uppercase mb-6">
+        Collections Privées
+      </span>
+      <h1 class="font-headline text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-stone-900 dark:text-white mb-6 leading-[1.1]">
+        Vivre l'exceptionnel au <span class="text-orange-600 dark:text-orange-500">Cameroun</span>.
+      </h1>
+      <p class="text-stone-500 dark:text-stone-400 text-lg md:text-xl leading-relaxed max-w-2xl">
+        Une sélection rigoureuse de résidences haut de gamme, conçues pour les voyageurs exigeants et l'élite locale.
+      </p>
+    </div>
+
+    <!-- ══ Barre de Recherche & Filtres (Desktop & Tablet) ══ -->
+    <div class="mt-12 bg-white dark:bg-stone-900 p-3 md:p-4 rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.06)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.4)] border border-stone-100 dark:border-stone-800/80">
+      <form method="GET" action="{% url 'liste' %}" class="flex flex-col lg:flex-row items-stretch gap-3">
+        
+        <!-- Localisation -->
+        <div class="flex-1 min-w-0">
+          <label class="block text-[10px] font-bold tracking-widest text-stone-400 dark:text-stone-500 uppercase ml-4 mb-1">Localisation</label>
+          <div class="relative group">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-orange-500 transition-colors">
+              <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </span>
+            <input type="text" name="location" placeholder="Où souhaitez-vous loger ?"
+                   class="w-full bg-stone-50 dark:bg-stone-800/60 border-none rounded-2xl py-3.5 pl-12 pr-4 text-sm text-stone-800 dark:text-stone-200 placeholder:text-stone-400 focus:ring-2 focus:ring-orange-500/20 transition-all"/>
+          </div>
+        </div>
+
+        <!-- Type -->
+        <div class="w-full lg:w-56 shrink-0">
+          <label class="block text-[10px] font-bold tracking-widest text-stone-400 dark:text-stone-500 uppercase ml-4 mb-1">Type de bien</label>
+          <div class="relative group">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+              <svg class="w-4.5 h-4.5" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+              </svg>
+            </span>
+            <select name="type" class="w-full bg-stone-50 dark:bg-stone-800/60 border-none rounded-2xl py-3.5 pl-12 pr-10 text-sm text-stone-800 dark:text-stone-200 appearance-none focus:ring-2 focus:ring-orange-500/20 transition-all">
+              <option value="">Tout types</option>
+              <option value="penthouse">Penthouse</option>
+              <option value="studio">Studio Deluxe</option>
+              <option value="residence">Résidence</option>
+            </select>
+            <span class="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 pointer-events-none">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- Prix Range -->
+        <div class="w-full lg:w-64 shrink-0 px-2 lg:px-4 flex flex-col justify-center">
+          <label class="block text-[10px] font-bold tracking-widest text-stone-400 dark:text-stone-500 uppercase mb-2">Budget max (XAF)</label>
+          <input type="range" min="50000" max="1000000" step="50000" class="w-full h-1.5 bg-stone-100 dark:bg-stone-800 rounded-full appearance-none cursor-pointer accent-orange-600"/>
+          <div class="flex justify-between mt-2 text-[9px] font-bold text-stone-400 dark:text-stone-600 uppercase tracking-tighter">
+            <span>50k</span>
+            <span>1M+</span>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <button class="w-full lg:w-auto bg-orange-600 hover:bg-orange-700 text-white font-bold px-8 py-3.5 rounded-2xl shadow-lg shadow-orange-600/20 transition-all flex items-center justify-center gap-2 active:scale-95 shrink-0">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          Rechercher
+        </button>
+      </form>
+    </div>
+  </div>
 </section>
-<div class="flex flex-col lg:flex-row gap-12">
-<!-- Sidebar Filters -->
-<aside class="w-full lg:w-64 space-y-10">
-<div>
-<h3 class="font-headline font-bold text-lg mb-6">Amenities</h3>
-<div class="space-y-4">
-<label class="flex items-center gap-3 cursor-pointer group">
-<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
-<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Infinity Pool</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
-<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">24/7 Concierge</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
-<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">High-speed WiFi</span>
-</label>
-<label class="flex items-center gap-3 cursor-pointer group">
-<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary transition-all" type="checkbox"/>
-<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Private Gym</span>
-</label>
-</div>
-</div>
-<div class="p-6 bg-primary-fixed rounded-3xl">
-<span class="material-symbols-outlined text-on-primary-fixed mb-4" data-icon="star">star</span>
-<h4 class="font-headline font-bold text-on-primary-fixed mb-2">Member Perks</h4>
-<p class="text-xs text-on-primary-fixed-variant leading-relaxed">Join our elite program for 15% off bookings and late check-out priority.</p>
-</div>
-</aside>
-<!-- Main Listing Grid -->
-<section class="flex-1">
-<div class="flex items-baseline justify-between mb-8">
-<h2 class="font-headline font-bold text-2xl">Available Residences <span class="text-outline-variant text-base font-normal ml-2">(12 Properties)</span></h2>
-<div class="flex gap-2">
-<button class="p-2 bg-surface-container rounded-lg text-primary"><span class="material-symbols-outlined" data-icon="grid_view">grid_view</span></button>
-<button class="p-2 text-outline-variant hover:text-primary transition-colors"><span class="material-symbols-outlined" data-icon="list">list</span></button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<!-- Card 1 -->
-<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
-<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="ultra-modern luxury penthouse living room with floor-to-ceiling windows overlooking a sunset cityscape, minimalist furniture, and warm ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-nPKT0hB0nZTScqszzoIXJGRhf5XABa9dNW-As_cDvux7uc4Y6Aby2uAFqwZ_x7CDnLkwNLUF-vD9cbTfDHAicHA1gLxxbBUDfRTVF3mlW7RlnOnGUXT_OZ6ymm55krPOBygCkclNInuGJWgyekg3l9Oiev2b07CVF9SwiZLGVIeZCPY1iUaI1a5q0cTbExFeyZPf0JAWIbRX6vxVJUph00kZJkMazpg6ZwO-8i06PbZk_n5bFHOzeZ6jma5vPQqc7KtADr0gBVk"/>
-<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase text-primary">Featured</div>
-<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-</button>
-</div>
-<div class="px-2">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">The Azure Penthouse</h3>
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="text-sm font-bold">4.9</span>
-</div>
-</div>
-<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
-<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
-                                Bonanjo, Douala
-                            </div>
-<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
-<div>
-<span class="text-lg font-bold text-primary">120,000 XAF</span>
-<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
-</div>
-<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
-                                    View Details
-                                </button>
-</div>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
-<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="contemporary open-plan kitchen and dining area with marble accents, gold light fixtures, and high-end wooden cabinetry in a luxury apartment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNjHsQXAQVZywVwu3d6yFGv0WJlGDyGCZmxoy3Smfr_5hdxbmDnYLoIVy60snYWNDFwbuA9LEkcCr7R7JxTCkBfLVpttAD3o6aKVDZsBxIcbEmsnjE_WJybQyKopdEa1PvZ64LvOykoXazytmpR_6Yy-fGkHjpmpFH_vGvuHUxjvn3ie7eXPQVCPuoVQu_C6ZwL7Kuu-7dNtx5NUSLhq-wX2aOCEg_SC0OPfnl9GdOucJowgUXlyhuwWCl8-WwWQNmk_8mY1SD8mg"/>
-<div class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase text-primary">New</div>
-<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-</button>
-</div>
-<div class="px-2">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Boutique Garden Loft</h3>
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="text-sm font-bold">4.8</span>
-</div>
-</div>
-<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
-<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
-                                Bastos, Yaoundé
-                            </div>
-<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
-<div>
-<span class="text-lg font-bold text-primary">85,000 XAF</span>
-<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
-</div>
-<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
-                                    View Details
-                                </button>
-</div>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
-<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="serene master bedroom in a boutique residence with soft white linens, organic textures, and sunlight streaming through sheer curtains" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHtbcorrYQUCDF-DsCvM8_XUPJc2fe2eyiISbx4U9tSqCaXnVsux90ybVZI_ryXHjdk-Q6bWTF2frmfdbmTMB5kWk99zHnZBTSyie-qGm7ybZ8wDfjIgMzj3YyRKgIdLSwusJDyoNnVJdeh-e9bkHQDOdP5VUHNVAtRsmJa6VtoB9LevD5_lJ13RP9SKoPHI1Fj2ufICwmRaJNeNDNhHF1PlNX5X0AqrUWrOgsFS_RKIAgaT6QDENTkDmuCgB-omwv0M44k0NCvPU"/>
-<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-</button>
-</div>
-<div class="px-2">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Royal Suite Bastos</h3>
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="text-sm font-bold">5.0</span>
-</div>
-</div>
-<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
-<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
-                                Bastos, Yaoundé
-                            </div>
-<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
-<div>
-<span class="text-lg font-bold text-primary">150,000 XAF</span>
-<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
-</div>
-<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
-                                    View Details
-                                </button>
-</div>
-</div>
-</div>
-<!-- Card 4 -->
-<div class="group bg-surface-container-low rounded-[2rem] p-4 transition-all hover:bg-surface-container hover:shadow-xl hover:-translate-y-1">
-<div class="relative aspect-[4/3] overflow-hidden rounded-2xl mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="aerial drone view of a luxury villa with a turquoise swimming pool, manicured gardens, and modern architectural lines in Cameroon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtRRjDLtGMN8qcl-eZGqnKm1bEWnBJoFBji8AeC-qCBt_kFtBbwhgRC3CyIB_6f80OLJs_1vzNXjIIMEYdeiiIqPjN522iuCYZ6XkEq9J-BdJw8Dfn1gpJEAAlj7MqRy5oKJdt8icxKKXKdqR4XRq34QxEghA6YcCo82LcqJGv6NOc1DrUcLZG9iY5hlyeaXDZXlVkWje0vR9K6xL5ml4ZLoJfnFPoXqvzVkNzrSfgN4jdMznUqvS5hg9cYtgt1PC5uEfK-WaDRFw"/>
-<button class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-2 rounded-full text-white hover:bg-white hover:text-primary transition-all">
-<span class="material-symbols-outlined" data-icon="favorite">favorite</span>
-</button>
-</div>
-<div class="px-2">
-<div class="flex justify-between items-start mb-2">
-<h3 class="font-headline font-bold text-xl leading-tight group-hover:text-primary transition-colors">Limbe Coastal Retreat</h3>
-<div class="flex items-center gap-1 text-primary">
-<span class="material-symbols-outlined text-sm" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="text-sm font-bold">4.7</span>
-</div>
-</div>
-<div class="flex items-center gap-1 text-on-surface-variant text-sm mb-4">
-<span class="material-symbols-outlined text-base" data-icon="location_on">location_on</span>
-                                Down Beach, Limbe
-                            </div>
-<div class="flex items-center justify-between pt-4 border-t border-outline-variant/15">
-<div>
-<span class="text-lg font-bold text-primary">95,000 XAF</span>
-<span class="text-xs text-outline uppercase font-bold tracking-tighter">/ night</span>
-</div>
-<button class="bg-surface-container-highest hover:bg-primary hover:text-on-primary text-on-surface-variant font-bold px-5 py-2.5 rounded-xl text-sm transition-all active:scale-95">
-                                    View Details
-                                </button>
-</div>
-</div>
-</div>
-</div>
-<!-- Pagination -->
-<div class="mt-16 flex flex-col items-center gap-6">
-<button class="bg-surface-container-highest hover:bg-surface-variant text-on-surface font-bold px-12 py-4 rounded-full transition-all active:scale-95 shadow-sm">
-                        Load More Residences
-                    </button>
-<div class="flex gap-2">
-<span class="w-8 h-1 rounded-full bg-primary"></span>
-<span class="w-2 h-1 rounded-full bg-outline-variant"></span>
-<span class="w-2 h-1 rounded-full bg-outline-variant"></span>
-</div>
-</div>
+
+<!-- ══ Liste Grille & Sidebar ══ -->
+<section class="max-w-screen-xl mx-auto px-5 md:px-10 py-16">
+  <div class="flex flex-col lg:flex-row gap-12">
+    
+    <!-- ════ FILTRES SIDEBAR (Desktop) ════ -->
+    <aside class="hidden lg:block w-64 shrink-0 space-y-10">
+      <div>
+        <h3 class="font-headline font-bold text-xl text-stone-900 dark:text-white mb-6">Équipements</h3>
+        <div class="space-y-4">
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded-md border-stone-200 dark:border-stone-800 text-orange-600 focus:ring-orange-500/20 transition-all bg-white dark:bg-stone-900"/>
+            <span class="text-sm font-medium text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors">WiFi</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded-md border-stone-200 dark:border-stone-800 text-orange-600 focus:ring-orange-500/20 transition-all bg-white dark:bg-stone-900"/>
+            <span class="text-sm font-medium text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors">Climatisation</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded-md border-stone-200 dark:border-stone-800 text-orange-600 focus:ring-orange-500/20 transition-all bg-white dark:bg-stone-900"/>
+            <span class="text-sm font-medium text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors">Parking</span>
+          </label>
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input type="checkbox" class="w-5 h-5 rounded-md border-stone-200 dark:border-stone-800 text-orange-600 focus:ring-orange-500/20 transition-all bg-white dark:bg-stone-900"/>
+            <span class="text-sm font-medium text-stone-600 dark:text-stone-400 group-hover:text-stone-900 dark:group-hover:text-stone-100 transition-colors">Conciergerie 24/7</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="p-6 bg-emerald-50 dark:bg-emerald-950/20 rounded-3xl border border-emerald-100 dark:border-emerald-900/30">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/40 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+        </div>
+        <h4 class="font-headline font-bold text-stone-900 dark:text-stone-100 text-sm mb-2">Offres Membres</h4>
+        <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed">Inscrivez-vous pour obtenir -15% sur une sélection de résidences.</p>
+      </div>
+    </aside>
+
+    <!-- ════ GRILLE DE RÉSULTATS ════ -->
+    <div class="flex-1 min-w-0">
+      
+      <!-- Infos résultats & Sort -->
+      <div class="flex flex-col sm:flex-row items-baseline justify-between gap-4 mb-10">
+        <div>
+          <h2 class="font-headline font-bold text-2xl text-stone-900 dark:text-white">Résidences disponibles</h2>
+          <p class="text-sm text-stone-500 dark:text-stone-400 mt-1">12 propriétés correspondent à votre recherche</p>
+        </div>
+        <div class="flex items-center gap-2 bg-stone-100 dark:bg-stone-800/80 p-1 rounded-xl shrink-0 self-start sm:self-auto">
+          <button class="p-2 bg-white dark:bg-stone-700 shadow-sm rounded-lg text-orange-600 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          </button>
+          <button class="p-2 text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 transition-all">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 10h16M4 14h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Grille Responsivive -->
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
+        
+        {% for i in "1234" %}
+        <!-- Card Appartement -->
+        <div class="group flex flex-col bg-white dark:bg-stone-900 rounded-[2.5rem] border border-stone-100 dark:border-stone-800/60 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-stone-200/40 dark:hover:shadow-black/60 transition-all duration-300">
+          
+          <!-- Image Container -->
+          <div class="relative aspect-[4/3] overflow-hidden p-3 pb-0">
+            <div class="w-full h-full rounded-[2rem] overflow-hidden relative">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG_8ihZ5wAMyKNenHwqWgnwoH5PETlF48NkyCujXsfA9AYFvFvyb7VExQv5mxi99nWh7iLpgGKZzuBJ9DCFn1YrSREEgFxWIqdNvdTvC-URRtKhW4MWT6oDY0zECMTxGB1ujCLv4UDiS4HFANO3XcG1EEO2artHWwnHxWBlExeGFd3l_5l1hoH5jDWVc1lbqeqMXu0pODxNB01u8nr_-ZEAtgnJIcpHBD4Gt8sB_gdV16KktwFCvcZrJHdhXicI_MJ4hrmIxhrLPk"
+                   alt="Appartement MatRox Luxe" 
+                   class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+              <!-- Badges positionnés sur l'image -->
+              <div class="absolute top-4 left-4 flex gap-2">
+                <span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase text-emerald-700 shadow-sm">Neuf</span>
+                <span class="bg-orange-600 px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase text-white shadow-sm">Premium</span>
+              </div>
+              <!-- Bouton Favori -->
+              <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-stone-950/20 backdrop-blur-md text-white border border-white/20 flex items-center justify-center hover:bg-white hover:text-orange-600 transition-all group-hover:rotate-12">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Content Body -->
+          <div class="p-8">
+            <div class="flex justify-between items-start mb-3">
+              <h3 class="font-headline font-bold text-xl md:text-2xl text-stone-900 dark:text-white leading-tight group-hover:text-orange-600 transition-colors">The Azure Penthouse</h3>
+              <div class="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-stone-800 rounded-lg shrink-0">
+                <svg class="w-3.5 h-3.5 text-orange-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                <span class="text-xs font-bold text-stone-900 dark:text-white">4.9</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-2 text-stone-400 text-sm mb-6">
+              <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              Bonapriso, Douala
+            </div>
+
+            <!-- Tags/Amenities Micro -->
+            <div class="flex flex-wrap gap-2 mb-8">
+              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">3 Ch</span>
+              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">180m²</span>
+              <span class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-[10px] font-bold text-emerald-600 uppercase tracking-tight">WiFi Incl.</span>
+            </div>
+
+            <!-- Footer Card -->
+            <div class="flex items-center justify-between pt-6 border-t border-stone-100 dark:border-stone-800/80">
+              <div class="flex flex-col">
+                <span class="text-lg md:text-xl font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">120,000 XAF</span>
+                <span class="text-[10px] uppercase font-bold text-stone-400 tracking-wider">/ la nuit</span>
+              </div>
+              <a href="{% url 'detail' %}" 
+                 class="bg-stone-950 dark:bg-stone-800 hover:bg-orange-600 text-white font-bold px-6 py-3 rounded-2xl text-sm transition-all active:scale-95 shadow-lg shadow-black/5 hover:shadow-orange-600/30">
+                Détails
+              </a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-20 flex flex-col items-center gap-8">
+        <button class="group relative px-10 py-4 rounded-full overflow-hidden transition-all active:scale-95 shadow-xl">
+          <div class="absolute inset-0 bg-stone-900 group-hover:bg-orange-600 transition-colors"></div>
+          <span class="relative z-10 text-white font-bold text-sm flex items-center gap-3">
+            Charger plus de résidences
+            <svg class="w-4 h-4 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7-7-7"/></svg>
+          </span>
+        </button>
+        <div class="flex gap-2.5">
+          <span class="w-8 h-1 rounded-full bg-orange-600"></span>
+          <span class="w-2 h-1 rounded-full bg-stone-200 dark:bg-stone-800"></span>
+          <span class="w-2 h-1 rounded-full bg-stone-200 dark:bg-stone-800"></span>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
-</div>
+
 {% endblock %}
