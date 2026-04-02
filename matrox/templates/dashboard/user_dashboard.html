@@ -1,0 +1,365 @@
+        <!DOCTYPE html>
+
+        <html class="light" lang="en"><head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>MatRox Residence - Dashboard</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Inter:wght@300..700&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+        <script id="tailwind-config">
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                extend: {
+                    colors: {
+                    "on-tertiary": "#ffffff",
+                    "surface-variant": "#e4e2e2",
+                    "surface": "#fbf9f8",
+                    "surface-container": "#efeded",
+                    "on-secondary-fixed": "#022100",
+                    "outline": "#8a7266",
+                    "on-primary-container": "#5a2500",
+                    "inverse-surface": "#303031",
+                    "on-secondary-container": "#227213",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed-variant": "#095300",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#763300",
+                    "secondary-fixed-dim": "#88da70",
+                    "primary": "#9b4500",
+                    "surface-dim": "#dbdad9",
+                    "surface-bright": "#fbf9f8",
+                    "surface-container-low": "#f5f3f3",
+                    "inverse-primary": "#ffb68e",
+                    "inverse-on-surface": "#f2f0f0",
+                    "on-primary": "#ffffff",
+                    "secondary": "#1d6d0e",
+                    "secondary-fixed": "#a3f789",
+                    "on-secondary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "primary-container": "#f47c2c",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed": "#331200",
+                    "on-tertiary-fixed": "#001945",
+                    "primary-fixed": "#ffdbca",
+                    "tertiary": "#375ca8",
+                    "tertiary-container": "#7a9cec",
+                    "on-tertiary-container": "#003177",
+                    "background": "#fbf9f8",
+                    "tertiary-fixed-dim": "#b0c6ff",
+                    "secondary-container": "#a0f487",
+                    "primary-fixed-dim": "#ffb68e",
+                    "on-tertiary-fixed-variant": "#1a438e",
+                    "outline-variant": "#dec1b2",
+                    "tertiary-fixed": "#d9e2ff",
+                    "on-background": "#1b1c1c",
+                    "surface-container-highest": "#e4e2e2",
+                    "surface-container-high": "#e9e8e7",
+                    "on-surface-variant": "#574237",
+                    "surface-tint": "#9b4500",
+                    "on-error": "#ffffff",
+                    "on-surface": "#1b1c1c"
+                    },
+                    fontFamily: {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+                },
+            }
+            </script>
+        <style>
+                body { font-family: 'Inter', sans-serif; }
+                h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+                .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+                .no-scrollbar::-webkit-scrollbar { display: none; }
+            </style>
+        </head>
+        <body class="bg-surface text-on-surface">
+        <div class="flex min-h-screen">
+        <!-- SideNavBar -->
+        <aside class="hidden md:flex flex-col h-screen w-64 border-r border-stone-200/20 bg-stone-50 sticky top-0">
+        <div class="p-8">
+        <span class="text-xl font-bold text-orange-600 tracking-tighter">MatRox Residence</span>
+        </div>
+        <div class="px-6 flex flex-col gap-6">
+        <!-- User Header -->
+        <div class="flex items-center gap-3 mb-4">
+        <img alt="User Profile" class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a confident man in his 30s with a warm smile, soft natural window lighting, studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc-MpA3m9UU837EGpHi0GAKSHgxA9NQw--izqW0OyWsp3VDM_vQ8JxdlG8OdJkohjKPP83pHdxTwjUfiCqlFh9gvsHFnSL_vt9QUbCqCoRpgGEiHJTX7vnzD7mPvRs0ndCbQN_UeY8UIx6KulyQycvLE07S7XuvgimBqKG82VvvQu5wXFNRTBiHqqLzz80Ln-XV4IToQY1DjliFCwqaBtPHJBrA9zVVkZ57cD7E9vXPVkTzDymRA3QuHTqLwLyc7PtT0cTnE0uwVI"/>
+        <div class="flex flex-col">
+        <span class="text-sm font-semibold text-on-surface">Welcome, Guest</span>
+        <span class="text-[10px] uppercase tracking-widest text-stone-500 font-bold">Premium Member</span>
+        </div>
+        </div>
+        <nav class="flex flex-col gap-2">
+        <!-- Dashboard Active -->
+        <a class="flex items-center gap-3 px-4 py-3 bg-orange-50 text-orange-600 rounded-lg font-semibold transition-transform duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined text-[20px]" data-icon="dashboard">dashboard</span>
+        <span class="text-sm">Dashboard</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-100 transition-transform duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined text-[20px]" data-icon="calendar_today">calendar_today</span>
+        <span class="text-sm">Reservations</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-100 transition-transform duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined text-[20px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+        <span class="text-sm">Payments</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-100 transition-transform duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined text-[20px]" data-icon="person">person</span>
+        <span class="text-sm">Profile</span>
+        </a>
+        <a class="flex items-center gap-3 px-4 py-3 text-stone-500 hover:bg-stone-100 transition-transform duration-200 hover:translate-x-1" href="#">
+        <span class="material-symbols-outlined text-[20px]" data-icon="settings">settings</span>
+        <span class="text-sm">Settings</span>
+        </a>
+        </nav>
+        </div>
+        <div class="mt-auto p-8">
+        <button class="flex items-center gap-2 text-stone-400 hover:text-error transition-colors text-sm font-medium">
+        <span class="material-symbols-outlined" data-icon="logout">logout</span>
+                            Sign Out
+                        </button>
+        </div>
+        </aside>
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0 overflow-y-auto">
+        <!-- TopAppBar Placeholder for Mobile -->
+        <header class="md:hidden flex justify-between items-center px-6 py-4 bg-white/70 backdrop-blur-2xl sticky top-0 z-50">
+        <span class="text-xl font-black text-stone-900 tracking-tighter">MatRox</span>
+        <span class="material-symbols-outlined" data-icon="menu">menu</span>
+        </header>
+        <div class="max-w-7xl mx-auto px-6 md:px-12 py-10">
+        <!-- Welcome & Header -->
+        <div class="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-2">Portfolio Overview</h1>
+        <p class="text-stone-500 font-body">Manage your stays, payments, and preferences in one place.</p>
+        </div>
+        <div class="flex gap-3">
+        <button class="px-6 py-3 rounded-full bg-surface-container-highest text-on-surface font-semibold text-sm hover:bg-surface-container transition-colors">
+                                    Request Help
+                                </button>
+        <button class="px-6 py-3 rounded-full bg-gradient-to-r from-primary to-primary-container text-on-primary font-semibold text-sm shadow-lg active:scale-95 transition-all">
+                                    New Reservation
+                                </button>
+        </div>
+        </div>
+        <!-- Bento Grid Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+        <!-- Profile Card -->
+        <div class="md:col-span-4 flex flex-col gap-8">
+        <div class="bg-surface-container-low rounded-xl p-8 border border-outline-variant/10">
+        <div class="flex items-center justify-between mb-6">
+        <h3 class="text-lg font-bold">Profile Info</h3>
+        <span class="material-symbols-outlined text-stone-400 cursor-pointer hover:text-primary" data-icon="edit">edit</span>
+        </div>
+        <div class="space-y-4">
+        <div class="flex flex-col">
+        <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Email Address</span>
+        <span class="text-sm font-medium">albert.moukoko@residence.com</span>
+        </div>
+        <div class="flex flex-col">
+        <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Phone Number</span>
+        <span class="text-sm font-medium">+237 670 000 000</span>
+        </div>
+        <div class="flex flex-col">
+        <span class="text-[10px] uppercase tracking-widest text-stone-400 font-bold">Member Since</span>
+        <span class="text-sm font-medium">October 2023</span>
+        </div>
+        </div>
+        </div>
+        <!-- Quick Notifications -->
+        <div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(27,28,28,0.06)]">
+        <h3 class="text-lg font-bold mb-6">Recent Alerts</h3>
+        <div class="space-y-6">
+        <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-secondary-container/30 flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
+        </div>
+        <div>
+        <p class="text-sm font-medium text-on-surface">Payment confirmed for Booking #4492</p>
+        <p class="text-xs text-stone-400 mt-1">2 hours ago</p>
+        </div>
+        </div>
+        <div class="flex gap-4">
+        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center flex-shrink-0">
+        <span class="material-symbols-outlined text-primary" data-icon="info">info</span>
+        </div>
+        <div>
+        <p class="text-sm font-medium text-on-surface">New amenities available in the North Wing</p>
+        <p class="text-xs text-stone-400 mt-1">Yesterday</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Bookings Section -->
+        <div class="md:col-span-8 flex flex-col gap-8">
+        <div>
+        <div class="flex items-center justify-between mb-6">
+        <h3 class="text-2xl font-bold tracking-tight">My Bookings</h3>
+        <div class="flex gap-2">
+        <span class="px-4 py-1 rounded-full bg-primary-container text-on-primary-container text-[10px] font-bold uppercase tracking-wider">Active</span>
+        <span class="px-4 py-1 rounded-full bg-surface-container text-stone-500 text-[10px] font-bold uppercase tracking-wider">Past</span>
+        </div>
+        </div>
+        <!-- Booking Cards (Horizontal scroll on mobile) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- Booking Card 1 -->
+        <div class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="h-48 relative">
+        <img class="w-full h-full object-cover" data-alt="luxurious hotel suite with modern furniture, king size bed, large windows with city view, afternoon soft light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzmG04gMLwEfGRKjp3hIu80iISRzhLR-QwZpQaphOUTvmoEF35XDlGlMIt7U9bkuS7poaN0FxVnTFOlzKWHIMkJQDDeD8rxAhv2aOS4hQWK9bK-GPVGgITMEUC4EW0XGqvBuByBX94gO6ilPWNLSvbfZOdajxNYFhN2-ZsvTox3yKXJOe9at93V9ztpaiLTQDkXpCvxY_dDh2iZbboTVQ7YZFDfKIwclRQ4ljLo3MvrkEvlbLN_jW1Xgni0ElbvS15gpOYFpnFQfw"/>
+        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase text-secondary">
+                                                    Confirmed
+                                                </div>
+        </div>
+        <div class="p-6">
+        <h4 class="font-bold text-lg mb-1">Superior Garden Suite</h4>
+        <p class="text-xs text-stone-500 mb-4 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                                    Douala, Bonapriso
+                                                </p>
+        <div class="flex justify-between items-end border-t border-stone-200/50 pt-4">
+        <div>
+        <p class="text-[10px] text-stone-400 font-bold uppercase">Dates</p>
+        <p class="text-sm font-semibold">Dec 12 - Dec 18</p>
+        </div>
+        <button class="text-primary font-bold text-xs hover:underline underline-offset-4 transition-all">Details</button>
+        </div>
+        </div>
+        </div>
+        <!-- Booking Card 2 -->
+        <div class="group bg-surface-container-low rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+        <div class="h-48 relative">
+        <img class="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-all" data-alt="spacious bright living room of a boutique apartment, minimalist design, hardwood floors, plants, cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuByfkRDGCaXTFa3bfuo1CowDlQnpWXsajRH82TpIB16E2JjxMxbigrWwffwG91UqcbkKvXyvPlleOTk_Znn8hAHpe5gLU2jk48KQ1JEx4kht1Ng7STJPkgrc2dkU09H9KVlHHcUI1phSvcfLP46fHIb95oubKw4R_wgO0JQQqBIojGZfJST2O91ZMaEcJ0lh4S_F7I1FmhVqo2bRXrJ41wtRD5vIRttM0A0mM5Co6b6sm29bGxOeKUgAzHcD7dDb7gWgfpudbtDA7c"/>
+        <div class="absolute top-4 left-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase text-orange-400">
+                                                    Pending
+                                                </div>
+        </div>
+        <div class="p-6">
+        <h4 class="font-bold text-lg mb-1">Skyloft Penthouse</h4>
+        <p class="text-xs text-stone-500 mb-4 flex items-center gap-1">
+        <span class="material-symbols-outlined text-[14px]" data-icon="location_on">location_on</span>
+                                                    Yaoundé, Bastos
+                                                </p>
+        <div class="flex justify-between items-end border-t border-stone-200/50 pt-4">
+        <div>
+        <p class="text-[10px] text-stone-400 font-bold uppercase">Dates</p>
+        <p class="text-sm font-semibold">Jan 05 - Jan 10</p>
+        </div>
+        <button class="text-primary font-bold text-xs hover:underline underline-offset-4 transition-all">Manage</button>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Payment History Table -->
+        <div class="mt-4">
+        <h3 class="text-2xl font-bold tracking-tight mb-6">Payment History</h3>
+        <div class="bg-surface-container-low rounded-xl overflow-hidden border border-outline-variant/10">
+        <table class="w-full text-left">
+        <thead>
+        <tr class="bg-surface-container-high">
+        <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500">Invoice</th>
+        <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500">Date</th>
+        <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500">Amount</th>
+        <th class="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-stone-500 text-right">Action</th>
+        </tr>
+        </thead>
+        <tbody class="divide-y divide-stone-200/50">
+        <tr class="hover:bg-surface-container transition-colors">
+        <td class="px-6 py-5">
+        <span class="text-sm font-medium">INV-2024-001</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm text-stone-600">Nov 28, 2023</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm font-bold">145,000 XAF</span>
+        </td>
+        <td class="px-6 py-5 text-right">
+        <button class="text-primary">
+        <span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+        </button>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container transition-colors">
+        <td class="px-6 py-5">
+        <span class="text-sm font-medium">INV-2023-992</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm text-stone-600">Oct 15, 2023</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm font-bold">82,500 XAF</span>
+        </td>
+        <td class="px-6 py-5 text-right">
+        <button class="text-primary">
+        <span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+        </button>
+        </td>
+        </tr>
+        <tr class="hover:bg-surface-container transition-colors">
+        <td class="px-6 py-5">
+        <span class="text-sm font-medium">INV-2023-884</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm text-stone-600">Sep 02, 2023</span>
+        </td>
+        <td class="px-6 py-5">
+        <span class="text-sm font-bold">210,000 XAF</span>
+        </td>
+        <td class="px-6 py-5 text-right">
+        <button class="text-primary">
+        <span class="material-symbols-outlined text-[20px]" data-icon="download">download</span>
+        </button>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <!-- Footer -->
+        <footer class="w-full rounded-t-3xl mt-20 bg-stone-100 p-12">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="flex flex-col gap-2">
+        <span class="text-lg font-bold text-stone-800">MatRox Residence</span>
+        <p class="text-[10px] uppercase tracking-widest text-stone-500">© 2024 MatRox Residence Cameroon. Editorial Luxury Living.</p>
+        </div>
+        <div class="flex gap-8">
+        <a class="text-[10px] uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors hover:underline underline-offset-4" href="#">Privacy Policy</a>
+        <a class="text-[10px] uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors hover:underline underline-offset-4" href="#">Support</a>
+        <a class="text-[10px] uppercase tracking-widest text-stone-500 hover:text-stone-900 transition-colors hover:underline underline-offset-4" href="#">Careers</a>
+        </div>
+        </div>
+        </footer>
+        </main>
+        </div>
+        <!-- Bottom Nav for Mobile -->
+        <nav class="md:hidden fixed bottom-0 left-0 right-0 bg-white/70 backdrop-blur-xl border-t border-stone-200/30 flex justify-around items-center py-3 z-50">
+        <a class="flex flex-col items-center gap-1 text-primary" href="#">
+        <span class="material-symbols-outlined text-[24px]" data-icon="dashboard">dashboard</span>
+        <span class="text-[10px] font-bold">Dash</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+        <span class="material-symbols-outlined text-[24px]" data-icon="calendar_today">calendar_today</span>
+        <span class="text-[10px] font-bold">Stays</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+        <span class="material-symbols-outlined text-[24px]" data-icon="account_balance_wallet">account_balance_wallet</span>
+        <span class="text-[10px] font-bold">Wallet</span>
+        </a>
+        <a class="flex flex-col items-center gap-1 text-stone-400" href="#">
+        <span class="material-symbols-outlined text-[24px]" data-icon="person">person</span>
+        <span class="text-[10px] font-bold">Profile</span>
+        </a>
+        </nav>
+        </body></html>
