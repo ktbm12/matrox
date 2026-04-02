@@ -20,9 +20,14 @@
     <a href="{% url 'home' %}"
        aria-label="MatRox Residence — Accueil"
        class="flex items-center shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 rounded-lg">
-      <img src="{% static 'images/image.png' %}" alt="MatRox Residence"
-           class="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-           width="112" height="32"/>
+      <div class="flex items-baseline gap-1.5 pt-1.5">
+        <span class="font-headline text-2xl md:text-3xl font-black tracking-tighter text-stone-900 dark:text-white transition-all duration-300 group-hover:scale-[1.02]">
+          MatRox<span class="text-orange-600">.</span>
+        </span>
+        <span class="text-[9px] md:text-[10px] font-bold tracking-[0.3em] uppercase text-stone-400 group-hover:text-stone-600 dark:group-hover:text-stone-300 transition-colors">
+          Residence
+        </span>
+      </div>
     </a>
 
     <!-- ── Navigation desktop ── -->
