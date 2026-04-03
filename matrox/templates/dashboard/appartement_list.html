@@ -1,0 +1,103 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}Gestion du Portefeuille{% endblock %}
+{% block breadcrumb %}Propriétés{% endblock %}
+{% block header_title %}Répertoire Résidentiel{% endblock %}
+{% block header_subtitle %}Gérez vos résidences d'exception et contrôlez leur exposition sur le marché.{% endblock %}
+
+{% block content %}
+    <div class="bg-white rounded-[3rem] shadow-premium border border-stone-50 overflow-hidden mt-6">
+        <div class="p-10 border-b border-stone-50 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-stone-50/20">
+            <div>
+                <h4 class="text-2xl font-headline font-black text-stone-950 tracking-tight">Portefeuille Actif</h4>
+                <p class="text-sm text-stone-400 font-medium mt-1">{{ object_list.count }} résidences d'élite en gestion</p>
+            </div>
+            <a href="{% url 'dashboard_appartement_add' %}" class="flex items-center gap-3 px-8 py-4 bg-primary text-white font-black rounded-2xl text-sm hover:bg-matrox-dark transition-all duration-500 shadow-xl shadow-primary/20 group">
+                <span class="material-symbols-outlined text-[18px] group-hover:rotate-90 transition-transform">add</span>
+                Expansion du Portefeuille
+            </a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left font-body">
+                <thead>
+                    <tr class="text-[9px] font-black uppercase tracking-[0.3em] text-stone-300">
+                        <th class="px-10 py-8">Identité Résidence</th>
+                        <th class="px-10 py-8">Localisation Stratégique</th>
+                        <th class="px-10 py-8">Valorisation / Nuit</th>
+                        <th class="px-10 py-8">Exposition</th>
+                        <th class="px-10 py-8 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-50">
+                    {% for app in object_list %}
+                    <tr class="hover:bg-stone-50/50 transition-all duration-300 group">
+                        <td class="px-10 py-10">
+                            <div class="flex items-center gap-5">
+                                <div class="w-16 h-16 rounded-[1.5rem] overflow-hidden bg-stone-100 shadow-sm group-hover:scale-105 transition-transform duration-500">
+                                    {% if app.main_image %}
+                                    <img src="{{ app.main_image.url }}" class="w-full h-full object-cover">
+                                    {% else %}
+                                    <div class="w-full h-full flex items-center justify-center text-stone-300">
+                                        <span class="material-symbols-outlined text-3xl">image</span>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="space-y-1">
+                                    <span class="text-[15px] font-black text-stone-950 block group-hover:text-primary transition-colors">{{ app.name }}</span>
+                                    <span class="text-[9px] text-stone-400 font-black uppercase tracking-widest bg-stone-50 px-2 py-0.5 rounded-md inline-block">{{ app.neighborhood }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-10 py-10">
+                             <div class="flex items-center gap-2 text-stone-600 font-bold text-[14px]">
+                                <span class="material-symbols-outlined text-stone-300 text-lg">location_on</span>
+                                {{ app.get_location_display }}
+                             </div>
+                        </td>
+                        <td class="px-10 py-10">
+                            <span class="text-lg font-black text-secondary">{{ app.price_per_night }} <span class="text-[10px] uppercase text-stone-400 tracking-tighter">FCFA</span></span>
+                        </td>
+                        <td class="px-10 py-10">
+                            {% if app.status == 'active' %}
+                            <div class="flex items-center gap-2 text-emerald-500 px-3 py-1.5 bg-emerald-50 rounded-xl w-fit">
+                                <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_5px_#10b981]"></span>
+                                <span class="text-[9px] font-black uppercase tracking-widest">Marché Ouvert</span>
+                            </div>
+                            {% else %}
+                            <div class="flex items-center gap-2 text-stone-400 px-3 py-1.5 bg-stone-50 rounded-xl w-fit">
+                                <span class="w-2 h-2 bg-stone-300 rounded-full"></span>
+                                <span class="text-[9px] font-black uppercase tracking-widest">Privé / Hors-Ligne</span>
+                            </div>
+                            {% endif %}
+                        </td>
+                        <td class="px-10 py-10 text-right">
+                            <div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <a href="{% url 'dashboard_appartement_edit' app.id %}" class="w-10 h-10 flex items-center justify-center bg-stone-950 text-white rounded-xl hover:bg-primary transition-all shadow-lg shadow-black/10">
+                                    <span class="material-symbols-outlined text-[18px]">edit</span>
+                                </a>
+                                <form action="#" method="post" class="inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="w-10 h-10 flex items-center justify-center bg-white border border-stone-100 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-xl transition-all shadow-sm">
+                                        <span class="material-symbols-outlined text-[18px]">delete</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5" class="px-10 py-32 text-center">
+                         <div class="flex flex-col items-center gap-6 opacity-20">
+                            <span class="material-symbols-outlined text-8xl">apartment_off</span>
+                            <div class="space-y-1">
+                                <p class="text-lg font-black uppercase tracking-widest">Portefeuille Vide</p>
+                                <p class="text-sm">Commencez par ajouter votre première propriété d'exception.</p>
+                            </div>
+                        </div>
+                    </td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

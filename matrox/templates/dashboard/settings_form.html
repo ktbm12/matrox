@@ -1,0 +1,96 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}Identité de Marque{% endblock %}
+{% block breadcrumb %}Configuration / Site{% endblock %}
+{% block header_title %}Elite Settings{% endblock %}
+{% block header_subtitle %}Gérez les paramètres stratégiques, l'identité visuelle et les canaux de communication de MatRox.{% endblock %}
+
+{% block content %}
+    <div class="max-w-5xl mt-6">
+        <form method="post" class="space-y-12">
+            {% csrf_token %}
+            
+            <div class="grid grid-cols-12 gap-10">
+                <!-- Configuration Body -->
+                <div class="col-span-12 lg:col-span-8 space-y-10">
+                    <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                        <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                            <span class="w-10 h-1 bg-primary rounded-full"></span>
+                            Nomenclature & Style
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {% for field in form %}
+                                {% if field.name == 'site_name' or 'logo' in field.name %}
+                                <div class="space-y-3">
+                                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                        <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                            <span class="w-10 h-1 bg-stone-300 rounded-full"></span>
+                            Coordonnées Professionnelles
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {% for field in form %}
+                                {% if field.name == 'contact_email' or field.name == 'contact_phone' or field.name == 'office_address' %}
+                                <div class="space-y-3 {% if field.name == 'office_address' %}md:col-span-2{% endif %}">
+                                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status & Social Sidebar -->
+                <div class="col-span-12 lg:col-span-4 space-y-10">
+                    <div class="bg-matrox-dark p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group">
+                        <div class="absolute -left-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                        <h3 class="font-headline text-xl font-black text-white mb-10 flex items-center gap-3 relative z-10">
+                            <span class="material-symbols-outlined text-primary">public</span>
+                            Canaux Sociaux
+                        </h3>
+                        
+                        <div class="space-y-8 relative z-10">
+                            {% for field in form %}
+                                {% if 'url' in field.name or 'whatsapp' in field.name %}
+                                <div class="space-y-3">
+                                    <label class="text-[9px] font-black uppercase tracking-[0.2em] text-stone-500 ml-4">{{ field.label }}</label>
+                                    <div class="relative group/field">
+                                        {{ field }}
+                                        <div class="absolute inset-0 bg-primary/5 rounded-[1.5rem] pointer-events-none opacity-0 group-hover/field:opacity-100 transition-opacity"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-[3rem] shadow-premium border border-stone-100">
+                        <div class="space-y-6">
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-stone-400 ml-4">Status de la Plateforme</label>
+                                {{ form.status }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 flex flex-col gap-4">
+                        <button type="submit" class="w-full py-5 bg-matrox-dark text-white rounded-3xl font-black text-sm hover:bg-primary transition-all duration-500 shadow-2xl shadow-black/20">
+                            Publier les Changements
+                        </button>
+                        <a href="{% url 'admin_dashboard' %}" class="w-full py-5 text-stone-400 font-black text-[11px] uppercase tracking-widest text-center hover:text-stone-950 transition-all">
+                            Ignorer les modifications
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

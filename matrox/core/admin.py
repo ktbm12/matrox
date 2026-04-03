@@ -46,6 +46,7 @@ class AppartementAdmin(admin.ModelAdmin):
     search_fields = ('name', 'neighborhood', 'description')
     prepopulated_fields = {'slug': ('name',)}
     list_editable = ('status', 'is_featured')
+    inlines = [AppartementImageInline]
     
     fieldsets = (
         (_('Informations de base'), {

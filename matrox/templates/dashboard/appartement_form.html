@@ -1,0 +1,118 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block breadcrumb %}Portfolio / Editer{% endblock %}
+{% block header_title %}{{ title }}{% endblock %}
+{% block header_subtitle %}Configurez chaque détail pour garantir une présentation d'exception à vos résidents.{% endblock %}
+
+{% block content %}
+    <div class="max-w-5xl mt-6">
+        <form method="post" enctype="multipart/form-data" class="space-y-12">
+            {% csrf_token %}
+            
+            <div class="grid grid-cols-12 gap-10">
+                <!-- Main Form Body -->
+                <div class="col-span-12 lg:col-span-8 space-y-10">
+                    <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                        <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                            <span class="w-10 h-1 bg-primary rounded-full"></span>
+                            Identité de la Résidence
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            {% for field in form %}
+                                {% if field.name == 'name' or field.name == 'slug' or field.name == 'location' or field.name == 'neighborhood' %}
+                                <div class="space-y-3">
+                                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ field.label }}</label>
+                                    {{ field }}
+                                    {% if field.errors %}
+                                        <p class="text-red-500 text-[10px] font-bold mt-2 ml-4 animate-bounce">{{ field.errors.0 }}</p>
+                                    {% endif %}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                        <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                            <span class="w-10 h-1 bg-stone-300 rounded-full"></span>
+                            Narration & Descriptif
+                        </h3>
+                        <div class="space-y-4">
+                            <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">Descriptif de haut standing</label>
+                            {{ form.description }}
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                        <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                            <span class="w-10 h-1 bg-stone-300 rounded-full"></span>
+                            Spécificités Techniques
+                        </h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                            {% for field in form %}
+                                {% if field.name == 'price_per_night' or field.name == 'bedrooms' or field.name == 'bathrooms' or field.name == 'max_guests' %}
+                                <div class="space-y-3">
+                                    <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ field.label }}</label>
+                                    {{ field }}
+                                </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Sidebar -->
+                <div class="col-span-12 lg:col-span-4 space-y-10">
+                    <div class="bg-matrox-dark p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group/card">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                        <h3 class="font-headline text-xl font-black text-white mb-8 relative z-10">Exposition</h3>
+                        
+                        <div class="space-y-8 relative z-10">
+                            <div class="p-6 bg-stone-900/50 rounded-3xl border border-stone-800 space-y-4">
+                                <label class="flex items-center gap-4 cursor-pointer group">
+                                    {{ form.is_featured }}
+                                    <div>
+                                        <span class="block text-[13px] font-black text-white group-hover:text-primary transition-colors">Mettre en Vedette</span>
+                                        <span class="block text-[9px] text-stone-500 font-bold uppercase">Affichage prioritaire Hero</span>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="space-y-3">
+                                <label class="text-[10px] font-black uppercase tracking-[0.2em] text-stone-500 ml-4">Status de parution</label>
+                                {{ form.status }}
+                            </div>
+
+                            <div class="pt-6 border-t border-stone-800">
+                                <p class="text-[10px] text-stone-500 font-medium italic leading-relaxed">
+                                    Vérifiez scrupuleusement les informations avant publication pour maintenir les standards MatRox.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white p-10 rounded-[3rem] shadow-premium border border-stone-100">
+                        <h3 class="font-headline text-xl font-black text-stone-950 mb-8">Visuel Maître</h3>
+                        <div class="space-y-6">
+                            <div class="aspect-video bg-stone-50 rounded-2xl border-2 border-dashed border-stone-100 flex flex-col items-center justify-center p-6 text-center group cursor-pointer hover:border-primary/30 transition-all">
+                                {{ form.main_image }}
+                                <span class="material-symbols-outlined text-stone-200 text-5xl mb-2 group-hover:text-primary transition-colors">image</span>
+                                <p class="text-[10px] font-black text-stone-300 uppercase tracking-widest">Couverture Haute Déf.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-10 flex flex-col gap-4">
+                        <button type="submit" class="w-full py-5 bg-primary text-white rounded-3xl font-black text-sm hover:bg-matrox-dark transition-all duration-500 shadow-2xl shadow-primary/20 animate-pulse-slow">
+                            Sauvegarder les Modifications
+                        </button>
+                        <a href="{% url 'dashboard_appartement_list' %}" class="w-full py-5 bg-white text-stone-400 font-black text-[11px] uppercase tracking-widest text-center rounded-3xl border border-stone-100 hover:text-stone-900 transition-all">
+                            Annuler & Retour
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}

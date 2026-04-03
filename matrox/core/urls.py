@@ -8,4 +8,19 @@ urlpatterns = [
     path('service/', views.service, name='service'),
     path('liste/', views.liste, name='liste'),
     path('detail/', views.detail, name='detail'),
+    
+    # Administration Custom
+    path('admin-auth/login/', views.AdminLoginView.as_view(), name='admin_login'),
+    path('admin-dashboard/', views.AdminDashboardView.as_view(), name='admin_dashboard'),
+    
+    # CMS Appartements
+    path('admin-dashboard/appartements/', views.DashboardAppartementListView.as_view(), name='dashboard_appartement_list'),
+    path('admin-dashboard/appartements/add/', views.DashboardAppartementCreateView.as_view(), name='dashboard_appartement_add'),
+    path('admin-dashboard/appartements/<uuid:pk>/edit/', views.DashboardAppartementUpdateView.as_view(), name='dashboard_appartement_edit'),
+    
+    # CMS Messages
+    path('admin-dashboard/messages/', views.DashboardMessageListView.as_view(), name='dashboard_message_list'),
+    
+    # CMS Settings
+    path('admin-dashboard/settings/', views.DashboardSettingsView.as_view(), name='dashboard_settings'),
 ]

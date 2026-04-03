@@ -1,0 +1,100 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}Boîte de Réception{% endblock %}
+{% block breadcrumb %}Messages{% endblock %}
+{% block header_title %}Communications Inbox{% endblock %}
+{% block header_subtitle %}Gérez les interactions directes avec vos futurs résidents et prestataires.{% endblock %}
+
+{% block content %}
+    <div class="bg-white rounded-[3.5rem] shadow-premium border border-stone-100 overflow-hidden mt-6">
+        <div class="p-12 border-b border-stone-50 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-stone-50/20">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 bg-matrox-dark rounded-3xl flex items-center justify-center shadow-2xl">
+                    <span class="material-symbols-outlined text-primary text-3xl">mail</span>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-headline font-black text-stone-950 tracking-tight">Messagerie Centralisée</h4>
+                    <p class="text-sm text-stone-400 font-medium mt-1">{{ object_list.count }} interactions au total</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="p-4 bg-stone-50 text-stone-400 hover:text-stone-900 rounded-2xl transition-all">
+                    <span class="material-symbols-outlined">filter_list</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left font-body">
+                <thead>
+                    <tr class="text-[9px] font-black uppercase tracking-[0.3em] text-stone-300">
+                        <th class="px-12 py-8">Expéditeur</th>
+                        <th class="px-12 py-8">Contenu & Objet</th>
+                        <th class="px-12 py-8">Temporalité</th>
+                        <th class="px-12 py-8 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-50">
+                    {% for msg in object_list %}
+                    <tr class="hover:bg-stone-50/50 transition-all duration-300 group {% if not msg.is_read %}bg-primary/[0.02]{% endif %}">
+                        <td class="px-12 py-10">
+                            <div class="flex items-center gap-5">
+                                <div class="relative">
+                                    <div class="w-14 h-14 rounded-full bg-stone-100 flex items-center justify-center text-sm font-black text-stone-400 shadow-inner">
+                                        {{ msg.full_name|slice:":2"|upper }}
+                                    </div>
+                                    {% if not msg.is_read %}
+                                    <div class="absolute -top-1 -right-1 w-4 h-4 bg-primary border-4 border-white rounded-full animate-bounce"></div>
+                                    {% endif %}
+                                </div>
+                                <div class="space-y-0.5">
+                                    <span class="text-[15px] font-black text-stone-950 block">{{ msg.full_name }}</span>
+                                    <span class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">{{ msg.email }}</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-12 py-10">
+                            <div class="space-y-1.5 max-w-sm">
+                                <span class="text-[14px] font-black text-stone-600 block italic leading-none">"{{ msg.subject }}"</span>
+                                <p class="text-[12px] text-stone-400 font-medium truncate leading-relaxed">{{ msg.message }}</p>
+                            </div>
+                        </td>
+                        <td class="px-12 py-10">
+                            <div class="flex items-center gap-2 text-stone-400 font-bold text-[13px]">
+                                <span class="material-symbols-outlined text-stone-300 text-lg">calendar_today</span>
+                                {{ msg.created|date:"d M Y" }}
+                                <span class="text-[10px] text-stone-300 font-normal ml-1">{{ msg.created|time:"H:i" }}</span>
+                            </div>
+                        </td>
+                        <td class="px-12 py-10 text-right">
+                            <div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                {% if not msg.is_read %}
+                                <form action="#" method="post" class="inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="w-12 h-12 flex items-center justify-center bg-primary text-white rounded-2xl hover:bg-matrox-dark transition-all shadow-xl shadow-primary/20" title="Marquer comme lu">
+                                        <span class="material-symbols-outlined text-[20px] font-black">mark_email_read</span>
+                                    </button>
+                                </form>
+                                {% endif %}
+                                <button class="w-12 h-12 flex items-center justify-center bg-white border border-stone-100 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-2xl transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="4" class="px-12 py-40 text-center">
+                         <div class="flex flex-col items-center gap-8 opacity-20">
+                            <span class="material-symbols-outlined text-9xl">inbox_customize</span>
+                            <div class="space-y-2">
+                                <p class="text-2xl font-headline font-black uppercase tracking-[0.2em]">Boîte de réception vide</p>
+                                <p class="text-sm font-medium">Votre excellence n'a reçu aucune nouvelle demande.</p>
+                            </div>
+                        </div>
+                    </td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

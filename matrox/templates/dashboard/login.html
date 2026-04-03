@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion Administrateur | MatRox Residence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#5FAF4B',
+                    },
+                    fontFamily: {
+                        headline: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 font-body text-stone-900 flex items-center justify-center min-h-screen p-6">
+
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-10">
+            <h1 class="font-headline text-4xl font-black tracking-tighter">
+                MatRox<span class="text-brand">.</span>
+            </h1>
+            <p class="text-[10px] uppercase tracking-[0.4em] font-bold text-stone-400 mt-1">Élite Residence Control</p>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white rounded-[2rem] p-10 shadow-[0_30px_100px_rgba(0,0,0,0.08)] border border-stone-100">
+            <h2 class="font-headline text-2xl font-bold mb-8 text-center">Accès Sécurisé</h2>
+            
+            <form method="post" class="space-y-6">
+                {% csrf_token %}
+                
+                {% if form.errors %}
+                <div class="p-4 bg-red-50 text-red-600 rounded-2xl text-sm font-medium border border-red-100">
+                    Identifiants incorrects. Veuillez réessayer.
+                </div>
+                {% endif %}
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-wider text-stone-400 ml-2">Nom d'utilisateur</label>
+                    <input type="text" name="username" required
+                           class="w-full px-6 py-4 bg-stone-50 border-none rounded-2xl focus:ring-2 focus:ring-brand/20 transition-all font-medium text-stone-700"
+                           placeholder="admin_master">
+                </div>
+
+                <div class="space-y-2">
+                    <label class="text-xs font-bold uppercase tracking-wider text-stone-400 ml-2">Mot de passe</label>
+                    <input type="password" name="password" required
+                           class="w-full px-6 py-4 bg-stone-50 border-none rounded-2xl focus:ring-2 focus:ring-brand/20 transition-all font-medium text-stone-700"
+                           placeholder="••••••••">
+                </div>
+
+                <div class="pt-4">
+                    <button type="submit"
+                            class="w-full py-5 bg-stone-950 hover:bg-brand text-white rounded-2xl font-bold transition-all duration-500 shadow-xl shadow-black/10 active:scale-[0.98]">
+                        Initialiser le Dashboard
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-center mt-10 text-stone-400 text-xs font-medium">
+            &copy; 2026 MATROX RESIDENCE INGENIERIE<br>
+            Accès restreint au personnel autorisé uniquement.
+        </p>
+    </div>
+
+</body>
+</html>
