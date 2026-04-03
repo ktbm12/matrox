@@ -17,17 +17,17 @@
   --color-secondary: #1d6d0e;
   --color-secondary-container: #a0f487;
   
-  --color-emerald-50: #ecfdf5;
-  --color-emerald-100: #d1fae5;
-  --color-emerald-200: #a7f3d0;
-  --color-emerald-300: #6ee7b7;
-  --color-emerald-400: #34d399;
-  --color-emerald-500: #10b981;
-  --color-emerald-600: #059669;
-  --color-emerald-700: #047857;
-  --color-emerald-800: #065f46;
-  --color-emerald-900: #064e3b;
-  --color-emerald-950: #022c22;
+  --color-emerald-50: #f4faf2;
+  --color-emerald-100: #eaf5e6;
+  --color-emerald-200: #d5ebd0;
+  --color-emerald-300: #badbad;
+  --color-emerald-400: #93c483;
+  --color-emerald-500: #5FAF4B; /* Brand Green */
+  --color-emerald-600: #4a8c3b;
+  --color-emerald-700: #3b6b2f;
+  --color-emerald-800: #315528;
+  --color-emerald-900: #294723;
+  --color-emerald-950: #132710;
   
   --color-orange-50: #fff7ed;
   --color-orange-100: #ffedd5;
