@@ -1,0 +1,77 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./templates/**/*.html",
+    "./core/templates/**/*.html",
+    "./static/**/*.js",
+  ],
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "on-tertiary": "#ffffff",
+        "surface-variant": "#e4e2e2",
+        "surface": "#fbf9f8",
+        "surface-container": "#efeded",
+        "on-secondary-fixed": "#022100",
+        "outline": "#8a7266",
+        "on-primary-container": "#5a2500",
+        "inverse-surface": "#303031",
+        "on-secondary-container": "#227213",
+        "surface-container-lowest": "#ffffff",
+        "on-secondary-fixed-variant": "#095300",
+        "error-container": "#ffdad6",
+        "on-primary-fixed-variant": "#763300",
+        "secondary-fixed-dim": "#88da70",
+        "primary": "#9b4500",
+        "surface-dim": "#dbdad9",
+        "surface-bright": "#fbf9f8",
+        "surface-container-low": "#f5f3f3",
+        "inverse-primary": "#ffb68e",
+        "inverse-on-surface": "#f2f0f0",
+        "on-primary": "#ffffff",
+        "secondary": "#1d6d0e",
+        "secondary-fixed": "#a3f789",
+        "on-secondary": "#ffffff",
+        "on-error-container": "#93000a",
+        "primary-container": "#f47c2c",
+        "error": "#ba1a1a",
+        "on-primary-fixed": "#331200",
+        "on-tertiary-fixed": "#001945",
+        "primary-fixed": "#ffdbca",
+        "tertiary": "#375ca8",
+        "tertiary-container": "#7a9cec",
+        "on-tertiary-container": "#003177",
+        "background": "#fbf9f8",
+        "tertiary-fixed-dim": "#b0c6ff",
+        "secondary-container": "#a0f487",
+        "primary-fixed-dim": "#ffb68e",
+        "on-tertiary-fixed-variant": "#1a438e",
+        "outline-variant": "#dec1b2",
+        "tertiary-fixed": "#d9e2ff",
+        "on-background": "#1b1c1c",
+        "surface-container-highest": "#e4e2e2",
+        "surface-container-high": "#e9e8e7",
+        "on-surface-variant": "#574237",
+        "surface-tint": "#9b4500",
+        "on-error": "#ffffff",
+        "on-surface": "#1b1c1c"
+      },
+      fontFamily: {
+        "headline": ["Space Grotesk"],
+        "body": ["Inter"],
+        "label": ["Inter"]
+      },
+      borderRadius: {
+        "DEFAULT": "0.25rem",
+        "lg": "0.5rem",
+        "xl": "0.75rem",
+        "full": "9999px"
+      }
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/container-queries'),
+  ],
+}

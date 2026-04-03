@@ -1,17 +1,15 @@
 {% load static %}
 
-<div x-data="{
+<header
+  x-data="{
     open: false,
     sub: null,
     toggle(name) { this.sub = this.sub === name ? null : name }
   }"
   @keydown.escape.window="open = false; sub = null"
->
-
-<header
-  class="sticky top-0 z-50 w-full border-b border-stone-200/60 dark:border-stone-800/50
+  class="sticky top-0 z-[100] w-full border-b border-stone-200/60 dark:border-stone-800/50
          bg-white/90 dark:bg-[#0c0c0b]/90 backdrop-blur-2xl
-         shadow-[0_2px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.3)]"
+         shadow-[0_2px_20px_rgba(0,0,0,0.07)] dark:shadow-[0_2px_20px_rgba(0,0,0,0.3)] transition-all duration-300"
   role="banner"
 >
   <div class="flex items-center justify-between px-5 md:px-10 h-[64px] max-w-screen-xl mx-auto">
@@ -400,6 +398,4 @@
     </div>
     {% endwith %}
   </div>
-
 </header>
-</div>
