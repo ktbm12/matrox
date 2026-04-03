@@ -27,9 +27,9 @@ class AppartementForm(PremiumFormMixin, forms.ModelForm):
     class Meta:
         model = Appartement
         fields = [
-            'name', 'slug', 'location', 'neighborhood', 'description', 
+            'name', 'location', 'neighborhood', 'description', 
             'price_per_night', 'bedrooms', 'bathrooms', 'max_guests', 
-            'main_image', 'is_featured', 'status', 'amenities'
+            'main_image', 'is_featured', 'status'
         ]
 
 class SettingsForm(PremiumFormMixin, forms.ModelForm):

@@ -88,19 +88,19 @@
             <p class="text-[9px] font-black text-stone-300 uppercase tracking-[0.2em] mb-4 px-4">Menu Principal</p>
             
             <a href="{% url 'admin_dashboard' %}" 
-               class="flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group {% if request.resolver_match.url_name == 'admin_dashboard' %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
+               class="flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-300 group {% if request.resolver_match.url_name == 'admin_dashboard' %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
                 <span class="material-symbols-outlined text-[20px]">dashboard</span>
                 <span class="font-headline font-bold text-[14px] tracking-tight">Vue d'ensemble</span>
             </a>
 
             <a href="{% url 'dashboard_appartement_list' %}" 
-               class="flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group {% if 'appartement' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
+               class="flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-300 group {% if 'appartement' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
                 <span class="material-symbols-outlined text-[20px]">apartment</span>
                 <span class="font-headline font-bold text-[14px] tracking-tight">Propriétés</span>
             </a>
 
             <a href="{% url 'dashboard_message_list' %}" 
-               class="flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group {% if 'message' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
+               class="flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-300 group {% if 'message' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
                 <span class="material-symbols-outlined text-[20px]">mail</span>
                 <span class="font-headline font-bold text-[14px] tracking-tight">Messages Inbox</span>
                 {% if total_messages > 0 and not 'message' in request.path %}
@@ -111,7 +111,7 @@
             <p class="text-[9px] font-black text-stone-300 uppercase tracking-[0.2em] mt-10 mb-4 px-4">Configuration</p>
 
             <a href="{% url 'dashboard_settings' %}" 
-               class="flex items-center gap-4 px-5 py-3.5 rounded-2xl transition-all duration-300 group {% if 'settings' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
+               class="flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-300 group {% if 'settings' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
                 <span class="material-symbols-outlined text-[20px]">tune</span>
                 <span class="font-headline font-bold text-[14px] tracking-tight">Paramètres Site</span>
             </a>
@@ -120,12 +120,12 @@
         <!-- User Section -->
         <div class="p-6 mt-auto border-t border-stone-50">
             <a href="{% url 'dashboard_appartement_add' %}" 
-               class="w-full bg-primary hover:bg-matrox-dark text-white py-4 px-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all duration-500 shadow-xl shadow-primary/20 group">
+               class="w-full bg-primary hover:bg-matrox-dark text-white py-4 px-4 rounded-xl font-bold flex items-center justify-center gap-2 transition-all duration-500 shadow-xl shadow-primary/20 group">
                 <span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
                 <span class="text-sm">Ajouter Bien</span>
             </a>
 
-            <div class="mt-8 flex items-center gap-4 p-4 bg-stone-50 rounded-[1.5rem] border border-stone-100">
+            <div class="mt-8 flex items-center gap-4 p-4 bg-stone-50 rounded-xl border border-stone-100">
                 <div class="relative">
                     <div class="w-10 h-10 rounded-xl bg-matrox-dark flex items-center justify-center font-black text-primary text-xs shadow-lg">
                         {{ request.user.username|slice:":1"|upper }}

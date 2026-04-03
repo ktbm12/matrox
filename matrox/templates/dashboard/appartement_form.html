@@ -20,7 +20,7 @@
                         </h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                             {% for field in form %}
-                                {% if field.name == 'name' or field.name == 'slug' or field.name == 'location' or field.name == 'neighborhood' %}
+                                {% if field.name == 'name' or field.name == 'location' or field.name == 'neighborhood' %}
                                 <div class="space-y-3">
                                     <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ field.label }}</label>
                                     {{ field }}
