@@ -10,12 +10,11 @@
   --font-sans: "Inter", ui-sans-serif, system-ui;
 
   /* Premium Palette MatRox */
-  --color-primary: #9b4500;
-  --color-primary-container: #f47c2c;
+  --color-primary: #5FAF4B; /* Brand Green */
   --color-on-primary: #ffffff;
   
-  --color-secondary: #1d6d0e;
-  --color-secondary-container: #a0f487;
+  --color-secondary: #9b4500; /* Brand Orange */
+  --color-secondary-container: #f47c2c;
   
   --color-emerald-50: #f4faf2;
   --color-emerald-100: #eaf5e6;
@@ -65,18 +64,34 @@
   --radius-3xl: 1.5rem;
   --radius-badge: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-premium: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  /* Shadows - Multi-layered for more depth */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 20px -5px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 40px -10px rgba(0,0,0,0.1);
+  --shadow-premium: 0 10px 15px -3px rgba(0,0,0,0.02), 0 40px 60px -15px rgba(0,0,0,0.05);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+
+  /* Gradients */
+  --gradient-emerald: linear-gradient(135deg, #5FAF4B, #3b6b2f);
+  --gradient-stone: linear-gradient(135deg, #fbf9f8, #f5f3f3);
 }
 
 @layer base {
   [x-cloak] { display: none !important; }
   
   .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
   }
 }
 
@@ -91,6 +106,22 @@
   }
   
   .premium-gradient {
-    background: linear-gradient(45deg, #9b4500, #f47c2c);
+    background: linear-gradient(45deg, #5FAF4B, #4a8c3b);
+  }
+
+  /* Dashboard Specifics */
+  .sidebar-link-active { 
+    background: var(--color-stone-950); 
+    color: white !important; 
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+  .sidebar-link-active .material-symbols-outlined { 
+    color: var(--color-primary); 
+    font-variation-settings: 'FILL' 1; 
+  }
+  
+  /* Lighter icons for high-end feel */
+  .dashboard-icons {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
   }
 }

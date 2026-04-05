@@ -9,7 +9,10 @@
     <!-- Quick Stats Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
         <!-- Stat Card: Revenue -->
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-50 hover:-translate-y-1 transition-transform duration-500 group">
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-50 hover:-translate-y-1 transition-transform duration-500 group"
+             x-data="{ visible: false }" x-intersect="visible = true"
+             :class="visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+             class="transition-all duration-700">
             <div class="flex justify-between items-start mb-8">
                 <div class="p-4 bg-emerald-50 text-emerald-600 rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-500">
                     <span class="material-symbols-outlined">payments</span>
@@ -27,7 +30,10 @@
         </div>
         
         <!-- Stat Card: Units -->
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-50 hover:-translate-y-1 transition-transform duration-500 group">
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-50 hover:-translate-y-1 transition-transform duration-500 group"
+             x-data="{ visible: false }" x-intersect="visible = true"
+             :class="visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+             class="transition-all duration-700 delay-100">
             <div class="flex justify-between items-start mb-8">
                 <div class="p-4 bg-stone-950 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-500">
                     <span class="material-symbols-outlined">apartment</span>
@@ -39,20 +45,26 @@
         </div>
 
         <!-- Stat Card: Messages -->
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-100 hover:-translate-y-1 transition-transform duration-500 group">
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-100 hover:-translate-y-1 transition-transform duration-500 group"
+             x-data="{ visible: false }" x-intersect="visible = true"
+             :class="visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+             class="transition-all duration-700 delay-200">
             <div class="flex justify-between items-start mb-8">
-                <div class="p-4 bg-orange-50 text-orange-600 rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-500">
+                <div class="p-4 bg-emerald-50 text-primary rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-500">
                     <span class="material-symbols-outlined">forum</span>
                 </div>
-                <div class="w-3 h-3 bg-red-500 rounded-full animate-ping"></div>
+                <div class="w-2.5 h-2.5 bg-red-500 rounded-full shadow-[0_0_12px_rgba(239,68,68,0.5)] animate-pulse"></div>
             </div>
             <p class="text-stone-400 text-[10px] font-black uppercase tracking-[0.2em] mb-2">Communications Client</p>
             <h3 class="text-3xl font-headline font-black text-stone-950">{{ total_messages }}</h3>
-            <p class="text-[11px] text-stone-400 font-medium mt-2">Dernier message : Aujourd'hui</p>
+            <p class="text-[11px] text-stone-400 font-medium mt-2">Dernier engagement : Aujourd'hui</p>
         </div>
 
         <!-- Stat Card: Occupancy -->
-        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-100 hover:-translate-y-1 transition-transform duration-500 group">
+        <div class="bg-white p-10 rounded-[2.5rem] shadow-premium border border-stone-100 hover:-translate-y-1 transition-transform duration-500 group"
+             x-data="{ visible: false }" x-intersect="visible = true"
+             :class="visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+             class="transition-all duration-700 delay-300">
             <div class="flex justify-between items-start mb-8">
                 <div class="p-4 bg-blue-50 text-blue-600 rounded-2xl group-hover:bg-primary group-hover:text-white transition-colors duration-500">
                     <span class="material-symbols-outlined">analytics_round</span>
