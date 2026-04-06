@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+from django.utils.text import slugify
 from django_extensions.db.models import ActivatorModel
 from model_utils.models import TimeStampedModel
 
@@ -96,6 +97,16 @@ class Appartement(SentinelBaseModel):
 
     def __str__(self):
         return f"{self.name} - {self.neighborhood}"
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.name)
+            original_slug = self.slug
+            counter = 1
+            while Appartement.objects.filter(slug=self.slug).exclude(pk=self.pk).exists():
+                self.slug = f"{original_slug}-{counter}"
+                counter += 1
+        super().save(*args, **kwargs)
 
 
 class ContactMessage(SentinelBaseModel):

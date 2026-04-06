@@ -90,8 +90,10 @@ class DashboardSettingsView(LoginRequiredMixin, SuperuserRequiredMixin, SuccessM
 
 
 def home(request):
-    return render(request, "home.html")
-    return render(request, "home.html")
+    appartements = Appartement.objects.filter(is_featured=True).order_by('-created')[:3]
+    if not appartements:
+        appartements = Appartement.objects.order_by('-created')[:3]
+    return render(request, "home.html", {'appartements': appartements})
 
 
 def about(request):
