@@ -56,7 +56,7 @@ class AppartementForm(PremiumFormMixin, forms.ModelForm):
 class ContactMessageForm(PremiumFormMixin, forms.ModelForm):
     class Meta:
         model = ContactMessage
-        fields = ['name', 'email', 'phone', 'subject', 'message']
+        fields = ['full_name', 'email', 'phone', 'subject', 'message']
 
 class SettingsForm(PremiumFormMixin, forms.ModelForm):
     class Meta:
