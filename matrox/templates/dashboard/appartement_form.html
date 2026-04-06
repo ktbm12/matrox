@@ -103,6 +103,20 @@
                         </div>
                     </div>
 
+                    <div class="bg-white p-10 rounded-[3rem] shadow-premium border border-stone-100 mt-10">
+                        <h3 class="font-headline text-xl font-black text-stone-950 mb-8">Galerie Images</h3>
+                        <div class="space-y-6">
+                            <div class="bg-stone-50 rounded-2xl border-2 border-dashed border-stone-100 flex flex-col items-center justify-center p-6 text-center group cursor-pointer hover:border-primary/30 transition-all">
+                                {{ form.gallery_images }}
+                                <span class="material-symbols-outlined text-stone-200 text-5xl mb-2 group-hover:text-primary transition-colors">photo_library</span>
+                                <p class="text-[10px] font-black text-stone-300 uppercase tracking-widest">Images Additionnelles (Sélection Multiple)</p>
+                            </div>
+                            {% if form.gallery_images.errors %}
+                                <p class="text-red-500 text-[10px] font-bold mt-2 text-center animate-bounce">{{ form.gallery_images.errors.0 }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+
                     <div class="pt-10 flex flex-col gap-4">
                         <button type="submit" class="w-full py-5 bg-primary text-white rounded-3xl font-black text-sm hover:bg-matrox-dark transition-all duration-500 shadow-2xl shadow-primary/20 animate-pulse-slow">
                             Sauvegarder les Modifications

@@ -6,7 +6,7 @@ from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
-from .models import Appartement, ContactMessage, Settings
+from .models import Appartement, ContactMessage, Settings, AppartementImage
 from .forms import AppartementForm, SettingsForm
 
 
@@ -53,6 +53,12 @@ class DashboardAppartementCreateView(LoginRequiredMixin, SuperuserRequiredMixin,
         context['title'] = "Nouvelle Résidence"
         return context
 
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        for image in self.request.FILES.getlist('gallery_images'):
+            AppartementImage.objects.create(appartement=self.object, image=image)
+        return response
+
 
 class DashboardAppartementUpdateView(LoginRequiredMixin, SuperuserRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Appartement
@@ -65,6 +71,12 @@ class DashboardAppartementUpdateView(LoginRequiredMixin, SuperuserRequiredMixin,
         context = super().get_context_data(**kwargs)
         context['title'] = "Modifier la Résidence"
         return context
+
+    def form_valid(self, form):
+        response = super().form_valid(form)
+        for image in self.request.FILES.getlist('gallery_images'):
+            AppartementImage.objects.create(appartement=self.object, image=image)
+        return response
 
 
 # --- CMS MESSAGES ---
