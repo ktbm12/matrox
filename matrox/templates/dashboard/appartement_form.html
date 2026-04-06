@@ -105,17 +105,53 @@
 
                     <div class="bg-white p-10 rounded-[3rem] shadow-premium border border-stone-100 mt-10">
                         <h3 class="font-headline text-xl font-black text-stone-950 mb-8">Galerie Images</h3>
-                        <div class="space-y-6">
-                            <div class="bg-stone-50 rounded-2xl border-2 border-dashed border-stone-100 flex flex-col items-center justify-center p-6 text-center group cursor-pointer hover:border-primary/30 transition-all">
+                        
+                        <div id="gallery-container" class="space-y-4">
+                            <!-- Input initial -->
+                            <div class="gallery-item bg-stone-50 rounded-2xl border-2 border-dashed border-stone-100 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary/30 transition-all">
                                 {{ form.gallery_images }}
-                                <span class="material-symbols-outlined text-stone-200 text-5xl mb-2 group-hover:text-primary transition-colors">photo_library</span>
-                                <p class="text-[10px] font-black text-stone-300 uppercase tracking-widest">Images Additionnelles (Sélection Multiple)</p>
+                                <span class="material-symbols-outlined text-stone-200 text-5xl mb-2 group-hover:text-primary transition-colors mt-4">photo_library</span>
+                                <p class="text-[10px] font-black text-stone-400 uppercase tracking-widest">Image Additionnelle</p>
                             </div>
-                            {% if form.gallery_images.errors %}
-                                <p class="text-red-500 text-[10px] font-bold mt-2 text-center animate-bounce">{{ form.gallery_images.errors.0 }}</p>
-                            {% endif %}
                         </div>
+                        
+                        {% if form.gallery_images.errors %}
+                            <p class="text-red-500 text-[10px] font-bold mt-2 text-center animate-bounce">{{ form.gallery_images.errors.0 }}</p>
+                        {% endif %}
+
+                        <button type="button" id="add-gallery-btn" class="mt-4 w-full py-4 rounded-2xl bg-stone-100 text-stone-500 font-bold text-xs uppercase tracking-widest hover:bg-stone-200 hover:text-stone-700 transition-colors flex items-center justify-center gap-2">
+                            <span class="material-symbols-outlined text-lg">add</span>
+                            Ajouter un autre encart d'image
+                        </button>
                     </div>
+
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const container = document.getElementById("gallery-container");
+                            const addBtn = document.getElementById("add-gallery-btn");
+
+                            addBtn.addEventListener("click", function() {
+                                const newDiv = document.createElement("div");
+                                newDiv.className = "gallery-item bg-stone-50 rounded-2xl border-2 border-dashed border-stone-100 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-primary/30 transition-all relative";
+                                
+                                newDiv.innerHTML = `
+                                    <button type="button" class="remove-btn absolute top-4 right-4 w-8 h-8 rounded-full bg-red-100 text-red-500 flex items-center justify-center hover:bg-red-500 hover:text-white transition-colors cursor-pointer z-10">
+                                        <span class="material-symbols-outlined text-sm">close</span>
+                                    </button>
+                                    <input type="file" name="gallery_images" class="block w-full text-sm text-stone-500 file:mr-4 file:py-3 file:px-6 file:rounded-xl file:border-0 file:text-[11px] file:font-black file:uppercase file:tracking-widest file:bg-matrox-dark file:text-white hover:file:bg-primary transition-all cursor-pointer">
+                                    <span class="material-symbols-outlined text-stone-200 text-5xl mb-2 group-hover:text-primary transition-colors mt-4">photo_library</span>
+                                    <p class="text-[10px] font-black text-stone-400 uppercase tracking-widest">Image Additionnelle</p>
+                                `;
+
+                                const removeBtn = newDiv.querySelector(".remove-btn");
+                                removeBtn.addEventListener("click", function() {
+                                    newDiv.remove();
+                                });
+
+                                container.appendChild(newDiv);
+                            });
+                        });
+                    </script>
 
                     <div class="pt-10 flex flex-col gap-4">
                         <button type="submit" class="w-full py-5 bg-primary text-white rounded-3xl font-black text-sm hover:bg-matrox-dark transition-all duration-500 shadow-2xl shadow-primary/20 animate-pulse-slow">
