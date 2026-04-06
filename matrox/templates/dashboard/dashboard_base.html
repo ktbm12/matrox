@@ -44,7 +44,7 @@
     <!-- Main Content -->
     <main class="lg:ml-72 min-h-screen transition-all duration-300 pt-20 lg:pt-0">
         <!-- Dashboard Header -->
-        <div class="px-8 lg:px-12 py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div class="px-5 md:px-8 lg:px-12 py-6 md:py-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div class="space-y-1">
                 <h2 class="text-4xl lg:text-5xl font-headline font-black tracking-tighter text-stone-950">{% block header_title %}Tableau de Bord{% endblock %}</h2>
                 <div class="flex items-center gap-2 text-stone-400 font-body text-sm font-medium">
@@ -70,7 +70,7 @@
         </div>
 
         <!-- Content Area -->
-        <div class="px-8 lg:px-12 pb-12">
+        <div class="px-5 md:px-8 lg:px-12 pb-12">
             {% if messages %}
             <div class="mb-8 space-y-4">
                 {% for message in messages %}
@@ -86,7 +86,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="px-12 py-10 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-6 text-stone-400 text-[10px] font-bold tracking-[0.2em] uppercase">
+        <footer class="px-5 md:px-8 lg:px-12 py-8 md:py-10 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-6 text-stone-400 text-[10px] font-bold tracking-[0.2em] uppercase text-center md:text-left">
             <p>© 2026 MATROX ELITE RESIDENCES. ALL RIGHTS RESERVED.</p>
             <div class="flex gap-8">
                 <a href="#" class="hover:text-primary transition-colors">Confidentialité</a>

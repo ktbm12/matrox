@@ -129,7 +129,7 @@
 <!-- ══ Trust Badges ══ -->
 <section class="py-16 bg-white dark:bg-stone-950">
     <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-12">
-        <div class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
+        <div data-aos="fade-up" data-aos-delay="0" class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
             <div class="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-950/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:rotate-6 transition-transform">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
             </div>
@@ -138,7 +138,7 @@
                 <p class="text-stone-500 dark:text-stone-400 text-sm">Transactions cryptées par protocole AES-256.</p>
             </div>
         </div>
-        <div class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
+        <div data-aos="fade-up" data-aos-delay="150" class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
             <div class="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-950/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:rotate-6 transition-transform">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
             </div>
@@ -147,7 +147,7 @@
                 <p class="text-stone-500 dark:text-stone-400 text-sm">Tarification directe sans intermédiaire.</p>
             </div>
         </div>
-        <div class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
+        <div data-aos="fade-up" data-aos-delay="300" class="flex items-center gap-6 group p-6 rounded-3xl hover:bg-emerald-50 dark:hover:bg-emerald-950/20 transition-colors">
             <div class="w-16 h-16 rounded-2xl bg-emerald-100 dark:bg-emerald-950/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:rotate-6 transition-transform">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
             </div>
@@ -224,7 +224,7 @@
 <!-- ══ Featured Residences ══ -->
 <section class="py-24 bg-stone-50 dark:bg-stone-900/40">
     <div class="max-w-screen-xl mx-auto px-6">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <div data-aos="fade-up" class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
             <div class="max-w-xl">
                 <span class="text-xs font-bold tracking-[0.3em] text-primary dark:text-emerald-400 uppercase">Sélections d'Élite</span>
                 <h2 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold mt-4 text-stone-900 dark:text-white leading-[1.1]">Nos résidences<br/><span class="text-emerald-600">les plus prisées</span></h2>
@@ -237,7 +237,7 @@
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {% for appartement in appartements %}
-            <div class="group bg-white dark:bg-stone-900 rounded-[2.5rem] overflow-hidden hover:shadow-premium transition-all duration-500 border border-stone-100 dark:border-stone-800/60 p-3">
+            <div data-aos="fade-up" data-aos-delay="{{ forloop.counter0 }}50" class="group bg-white dark:bg-stone-900 rounded-[2.5rem] overflow-hidden hover:shadow-premium transition-all duration-500 border border-stone-100 dark:border-stone-800/60 p-3">
                 <div class="relative h-72 overflow-hidden rounded-[2rem]">
                     {% if appartement.main_image %}
                     <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="{{ appartement.name }}" src="{{ appartement.main_image.url }}" />
@@ -279,7 +279,7 @@
 <!-- ══ Standard MatRox ══ -->
 <section class="py-24 bg-white dark:bg-stone-950 overflow-hidden">
     <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="relative">
+        <div class="relative" data-aos="fade-right">
             <div class="grid grid-cols-2 gap-4">
                 <img class="rounded-3xl w-full h-64 object-cover" data-alt="luxury hotel bedroom with high quality linens and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuebBf4jj6BLzrnOglVkfaIyd2e8FzN4W7-Tew4sNVnVsfIpcDqDqvpEx2_NiBmHtG7sLiN6R6C9LfSVYXkUTNv-lELGFRwsnDy9mzPvK3tPk0YZMp08IHOHEivFRidYQ2oxG8_kRRtOX-4LpMRh5fWzJ1-5wFT-RKWR5Ta_4z5ZQ4pGyA2uOXw61p35JuzO27D1YvUHPXP-hQXlhLYCugGPYEgiut1hK0Dg6JEqXM_B951zJ3lqndojiegJ97_rc89plcJYqBQwM" />
                 <img class="rounded-3xl w-full h-80 object-cover mt-12" data-alt="modern luxury kitchen with marble countertops and designer appliances" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Xot19gfDE9aS2kKZf9mcChcx2CpZD5LtpVLJbPsbJpaaZ-6hLkxlAEHGFWFQmbTkeIu9MN4RexeG-eRbjGQAj-3DKCrCXWlJ0-N0THHG8T1zQJ96hN0DYhZ1T8B2sfDfy4voEl_-MjE5caBsSckH_4EljOIuBa9DyoNByB5lwcc2YidLCS4OaviA1q95pd9oI62YWvzI9JRwzy9awHGweIPv5Dar0ciuCp83G378h0ArMxk0ct6so4TLNimKbeyZnoIVL6aQks" />
@@ -289,7 +289,7 @@
                 <div class="text-[10px] uppercase tracking-widest font-bold opacity-80">Années d'Excellence</div>
             </div>
         </div>
-        <div>
+        <div data-aos="fade-left">
             <span class="text-xs font-bold tracking-[0.3em] text-emerald-600 dark:text-emerald-400 uppercase font-headline">Le Standard MatRox</span>
             <h2 class="font-headline text-4xl md:text-5xl font-bold mt-4 mb-8 leading-[1.1] text-stone-900 dark:text-white" style="font-family: 'Space Grotesk', sans-serif;">Un art de vivre<br/>élevé et sécurisé</h2>
             <p class="text-stone-500 dark:text-stone-400 mb-12 text-lg leading-relaxed">Plus qu'une chambre, nous offrons un sanctuaire. Nos résidences sont conçues pour ceux qui apprécient les détails de l'architecture moderne alliés au confort d'un foyer et à la sécurité d'une forteresse.</p>

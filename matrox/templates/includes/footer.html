@@ -1,3 +1,5 @@
+{% load custom_tags %}
+{% get_global_settings as site_settings %}
 <footer class="bg-stone-100 dark:bg-stone-900 w-full rounded-t-3xl mt-20">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 md:px-24 py-16 w-full max-w-screen-2xl mx-auto">
         <div class="col-span-1 md:col-span-1">
@@ -28,8 +30,8 @@
         <div>
             <h4 class="font-['Inter'] text-xs uppercase tracking-widest text-primary font-bold mb-8">Contact Us</h4>
             <p class="text-stone-500 text-xs font-body mb-2">Rue de la Joie, Douala, Cameroon</p>
-            <p class="text-stone-500 text-xs font-body">+237 6XX XXX XXX</p>
-            <p class="text-stone-500 text-xs font-body">reservations@matrox.cm</p>
+            <p class="text-stone-500 text-xs font-body">{{ site_settings.contact_phone|default:'+237 6XX XXX XXX' }}</p>
+            <p class="text-stone-500 text-xs font-body">{{ site_settings.contact_email|default:'reservations@matrox.cm' }}</p>
         </div>
     </div>
     <div class="px-8 md:px-24 py-8 border-t border-stone-200 text-center">
