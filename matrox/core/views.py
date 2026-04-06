@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
 from .models import Appartement, ContactMessage, Settings, AppartementImage
-from .forms import AppartementForm, SettingsForm
+from .forms import AppartementForm, SettingsForm, ContactMessageForm
 
 
 class SuperuserRequiredMixin(UserPassesTestMixin):
@@ -113,7 +113,16 @@ def about(request):
 
 
 def contact(request):
-    return render(request, "contact.html")
+    settings = Settings.objects.first()
+    if request.method == "POST":
+        form = ContactMessageForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Votre demande a bien été envoyée. Notre équipe la traitera dans les plus brefs délais.")
+            return redirect('contact')
+    else:
+        form = ContactMessageForm()
+    return render(request, "contact.html", {'form': form, 'settings': settings})
 
 
 def service(request):
