@@ -46,23 +46,41 @@
     </div>
     <!-- Images secondaires -->
     <div class="hidden md:grid md:col-span-4 grid-rows-2 gap-3">
+      {% with images=appartement.images.all %}
+      {% if images|length >= 1 %}
       <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAki3h8we8s1dPjgyQh7rYeFVJpQZg5aKPfpAcNPWiwBJA_IimVXZ3Qu05bqGFfTioNzfD0CDqRMs_0QOIFYtVjmpNb2oVblZVgAYj3klX9e6RqmaENDnsNaRUaBV4Weet4v9GAVw8X0FDsG1-36Tw-09w9IP4pylgyOzsj2tPXN4y6RY4d97RRh-svgATQGbD6cio9Qq_UIPlrcWERC-WTG8AVzv_L0Ol70YxU-cflWwCZC26AFd-v5g1elv8vPJk9JdBQxwGTrfc" 
-             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Chambre Principale"/>
+        <img src="{{ images.0.image.url }}" 
+             class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ images.0.alt_text|default:appartement.name }}"/>
       </div>
+      {% else %}
+      <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer"></div>
+      {% endif %}
+
       <div class="grid grid-cols-2 gap-3">
+        {% if images|length >= 2 %}
         <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5r67mvrQsskfSMfXPNwl_Kg13DxKhZFlKoeMNJ78X2O6gm-YbvKHnMX_uU34ZV_qmj7r0Yk9oM4Q-yJIJdNE9uCNTHGVkfCcaFB1_Q8WMbypqxlZ9p-UD0pq42n0mNIOUrEBKVC2zvJBFjV27khTRLEZFctvpKkt35CpRyoVAH-0qFhb8D70KpQ9otQSJfBvBpDoJEpXwJWw1v4tH9l2k2R14nBJv6KIzrKgyH9Fzvf_4UiYPnjfxpvB18U24kjvl2QNnzZVdyvQ" 
-               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Terrasse"/>
+          <img src="{{ images.1.image.url }}" 
+               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ images.1.alt_text|default:appartement.name }}"/>
         </div>
+        {% else %}
+        <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer"></div>
+        {% endif %}
+
+        {% if images|length >= 3 %}
         <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer">
-          <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzetPgFUr3tWV7nWPDLpG8h99B-qsKmi9F9zWYDWnIggobJF4UG11Kl5k_xdgHw55HyBKJkJfgpk5Y9_ejxjDiu8w2PlSsZHbXmKi_Y6kNK0DE5U3d9A1o03pSTPX2rHoOYiCwbfS88NzbRGWWjd-eN1qAZfLgcLWccbb9B08bhzxKRiiYVMqXpI9MpAcNYOrIqOlbu7f9BTJlXWdHraT17vJqi4ncD-HigN0wuplChYESiciryIf3QVs2EVMMECD_Mqjwdt7DEA4" 
-               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Salle de Bain"/>
+          <img src="{{ images.2.image.url }}" 
+               class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ images.2.alt_text|default:appartement.name }}"/>
+          {% if images|length > 3 %}
           <div class="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-            <span class="text-white text-xs font-bold uppercase tracking-widest">+12 Photos</span>
+            <span class="text-white text-xs font-bold uppercase tracking-widest">+{{ images|length|add:"-3" }} Photos</span>
           </div>
+          {% endif %}
         </div>
+        {% else %}
+        <div class="relative overflow-hidden rounded-[2rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer"></div>
+        {% endif %}
       </div>
+      {% endwith %}
     </div>
   </div>
 </section>
