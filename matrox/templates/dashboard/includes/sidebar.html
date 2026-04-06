@@ -41,6 +41,12 @@
             {% endif %}
         </a>
 
+        <a href="{% url 'dashboard_testimonial_list' %}" 
+           class="flex items-center gap-4 px-5 py-3.5 rounded-xl transition-all duration-300 group {% if 'testimonial' in request.path %}sidebar-link-active{% else %}text-stone-500 hover:text-stone-900 hover:bg-stone-50{% endif %}">
+            <span class="material-symbols-outlined dashboard-icons text-[20px] select-none">reviews</span>
+            <span class="font-headline font-bold text-[14px] tracking-tight">Témoignages</span>
+        </a>
+
         <p class="text-[9px] font-black text-stone-400 uppercase tracking-[0.2em] mt-10 mb-4 px-4">Configuration</p>
 
         <a href="{% url 'dashboard_settings' %}" 

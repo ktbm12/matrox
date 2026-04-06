@@ -1,0 +1,94 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}Témoignages Clients{% endblock %}
+{% block breadcrumb %}Témoignages{% endblock %}
+{% block header_title %}Elite Voice{% endblock %}
+{% block header_subtitle %}Gérez les retours d'expérience de vos résidents pour renforcer votre prestige.{% endblock %}
+
+{% block content %}
+    <div class="flex justify-end mb-8">
+        <a href="{% url 'dashboard_testimonial_add' %}" class="px-8 py-4 bg-matrox-dark text-white rounded-2xl font-black text-[11px] uppercase tracking-widest hover:bg-primary transition-all shadow-xl shadow-primary/10 flex items-center gap-3">
+            <span class="material-symbols-outlined text-[20px]">add_circle</span>
+            Ajouter un Témoignage
+        </a>
+    </div>
+
+    <div class="bg-white rounded-[3.5rem] shadow-premium border border-stone-100 overflow-hidden">
+        <div class="p-12 border-b border-stone-50 flex flex-col md:flex-row md:items-center justify-between gap-6 bg-stone-50/20">
+            <div class="flex items-center gap-6">
+                <div class="w-16 h-16 bg-emerald-500 rounded-3xl flex items-center justify-center shadow-2xl">
+                    <span class="material-symbols-outlined text-white text-3xl">reviews</span>
+                </div>
+                <div>
+                    <h4 class="text-2xl font-headline font-black text-stone-950 tracking-tight">Gestion des Avis</h4>
+                    <p class="text-sm text-stone-400 font-medium mt-1">{{ object_list.count }} témoignages enregistrés</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left font-body">
+                <thead>
+                    <tr class="text-[9px] font-black uppercase tracking-[0.3em] text-stone-300">
+                        <th class="px-12 py-8">Client</th>
+                        <th class="px-12 py-8">Témoignage</th>
+                        <th class="px-12 py-8">Note</th>
+                        <th class="px-12 py-8">Status</th>
+                        <th class="px-12 py-8 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-stone-50">
+                    {% for testimonial in object_list %}
+                    <tr class="hover:bg-stone-50/50 transition-all duration-300 group">
+                        <td class="px-12 py-10">
+                            <div class="space-y-0.5">
+                                <span class="text-[15px] font-black text-stone-950 block">{{ testimonial.client_name }}</span>
+                                <span class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">{{ testimonial.profession }}</span>
+                            </div>
+                        </td>
+                        <td class="px-12 py-10">
+                            <p class="text-[12px] text-stone-400 font-medium max-w-sm line-clamp-2 leading-relaxed">
+                                {{ testimonial.content }}
+                            </p>
+                        </td>
+                        <td class="px-12 py-10">
+                            <div class="flex items-center gap-1 text-amber-400">
+                                {% for i in "12345"|make_list %}
+                                    <span class="material-symbols-outlined text-[16px] {% if forloop.counter <= testimonial.rating %}fill-current{% else %}opacity-20{% endif %}">star</span>
+                                {% endfor %}
+                            </div>
+                        </td>
+                        <td class="px-12 py-10">
+                            {% if testimonial.is_active %}
+                                <span class="px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full text-[9px] font-black uppercase tracking-widest">Actif</span>
+                            {% else %}
+                                <span class="px-3 py-1 bg-stone-100 text-stone-400 rounded-full text-[9px] font-black uppercase tracking-widest">Inactif</span>
+                            {% endif %}
+                        </td>
+                        <td class="px-12 py-10 text-right">
+                            <div class="flex justify-end gap-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <a href="{% url 'dashboard_testimonial_edit' testimonial.pk %}" class="w-12 h-12 flex items-center justify-center bg-white border border-stone-100 text-stone-300 hover:text-primary hover:border-primary/20 rounded-2xl transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[20px]">edit</span>
+                                </a>
+                                <a href="{% url 'dashboard_testimonial_delete' testimonial.pk %}" class="w-12 h-12 flex items-center justify-center bg-white border border-stone-100 text-stone-300 hover:text-red-500 hover:bg-red-50 rounded-2xl transition-all shadow-sm">
+                                    <span class="material-symbols-outlined text-[20px]">delete</span>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr><td colspan="5" class="px-12 py-40 text-center">
+                         <div class="flex flex-col items-center gap-8 opacity-20">
+                            <span class="material-symbols-outlined text-9xl">format_quote</span>
+                            <div class="space-y-2">
+                                <p class="text-2xl font-headline font-black uppercase tracking-[0.2em]">Aucun témoignage</p>
+                                <p class="text-sm font-medium">Capturez les voix de vos clients satisfaits ici.</p>
+                            </div>
+                        </div>
+                    </td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

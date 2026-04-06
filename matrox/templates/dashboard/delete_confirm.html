@@ -1,0 +1,29 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}Confirmation de Suppression{% endblock %}
+
+{% block content %}
+<div class="max-w-2xl mx-auto mt-20 text-center">
+    <div class="mb-10 inline-flex w-24 h-24 bg-red-50 text-red-500 rounded-[2.5rem] items-center justify-center animate-bounce">
+        <span class="material-symbols-outlined text-5xl">warning</span>
+    </div>
+    
+    <h2 class="text-4xl font-headline font-black text-stone-950 mb-6">Action Réversible ?</h2>
+    <p class="text-lg text-stone-500 font-medium leading-relaxed mb-12">
+        Êtes-vous absolument sûr de vouloir supprimer cet élément ? <br>
+        Cette action est définitive et les données associées seront perdues.
+    </p>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="flex flex-col md:flex-row gap-6">
+            <button type="submit" class="flex-1 py-5 bg-red-500 text-white rounded-3xl font-black text-sm hover:bg-red-600 transition-all shadow-2xl shadow-red-500/20">
+                OUI, Supprimer Définitivement
+            </button>
+            <a href="{{ request.META.HTTP_REFERER|default:'..' }}" class="flex-1 py-5 bg-stone-100 text-stone-600 rounded-3xl font-black text-sm hover:bg-stone-200 transition-all">
+                Annuler l'Action
+            </a>
+        </div>
+    </form>
+</div>
+{% endblock %}

@@ -146,3 +146,19 @@ class AppartementImage(SentinelBaseModel):
 
     def __str__(self):
         return f"Image pour {self.appartement.name}"
+
+
+class Testimonial(SentinelBaseModel):
+    client_name = models.CharField(_("Nom du client"), max_length=100)
+    profession = models.CharField(_("Profession/Titre"), max_length=100, blank=True)
+    content = models.TextField(_("Contenu du témoignage"))
+    rating = models.PositiveIntegerField(_("Note (sur 5)"), default=5)
+    is_active = models.BooleanField(_("Affiché publiquement"), default=True)
+
+    class Meta:
+        verbose_name = _("Témoignage")
+        verbose_name_plural = _("Témoignages")
+        ordering = ('-created',)
+
+    def __str__(self):
+        return self.client_name

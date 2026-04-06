@@ -23,4 +23,10 @@ urlpatterns = [
     
     # CMS Settings
     path('admin-dashboard/settings/', views.DashboardSettingsView.as_view(), name='dashboard_settings'),
+    
+    # CMS Testimonials
+    path('admin-dashboard/testimonials/', views.DashboardTestimonialListView.as_view(), name='dashboard_testimonial_list'),
+    path('admin-dashboard/testimonials/add/', views.DashboardTestimonialCreateView.as_view(), name='dashboard_testimonial_add'),
+    path('admin-dashboard/testimonials/<uuid:pk>/edit/', views.DashboardTestimonialUpdateView.as_view(), name='dashboard_testimonial_edit'),
+    path('admin-dashboard/testimonials/<uuid:pk>/delete/', views.DashboardTestimonialDeleteView.as_view(), name='dashboard_testimonial_delete'),
 ]

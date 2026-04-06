@@ -1,5 +1,5 @@
 from django import forms
-from .models import Appartement, Settings, ContactMessage, AppartementImage
+from .models import Appartement, Settings, ContactMessage, AppartementImage, Testimonial
 
 class PremiumFormMixin:
     """Mixin pour appliquer les styles Elite Professional aux formulaires."""
@@ -66,6 +66,11 @@ class SettingsForm(PremiumFormMixin, forms.ModelForm):
             'contact_email', 'contact_phone', 'office_address',
             'facebook_url', 'instagram_url', 'whatsapp_number', 'status'
         ]
+
+class TestimonialForm(PremiumFormMixin, forms.ModelForm):
+    class Meta:
+        model = Testimonial
+        fields = ['client_name', 'profession', 'content', 'rating', 'is_active']
 
 class AppartementImageForm(PremiumFormMixin, forms.ModelForm):
     class Meta:

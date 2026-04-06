@@ -1,13 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.contrib.messages.views import SuccessMessageMixin
 
-from .models import Appartement, ContactMessage, Settings, AppartementImage
-from .forms import AppartementForm, SettingsForm, ContactMessageForm
+from .models import Appartement, AppartementImage, Settings, ContactMessage, Testimonial
+from .forms import AppartementForm, SettingsForm, ContactMessageForm, TestimonialForm
 
 
 class SuperuserRequiredMixin(UserPassesTestMixin):
@@ -105,7 +105,12 @@ def home(request):
     appartements = Appartement.objects.filter(is_featured=True).order_by('-created')[:3]
     if not appartements:
         appartements = Appartement.objects.order_by('-created')[:3]
-    return render(request, "home.html", {'appartements': appartements})
+    
+    testimonials = Testimonial.objects.filter(is_active=True).order_by('-created')[:6]
+    return render(request, "home.html", {
+        'appartements': appartements,
+        'testimonials': testimonials
+    })
 
 
 def about(request):
@@ -137,3 +142,44 @@ def liste(request):
 def detail(request, slug):
     appartement = get_object_or_404(Appartement, slug=slug)
     return render(request, "detail.html", {"appartement": appartement})
+
+
+# --- CMS TESTIMONIALS ---
+
+class DashboardTestimonialListView(LoginRequiredMixin, SuperuserRequiredMixin, ListView):
+    model = Testimonial
+    template_name = 'dashboard/testimonial_list.html'
+    ordering = '-created'
+
+class DashboardTestimonialCreateView(LoginRequiredMixin, SuperuserRequiredMixin, SuccessMessageMixin, CreateView):
+    model = Testimonial
+    form_class = TestimonialForm
+    template_name = 'dashboard/testimonial_form.html'
+    success_url = reverse_lazy('dashboard_testimonial_list')
+    success_message = "Le témoignage de %(client_name)s a été ajouté."
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Nouveau Témoignage"
+        return context
+
+class DashboardTestimonialUpdateView(LoginRequiredMixin, SuperuserRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Testimonial
+    form_class = TestimonialForm
+    template_name = 'dashboard/testimonial_form.html'
+    success_url = reverse_lazy('dashboard_testimonial_list')
+    success_message = "Le témoignage de %(client_name)s a été mis à jour."
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = "Modifier le Témoignage"
+        return context
+
+class DashboardTestimonialDeleteView(LoginRequiredMixin, SuperuserRequiredMixin, DeleteView):
+    model = Testimonial
+    template_name = 'dashboard/delete_confirm.html'
+    success_url = reverse_lazy('dashboard_testimonial_list')
+    
+    def delete(self, request, *args, **kwargs):
+        messages.success(self.request, "Le témoignage a été supprimé.")
+        return super().delete(request, *args, **kwargs)

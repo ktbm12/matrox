@@ -1,0 +1,74 @@
+{% extends 'dashboard/dashboard_base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+{% block breadcrumb %}Témoignages / {{ title }}{% endblock %}
+{% block header_title %}{{ title }}{% endblock %}
+{% block header_subtitle %}Rédigez l'avis client avec soin pour refléter l'expérience MatRox de manière authentique.{% endblock %}
+
+{% block content %}
+    <div class="max-w-4xl mt-6">
+        <form method="post" class="space-y-12">
+            {% csrf_token %}
+            
+            <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-primary rounded-full"></span>
+                    Informations du Client
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.client_name.label }}</label>
+                        {{ form.client_name }}
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.profession.label }}</label>
+                        {{ form.profession }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
+                <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
+                    <span class="w-10 h-1 bg-stone-300 rounded-full"></span>
+                    Contenu du Témoignage
+                </h3>
+                <div class="space-y-8">
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">Note (1 à 5)</label>
+                        {{ form.rating }}
+                    </div>
+                    <div class="space-y-3">
+                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">Message</label>
+                        {{ form.content }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-matrox-dark p-10 rounded-[3rem] shadow-2xl relative overflow-hidden group/card max-w-sm">
+                <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+                <h3 class="font-headline text-xl font-black text-white mb-8 relative z-10">Configuration</h3>
+                
+                <div class="space-y-8 relative z-10">
+                    <div class="p-6 bg-stone-900/50 rounded-3xl border border-stone-800 space-y-4">
+                        <label class="flex items-center gap-4 cursor-pointer group">
+                            {{ form.is_active }}
+                            <div>
+                                <span class="block text-[13px] font-black text-white group-hover:text-primary transition-colors">Afficher publiquement</span>
+                                <span class="block text-[9px] text-stone-500 font-bold uppercase">Visibilité sur la home page</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-10 flex flex-col md:flex-row gap-6 max-w-2xl">
+                <button type="submit" class="flex-1 py-5 bg-primary text-white rounded-3xl font-black text-sm hover:bg-matrox-dark transition-all duration-500 shadow-2xl shadow-primary/20">
+                    Sauvegarder le Témoignage
+                </button>
+                <a href="{% url 'dashboard_testimonial_list' %}" class="flex-1 py-5 bg-white text-stone-400 font-black text-[11px] uppercase tracking-widest text-center rounded-3xl border border-stone-100 hover:text-stone-900 transition-all">
+                    Annuler & Retour
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
