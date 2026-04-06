@@ -33,8 +33,15 @@
   <div class="grid grid-cols-1 md:grid-cols-12 gap-3 h-[500px] md:h-[600px] lg:h-[650px]">
     <!-- Image principale -->
     <div class="md:col-span-8 relative overflow-hidden rounded-[2.5rem] bg-stone-100 dark:bg-stone-900 group cursor-pointer shadow-lg">
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHphuHJHuPuEWAMqUCmKnNM5acboJIoESgWDxm6A2INcpzs2xRqSmYN3fnkpUeN8vcHp5eWJtXaHdDU_8hBpk9sS1DrTRPvq2YQzHOzII_HAa6xNmrjYCeGClJD-RLbChLRYap5YMl-uxDrs1d8gW7_tYwLksrFhQR2MEskAwhP2YycWsHJ07vsYV2A5sxOJLHz8q-Vs3qnkncHQk69p8_TpooVvmhtDkMnZ4vTDVxzsaxEEOEvii0X5xCdzNkBYLklvWOZsuVPA8" 
-           class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="Vue Mer"/>
+      {% if appartement.main_image %}
+      <img src="{{ appartement.main_image.url }}" 
+           class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" alt="{{ appartement.name }}"/>
+      {% else %}
+      <div class="w-full h-full flex items-center justify-center text-stone-400 gap-2">
+        <svg class="w-8 h-8 opacity-50" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <span>Sans Image</span>
+      </div>
+      {% endif %}
       <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition-colors"></div>
     </div>
     <!-- Images secondaires -->
@@ -68,7 +75,7 @@
     <div class="lg:col-span-8">
       <div class="mb-10">
         <h1 class="font-headline text-4xl md:text-5xl lg:text-6xl font-bold text-stone-900 dark:text-white tracking-tight mb-6">
-          Luxe Sea-View Suite, Kribi
+          {{ appartement.name }}
         </h1>
         <div class="flex flex-wrap items-center gap-5 text-stone-500 dark:text-stone-400 text-sm font-bold">
           <div class="flex items-center gap-1.5 px-3 py-1 bg-stone-100 dark:bg-stone-800 rounded-lg">
@@ -79,7 +86,7 @@
           <span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>
           <div class="flex items-center gap-1.5">
             <svg class="w-4.5 h-4.5 text-stone-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <span>Kribi, Cameroun</span>
+            <span>{{ appartement.get_location_display }}, Cameroun</span>
           </div>
           <span class="w-1 h-1 rounded-full bg-stone-300 dark:bg-stone-700"></span>
           <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400">
@@ -95,15 +102,15 @@
           <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 flex items-center justify-center text-primary dark:text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M21 14V4a2 2 0 00-2-2H5a2 2 0 00-2 2v10m18 0a3 3 0 01-3 3H6a3 3 0 01-3-3m18 0h-3m-15 0H3m18 2h-3.172a2 2 0 01-1.414-.586l-1.414-1.414M3 16h3.172a2 2 0 011.414.586l1.414 1.414M10 11l2 2 2-2"/></svg>
           </div>
-          <span class="font-bold text-stone-900 dark:text-white">King Master</span>
-          <span class="text-xs text-stone-500 uppercase tracking-widest mt-1">2 voyageurs</span>
+          <span class="font-bold text-stone-900 dark:text-white">{{ appartement.bedrooms }} Chambres</span>
+          <span class="text-xs text-stone-500 uppercase tracking-widest mt-1">{{ appartement.max_guests }} voyageurs max</span>
         </div>
         <div class="flex flex-col items-center text-center p-6 bg-stone-50 dark:bg-stone-900/40 rounded-3xl group hover:bg-white dark:hover:bg-stone-800 transition-all duration-300">
           <div class="w-12 h-12 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4 group-hover:scale-110 transition-transform">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" viewBox="0 0 24 24"><path d="M3 3h18v18H3V3z M21 12H3 M12 3v18"/></svg>
           </div>
-          <span class="font-bold text-stone-900 dark:text-white">120 m²</span>
-          <span class="text-xs text-stone-500 uppercase tracking-widest mt-1">Spacieux</span>
+          <span class="font-bold text-stone-900 dark:text-white">{{ appartement.bathrooms }} Salles de bain</span>
+          <span class="text-xs text-stone-500 uppercase tracking-widest mt-1">Confort</span>
         </div>
         <div class="flex flex-col items-center text-center p-6 bg-stone-50 dark:bg-stone-900/40 rounded-3xl group hover:bg-white dark:hover:bg-stone-800 transition-all duration-300">
           <div class="w-12 h-12 rounded-2xl bg-blue-100 dark:bg-blue-950/20 flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4 group-hover:scale-110 transition-transform">
@@ -117,12 +124,9 @@
       <!-- Description -->
       <div class="prose prose-stone dark:prose-invert max-w-none mb-16">
         <h3 class="font-headline text-2xl font-bold text-stone-900 dark:text-white mb-6">L'Expérience MatRox</h3>
-        <p class="text-stone-500 dark:text-stone-400 text-lg leading-relaxed mb-6">
-          Découvrez le summum de la vie côtière dans notre suite emblématique. Conçue avec un œil éditorial, la Luxe Sea-View Suite fusionne le design européen minimaliste avec la chaleur vibrante de l'hospitalité camerounaise.
-        </p>
-        <p class="text-stone-500 dark:text-stone-400 text-lg leading-relaxed">
-          Chaque matin, réveillez-vous au rythme de l'Atlantique, visible à travers d'immenses parois de verre. La suite dispose de mobilier sur mesure, d'une fibre optique haut débit pour les nomades numériques et d'une conciergerie dédiée.
-        </p>
+        <div class="text-stone-500 dark:text-stone-400 text-lg leading-relaxed">
+          {{ appartement.description|linebreaks }}
+        </div>
       </div>
 
       <!-- Aménagements Grid -->
@@ -184,7 +188,7 @@
         
         <div class="flex justify-between items-baseline mb-8">
           <div class="flex flex-col">
-            <span class="text-3xl font-bold text-stone-900 dark:text-white tracking-tight">150,000 XAF</span>
+            <span class="text-3xl font-bold text-stone-900 dark:text-white tracking-tight">{{ appartement.price_per_night }} XAF</span>
             <span class="text-xs font-bold text-stone-400 uppercase tracking-widest mt-1">par nuit</span>
           </div>
           <div class="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-stone-800 rounded-lg">

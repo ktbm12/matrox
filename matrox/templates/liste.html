@@ -139,20 +139,26 @@
       <!-- Grille Responsivive -->
       <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-8">
         
-        {% for i in "1234" %}
+        {% for appartement in appartements %}
         <!-- Card Appartement -->
         <div class="group flex flex-col bg-white dark:bg-stone-900 rounded-[2.5rem] border border-stone-100 dark:border-stone-800/60 overflow-hidden shadow-sm hover:shadow-2xl hover:shadow-stone-200/40 dark:hover:shadow-black/60 transition-all duration-300">
           
           <!-- Image Container -->
           <div class="relative aspect-[4/3] overflow-hidden p-3 pb-0">
             <div class="w-full h-full rounded-[2rem] overflow-hidden relative">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAG_8ihZ5wAMyKNenHwqWgnwoH5PETlF48NkyCujXsfA9AYFvFvyb7VExQv5mxi99nWh7iLpgGKZzuBJ9DCFn1YrSREEgFxWIqdNvdTvC-URRtKhW4MWT6oDY0zECMTxGB1ujCLv4UDiS4HFANO3XcG1EEO2artHWwnHxWBlExeGFd3l_5l1hoH5jDWVc1lbqeqMXu0pODxNB01u8nr_-ZEAtgnJIcpHBD4Gt8sB_gdV16KktwFCvcZrJHdhXicI_MJ4hrmIxhrLPk"
-                   alt="Appartement MatRox Luxe" 
+              {% if appartement.main_image %}
+              <img src="{{ appartement.main_image.url }}"
+                   alt="{{ appartement.name }}" 
                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"/>
+              {% else %}
+              <div class="w-full h-full flex items-center justify-center bg-stone-100 dark:bg-stone-800 text-stone-400 group-hover:scale-110 transition-transform duration-700">Sans Image</div>
+              {% endif %}
               <!-- Badges positionnés sur l'image -->
               <div class="absolute top-4 left-4 flex gap-2">
-                <span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase text-emerald-700 shadow-sm">Neuf</span>
+                {% if appartement.is_featured %}
                 <span class="bg-primary px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase text-white shadow-sm">Premium</span>
+                {% endif %}
+                <span class="bg-white/90 backdrop-blur px-3 py-1.5 rounded-full text-[10px] font-bold tracking-widest uppercase text-emerald-700 shadow-sm">Vérifié</span>
               </div>
               <!-- Bouton Favori -->
               <button class="absolute top-4 right-4 w-9 h-9 rounded-full bg-stone-950/20 backdrop-blur-md text-white border border-white/20 flex items-center justify-center hover:bg-white hover:text-primary transition-all group-hover:rotate-12">
@@ -164,7 +170,7 @@
           <!-- Content Body -->
           <div class="p-8">
             <div class="flex justify-between items-start mb-3">
-              <h3 class="font-headline font-bold text-xl md:text-2xl text-stone-900 dark:text-white leading-tight group-hover:text-primary transition-colors">The Azure Penthouse</h3>
+              <h3 class="font-headline font-bold text-xl md:text-2xl text-stone-900 dark:text-white leading-tight group-hover:text-primary transition-colors">{{ appartement.name }}</h3>
               <div class="flex items-center gap-1.5 px-2.5 py-1 bg-stone-50 dark:bg-stone-800 rounded-lg shrink-0">
                 <svg class="w-3.5 h-3.5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
                 <span class="text-xs font-bold text-stone-900 dark:text-white">4.9</span>
@@ -173,29 +179,33 @@
 
             <div class="flex items-center gap-2 text-stone-400 text-sm mb-6">
               <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-              Bonapriso, Douala
+              {{ appartement.neighborhood }}, {{ appartement.get_location_display }}
             </div>
 
             <!-- Tags/Amenities Micro -->
             <div class="flex flex-wrap gap-2 mb-8">
-              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">3 Ch</span>
-              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">180m²</span>
-              <span class="px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 text-[10px] font-bold text-emerald-600 uppercase tracking-tight">WiFi Incl.</span>
+              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">{{ appartement.bedrooms }} Ch</span>
+              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">{{ appartement.bathrooms }} Sdb</span>
+              {% if appartement.max_guests %}
+              <span class="px-3 py-1 rounded-full bg-stone-100 dark:bg-stone-800 text-[10px] font-bold text-stone-500 uppercase tracking-tight">Max {{ appartement.max_guests }} Pax</span>
+              {% endif %}
             </div>
 
             <!-- Footer Card -->
             <div class="flex items-center justify-between pt-6 border-t border-stone-100 dark:border-stone-800/80">
               <div class="flex flex-col">
-                <span class="text-lg md:text-xl font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">120,000 XAF</span>
+                <span class="text-lg md:text-xl font-bold text-emerald-600 dark:text-emerald-400 tracking-tight">{{ appartement.price_per_night }} XAF</span>
                 <span class="text-[10px] uppercase font-bold text-stone-400 tracking-wider">/ la nuit</span>
               </div>
-              <a href="{% url 'detail' %}" 
+              <a href="{% url 'detail' slug=appartement.slug %}" 
                  class="bg-stone-950 dark:bg-stone-800 hover:bg-primary text-white font-bold px-6 py-3 rounded-2xl text-sm transition-all active:scale-95 shadow-lg shadow-black/5 hover:shadow-emerald-900/30">
                 Détails
               </a>
             </div>
           </div>
         </div>
+        {% empty %}
+            <p class="col-span-2 text-stone-500 dark:text-stone-400 text-center py-20">Aucune résidence ne correspond à votre recherche.</p>
         {% endfor %}
 
       </div>

@@ -109,8 +109,10 @@ def service(request):
 
 
 def liste(request):
-    return render(request, "liste.html")
+    appartements = Appartement.objects.all().order_by('-created')
+    return render(request, "liste.html", {"appartements": appartements})
 
 
-def detail(request):
-    return render(request, "detail.html")
+def detail(request, slug):
+    appartement = get_object_or_404(Appartement, slug=slug)
+    return render(request, "detail.html", {"appartement": appartement})

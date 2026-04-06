@@ -7,7 +7,7 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('service/', views.service, name='service'),
     path('liste/', views.liste, name='liste'),
-    path('detail/', views.detail, name='detail'),
+    path('appartement/<slug:slug>/', views.detail, name='detail'),
     
     # Administration Custom
     path('admin-auth/login/', views.AdminLoginView.as_view(), name='admin_login'),
