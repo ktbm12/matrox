@@ -7,22 +7,33 @@
 
 {% block content %}
     <div class="max-w-4xl mt-6">
-        <form method="post" class="space-y-12">
+        <form method="post" enctype="multipart/form-data" class="space-y-12">
             {% csrf_token %}
             
             <div class="bg-white rounded-[3rem] p-12 shadow-premium border border-stone-50">
                 <h3 class="font-headline text-2xl font-black mb-10 flex items-center gap-4">
                     <span class="w-10 h-1 bg-primary rounded-full"></span>
-                    Informations du Client
+                    Profil du Client
                 </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                    <div class="space-y-3">
-                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.client_name.label }}</label>
-                        {{ form.client_name }}
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-10">
+                    <div class="md:col-span-4">
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">Photo (Optionnel)</label>
+                            <div class="relative group aspect-square rounded-[2rem] overflow-hidden bg-stone-50 border-2 border-dashed border-stone-100 flex flex-col items-center justify-center p-6 text-center hover:border-primary/30 transition-all cursor-pointer">
+                                {{ form.image }}
+                                <span class="material-symbols-outlined text-stone-200 text-4xl mb-2 group-hover:text-primary transition-colors">add_a_photo</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="space-y-3">
-                        <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.profession.label }}</label>
-                        {{ form.profession }}
+                    <div class="md:col-span-8 grid grid-cols-1 gap-10">
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.client_name.label }}</label>
+                            {{ form.client_name }}
+                        </div>
+                        <div class="space-y-3">
+                            <label class="text-[10px] font-black uppercase tracking-[0.3em] text-stone-400 ml-4">{{ form.profession.label }}</label>
+                            {{ form.profession }}
+                        </div>
                     </div>
                 </div>
             </div>

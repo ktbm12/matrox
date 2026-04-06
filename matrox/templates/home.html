@@ -206,7 +206,7 @@
                  class="transition-all duration-1000 ease-out delay-200">
                 <div class="absolute -inset-10 bg-gradient-to-tr from-emerald-600/10 to-emerald-400/10 rounded-[4rem] blur-3xl opacity-50 animate-pulse"></div>
                 <div class="aspect-[4/5] rounded-[3.5rem] overflow-hidden shadow-2xl relative bg-stone-100 dark:bg-stone-900 ring-1 ring-stone-900/5 dark:ring-white/5">
-                     <img src="https://lh3.googleusercontent.com/pw/AP1GczPrO9Q8C5O4x1Lq7v5_JzU6W8QnZ6n8z9X7R_J9X7R_J9X7R_J9X7R_J9X7" 
+                     <img src="{% static 'images/hero1.png' %}" 
                           alt="Intérieur Premium" 
                           class="w-full h-full object-cover transition-transform duration-[2s] hover:scale-110"/>
                      <div class="absolute inset-0 bg-gradient-to-t from-stone-950/80 via-transparent to-transparent"></div>
@@ -281,8 +281,8 @@
     <div class="max-w-screen-xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
         <div class="relative" data-aos="fade-right">
             <div class="grid grid-cols-2 gap-4">
-                <img class="rounded-3xl w-full h-64 object-cover" data-alt="luxury hotel bedroom with high quality linens and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuebBf4jj6BLzrnOglVkfaIyd2e8FzN4W7-Tew4sNVnVsfIpcDqDqvpEx2_NiBmHtG7sLiN6R6C9LfSVYXkUTNv-lELGFRwsnDy9mzPvK3tPk0YZMp08IHOHEivFRidYQ2oxG8_kRRtOX-4LpMRh5fWzJ1-5wFT-RKWR5Ta_4z5ZQ4pGyA2uOXw61p35JuzO27D1YvUHPXP-hQXlhLYCugGPYEgiut1hK0Dg6JEqXM_B951zJ3lqndojiegJ97_rc89plcJYqBQwM" />
-                <img class="rounded-3xl w-full h-80 object-cover mt-12" data-alt="modern luxury kitchen with marble countertops and designer appliances" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_Xot19gfDE9aS2kKZf9mcChcx2CpZD5LtpVLJbPsbJpaaZ-6hLkxlAEHGFWFQmbTkeIu9MN4RexeG-eRbjGQAj-3DKCrCXWlJ0-N0THHG8T1zQJ96hN0DYhZ1T8B2sfDfy4voEl_-MjE5caBsSckH_4EljOIuBa9DyoNByB5lwcc2YidLCS4OaviA1q95pd9oI62YWvzI9JRwzy9awHGweIPv5Dar0ciuCp83G378h0ArMxk0ct6so4TLNimKbeyZnoIVL6aQks" />
+                <img class="rounded-3xl w-full h-64 object-cover" data-alt="luxury hotel bedroom with high quality linens and soft lighting" src="{% static 'img/matrox.jpg' % }" />
+                <img class="rounded-3xl w-full h-80 object-cover mt-12" data-alt="modern luxury kitchen with marble countertops and designer appliances" src="{% static 'img/matrox.jpg' % }" />
             </div>
             <div class="absolute -bottom-6 -right-6 bg-primary text-white p-8 rounded-3xl shadow-premium hidden md:block">
                 <div class="text-4xl font-bold mb-1 tracking-tighter">10+</div>
@@ -349,9 +349,13 @@
                 </p>
 
                 <div class="flex items-center gap-4 pt-8 border-t border-stone-50 dark:border-stone-800/50">
-                    <div class="w-12 h-12 rounded-2xl bg-matrox-dark flex items-center justify-center text-primary font-black">
+                    {% if testimonial.image %}
+                    <img src="{{ testimonial.image.url }}" class="w-12 h-12 rounded-2xl object-cover shadow-lg ring-1 ring-stone-900/5">
+                    {% else %}
+                    <div class="w-12 h-12 rounded-2xl bg-matrox-dark flex items-center justify-center text-primary font-black shadow-lg">
                         {{ testimonial.client_name|slice:":1"|upper }}
                     </div>
+                    {% endif %}
                     <div>
                         <h4 class="font-bold text-stone-900 dark:text-white tracking-tight">{{ testimonial.client_name }}</h4>
                         <p class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">{{ testimonial.profession }}</p>

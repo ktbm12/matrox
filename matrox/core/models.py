@@ -153,6 +153,7 @@ class Testimonial(SentinelBaseModel):
     profession = models.CharField(_("Profession/Titre"), max_length=100, blank=True)
     content = models.TextField(_("Contenu du témoignage"))
     rating = models.PositiveIntegerField(_("Note (sur 5)"), default=5)
+    image = models.ImageField(_("Photo du client"), upload_to="testimonials/", blank=True, null=True)
     is_active = models.BooleanField(_("Affiché publiquement"), default=True)
 
     class Meta:

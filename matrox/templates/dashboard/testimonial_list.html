@@ -41,9 +41,20 @@
                     {% for testimonial in object_list %}
                     <tr class="hover:bg-stone-50/50 transition-all duration-300 group">
                         <td class="px-12 py-10">
-                            <div class="space-y-0.5">
-                                <span class="text-[15px] font-black text-stone-950 block">{{ testimonial.client_name }}</span>
-                                <span class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">{{ testimonial.profession }}</span>
+                            <div class="flex items-center gap-5">
+                                <div class="relative">
+                                    {% if testimonial.image %}
+                                    <img src="{{ testimonial.image.url }}" class="w-14 h-14 rounded-full object-cover shadow-inner">
+                                    {% else %}
+                                    <div class="w-14 h-14 rounded-full bg-stone-100 flex items-center justify-center text-sm font-black text-stone-400 shadow-inner">
+                                        {{ testimonial.client_name|slice:":1"|upper }}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                <div class="space-y-0.5">
+                                    <span class="text-[15px] font-black text-stone-950 block">{{ testimonial.client_name }}</span>
+                                    <span class="text-[10px] text-stone-400 font-bold uppercase tracking-widest">{{ testimonial.profession }}</span>
+                                </div>
                             </div>
                         </td>
                         <td class="px-12 py-10">

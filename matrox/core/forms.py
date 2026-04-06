@@ -70,7 +70,7 @@ class SettingsForm(PremiumFormMixin, forms.ModelForm):
 class TestimonialForm(PremiumFormMixin, forms.ModelForm):
     class Meta:
         model = Testimonial
-        fields = ['client_name', 'profession', 'content', 'rating', 'is_active']
+        fields = ['client_name', 'profession', 'content', 'rating', 'image', 'is_active']
 
 class AppartementImageForm(PremiumFormMixin, forms.ModelForm):
     class Meta:
