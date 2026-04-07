@@ -2,7 +2,10 @@ services:
   web:
     build: .
     env_file:
-      - ../.env   # <- remonte d’un dossier pour atteindre ton .env
+      - ../.env
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
@@ -13,8 +16,10 @@ services:
 
   db:
     image: postgres:15
-    env_file:
-      - ../.env   # pareil ici
+    environment:
+      - POSTGRES_DB=sentine
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=root
     ports:
       - "5432:5432"
     volumes:
