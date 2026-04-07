@@ -76,11 +76,22 @@ WSGI_APPLICATION = 'matrox.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 # ------------------------------------------------------------------------------
-DATABASES = {"default": dj_database_url.parse(config("DATABASE_URL", default="postgres://localhost/sentine"))}
-DATABASES["default"]["ATOMIC_REQUESTS"] = True
-DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME', default='sentine'),
+        'USER': config('DB_USER', default='postgres'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT', default='5432'),
+        'OPTIONS': {
+            'options': f"-c search_path={config('DB_SCHEMA', default='public')}"
+        },
+        'CONN_MAX_AGE': 30,          # IMPORTANT
+        'CONN_HEALTH_CHECKS': True,  # IMPORTANT
+    }
+}
+DATABASES["default"]["ATOMIC_REQUESTS"] = True 
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
