@@ -2,7 +2,7 @@ services:
   web:
     build: .
     env_file:
-      -.env
+      - .env
     environment:
       - DB_HOST=db
       - DB_PORT=5432
