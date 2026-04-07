@@ -1,0 +1,24 @@
+services:
+  web:
+    build: .
+    env_file:
+      - ../.env   # <- remonte d’un dossier pour atteindre ton .env
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+
+  db:
+    image: postgres:15
+    env_file:
+      - ../.env   # pareil ici
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

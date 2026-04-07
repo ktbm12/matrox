@@ -68,6 +68,7 @@ class Appartement(SentinelBaseModel):
         ('douala', _('Douala')),
         ('yaounde', _('Yaoundé')),
         ('kribi', _('Kribi')),
+        ('bafoussam', _('Bafoussam')),
     ]
 
     name = models.CharField(_("Nom de l'appartement"), max_length=255)
